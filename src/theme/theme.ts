@@ -13,8 +13,10 @@ const palette = {
 export const theme: ITheme = {
   palette: { ...palette },
   colors: {
-    overlayBackground: `${palette.slateGrey}47`,
+    primary: `${palette.curiousBlue}`,
+    secondary: `${palette.slateGrey}`,
 
+    overlayBackground: `${palette.slateGrey}47`,
     spinnerLight: palette.athensGrey,
     spinnerDark:  palette.cadetGrey,
   },

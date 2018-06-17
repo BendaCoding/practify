@@ -4,6 +4,7 @@ import { connect, Dispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Practise } from 'practify/store';
 import * as S from './styled';
+import { Metronome } from '../../modules';
 
 const mapState = (state: IAppState) => ({
   selectedExerciseId: Practise.selectors.getSelectedExerciseId(state),
@@ -29,70 +30,56 @@ interface IPractiseScreenProps {
   selectExercise: (exerciseId: string) => any;
 }
 
-export class PracticeScreen extends React.Component<IPractiseScreenProps, {}> {
+export const PracticeScreen: React.SFC<IPractiseScreenProps> = ({
+  selectedExerciseId,
+  isRunning,
+  startExercise,
+  stopExercise,
+  finishExercise,
+  selectExercise,
+}) => (
+  <S.Screen>
 
-  onClickExercise = (id: string) => {
-    this.props.selectExercise(id);
-  }
+    <S.Content>
+      <h1>Single Stroke Roll</h1>
 
-  toggleExercise = () => {
-    const { isRunning, startExercise: start, stopExercise: stop }: any = this.props;
-    if (isRunning) {
-      stop();
-    } else {
-      start();
-    }
-  }
+      <Timer
+        time={5}
+        isRunning={isRunning}
+        onFinish={finishExercise}
+        onClick={isRunning ? stopExercise : startExercise}
+      />
 
-  onTimerFinish = () => {
-    this.props.finishExercise();
-  }
+      <Metronome />
 
-  render() {
-    const { isRunning } = this.props;
-    return (
-      <S.Screen>
+    </S.Content>
 
-        <S.Content>
-          <h1>Single Stroke Roll</h1>
+    <S.Aside>
 
-          <Timer
-            time={5}
-            isRunning={isRunning}
-            onFinish={this.onTimerFinish}
-            onClick={this.toggleExercise}
-          />
+      <ExerciseCard
+        name="Single Stroke Roll"
+        desc="a brief teaser"
+        _id="1"
+        active={true}
+        onClick={selectExercise}
+      />
 
-        </S.Content>
+      <ExerciseCard
+        name="Double Stroke Roll"
+        desc="a brief teaser"
+        _id="2"
+        onClick={selectExercise}
+      />
 
-        <S.Aside>
+      <Button type="success" onClick={startExercise}
+      label="Start" />
 
-          <ExerciseCard
-            name="Single Stroke Roll"
-            desc="a brief teaser"
-            _id="1"
-            active={true}
-            onClick={this.onClickExercise}
-          />
+      <Button type="warning" onClick={stopExercise} label="Stop" className="ml-2" />
 
-          <ExerciseCard
-            name="Double Stroke Roll"
-            desc="a brief teaser"
-            _id="2"
-            onClick={this.onClickExercise}
-          />
+    </S.Aside>
 
-          <Button type="success" onClick={this.props.startExercise}
-          label="Start" />
-
-          <Button type="warning" onClick={this.props.stopExercise} label="Stop" className="ml-2" />
-
-        </S.Aside>
-
-      </S.Screen>
-    );
-  }
-}
+  </S.Screen>
+);
 
 export default connect(
   mapState,

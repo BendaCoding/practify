@@ -11,8 +11,10 @@ declare interface ITheme {
     white: string;
   };
   colors: {
-    overlayBackground: string;
+    primary: string;
+    secondary: string;
 
+    overlayBackground: string;
     spinnerLight: string;
     spinnerDark: string;
   }

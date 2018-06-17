@@ -5,6 +5,7 @@ import { createBrowserHistory } from 'history'
 import practiseReducer from './practise';
 import authReducer from './auth';
 import exercisesReducer from './exercises';
+import { metronomeReducer } from './../modules/Metronome/store/metronome.reducer';
 
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './root-saga';
@@ -13,6 +14,7 @@ export const rootReducer = combineReducers({
   auth: authReducer,
   practise: practiseReducer,
   exercises: exercisesReducer,
+  metronome: metronomeReducer,
 });
 
 /* tslint:disable-next-line */
