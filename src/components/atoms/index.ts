@@ -1,7 +1,10 @@
 export { Button } from './Button';
 export { Container } from './Container';
 export { Fade } from './Fade';
-export { ProgressBar } from './ProgressBar';
 export { PractifyLogo } from './PractifyLogo';
+export { ProgressBar } from './ProgressBar';
+export { Td } from './Td';
 export { TextInput } from './TextInput';
+export { Th } from './Th';
+export { Tr } from './Tr';
 export { TransitionSwitch } from './TransitionSwitch';

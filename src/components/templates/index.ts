@@ -1,0 +1,1 @@
+export { ExerciseOverviewTable } from './ExerciseOverviewTable';

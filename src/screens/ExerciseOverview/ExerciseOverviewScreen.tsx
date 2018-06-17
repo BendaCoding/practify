@@ -3,11 +3,12 @@ import { lifecycle, compose } from 'recompose';
 import { connect, Dispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Exercises } from 'practify/store';
+import { Container } from 'practify/components';
 
 const ExerciseOverviewScreen = () => (
-  <div>
+  <Container>
     <h1>Overview</h1>
-  </div>
+  </Container>
 );
 
 const mapDispatch = (dispatch: Dispatch) =>

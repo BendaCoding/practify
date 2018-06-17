@@ -3,7 +3,7 @@ import { styled } from 'practify/theme';
 export const Screen = styled.div`
   display: grid;
   grid-template-columns: 1fr 380px;
-  padding: 24px;
+  padding: 32px 24px;
 `;
 
 export const Content = styled.div`

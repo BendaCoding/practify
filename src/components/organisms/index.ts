@@ -1,1 +1,1 @@
-export const organisms = null;
+export { Table } from './Table';
