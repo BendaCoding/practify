@@ -1,10 +1,10 @@
-import { effects } from 'redux-saga';
+import { fork, all } from 'redux-saga/effects';
 import { authSaga } from './auth';
-
-const allSagas = [
-  effects.call(authSaga),
-];
+import { exercisesSaga } from './exercises';
 
 export default function* rootSaga() {
-  yield effects.all(allSagas);
+  yield all([
+    fork(authSaga),
+    fork(exercisesSaga),
+  ]);
 }

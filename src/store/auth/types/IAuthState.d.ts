@@ -1,5 +1,5 @@
 declare interface IAuthState {
-  loading: boolean;
+  isLoading: boolean;
   loggedIn: boolean;
   user: IUser | null;
   error: IApiErrorResponse | null;

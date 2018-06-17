@@ -8,13 +8,13 @@ export const Wrapper = styled.div`
 
 export const Background = styled.circle`
   fill: none;
-  stroke: ${props => props.theme.colors.athensGrey};
+  stroke: ${props => props.theme.palette.athensGrey};
 `;
 
 export const Progress = styledWithProps<ICommonProps>('circle')`
   fill: none;
-  stroke: ${({ isRunning, theme: { colors }}) =>
-    isRunning ? colors.curiousBlue : colors.lightGrey};
+  stroke: ${({ isRunning, theme: { palette }}) =>
+    isRunning ? palette.curiousBlue : palette.lightGrey};
   stroke-linecap: round;
   stroke-linejoin: round;
   transition: stroke 200ms ease-out;
@@ -25,8 +25,8 @@ interface ICommonProps {
 }
 
 export const Text = styledWithProps<ICommonProps>('div')`
-  ${({ isRunning, theme: { colors, fontSizes }}) => `
-    color: ${isRunning ? colors.vulcan : colors.athensGrey};
+  ${({ isRunning, theme: { palette, fontSizes }}) => `
+    color: ${isRunning ? palette.vulcan : palette.athensGrey};
     font-size: ${fontSizes.h1};
   `}
   position: absolute;

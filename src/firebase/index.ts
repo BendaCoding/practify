@@ -1,4 +1,5 @@
 import * as firebase from 'firebase';
+import 'firebase/firestore';
 import ReduxSagaFirebase from 'redux-saga-firebase';
 
 const config = {
@@ -12,7 +13,10 @@ const config = {
 
 export const fire = firebase.initializeApp(config);
 
-export const databaseRef = firebase.database().ref();
-export const exercisesRef = databaseRef.child('exercises');
+// export const databaseRef = firebase.database();
 
 export const rsFire = new ReduxSagaFirebase(fire);
+
+const firestore = firebase.firestore();
+const settings = { timestampsInSnapshots: true };
+firestore.settings(settings);

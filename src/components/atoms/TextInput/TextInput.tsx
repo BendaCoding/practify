@@ -5,21 +5,19 @@ import { Styled } from './styles';
 
 type TextInputProps = ITextInputControlledProps | ITextInputUncontrolledProps;
 
-export const TextInput: React.SFC<TextInputProps> = ({ type, label, placeholder, id, hint, warning, ...rest }) => {
+export const TextInput: React.SFC<any> = ({ label, hint, field, form, ...rest }) => {
 
-  const hintClassNames = classnames('form-text text-muted', { 'has-warning': !!warning });
+  const hintClassNames = classnames('form-text text-muted', { 'has-warning': false });
 
-  const hintText = isEmpty(warning) ? hint : warning;
-
+  const hintText = hint;
+  
   return (
     <Styled className="form-group">
       <label className="text-input__label">
         {label}
         <input
-          type={type}
           className="form-control"
-          id={id}
-          placeholder={placeholder}
+          {...field}
           {...rest}
         />
       </label>

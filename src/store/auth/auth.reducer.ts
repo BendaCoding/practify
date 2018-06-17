@@ -1,9 +1,9 @@
 import { createReducer } from '../create-reducer';
-import { userLoginSuccess, userLoginRequest, userLoginFail, userLoginSync } from './auth.actions';
+import { userLoginSuccess, userLoginRequest, userLoginFail, userLoginSync, userLogoutRequest, userLogoutSuccess, userLogoutFail } from './auth.actions';
 
 export const initialState: IAuthState = {
   loggedIn: false,
-  loading: false,
+  isLoading: false,
   user: null,
   error: null,
 };
@@ -13,17 +13,20 @@ export const authReducer = createReducer(initialState, {
   userLoginSuccess,
   userLoginFail,
   userLoginSync,
+  userLogoutRequest,
+  userLogoutSuccess,
+  userLogoutFail,
 })({
   userLoginRequest: state => {
     return {
       ...state,
-      loading: true,
+      isLoading: true,
     };
   },
   userLoginSuccess: state => {
     return {
       ...state,
-      loading: false,
+      isLoading: false,
       loggedIn: true,
       error: null,
     };
@@ -31,7 +34,7 @@ export const authReducer = createReducer(initialState, {
   userLoginFail: (state, { payload }) => {
     return {
       ...state,
-      loading: false,
+      isLoading: false,
       error: payload,
     };
   },
@@ -41,5 +44,26 @@ export const authReducer = createReducer(initialState, {
       loggedIn: payload != null,
       user: payload,
     };
+  },
+  userLogoutRequest: state => {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  },
+  userLogoutSuccess: state => {
+    return {
+      ...state,
+      isLoading: false,
+      loggedIn: false,
+      user: null,
+    };
+  },
+  userLogoutFail: (state, { payload }) => {
+    return {
+      ...state,
+      isLoading: false,
+      error: payload,
+    }
   },
 });

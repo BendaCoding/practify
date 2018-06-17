@@ -1,16 +1,36 @@
 import * as React from 'react';
-import { withRouter, NavLink, RouteComponentProps } from 'react-router-dom';
+import { NavLink, withRouter, RouteComponentProps } from 'react-router-dom';
 import { translate, InjectedTranslateProps } from 'react-i18next';
 import { Nav } from './styled';
-import { fire } from 'practify/firebase';
+import { compose } from 'recompose';
+import { Auth } from 'practify/store';
+import { connect, Dispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-interface IMainNavProps extends RouteComponentProps<any>, InjectedTranslateProps {
+interface IStateProps {
   loggedIn: boolean;
 }
 
-export const MainNav: React.SFC<IMainNavProps> = ({ t, loggedIn }) => {
+interface IDispatchProps {
+  userLogoutRequest: () => void;
+}
+
+type IProps = IStateProps & IDispatchProps & InjectedTranslateProps & RouteComponentProps<any>;
+
+const mapState = (state: IAppState) => ({
+  loggedIn: Auth.selectors.getLoggedIn(state),
+});
+
+const mapDispatch = (dispatch: Dispatch) =>
+  bindActionCreators({
+    userLogoutRequest: Auth.actions.userLogoutRequest,
+  },
+  dispatch,
+);
+
+export const MainNav: React.SFC<IProps> = ({ t, loggedIn, userLogoutRequest }) => {
   const logout = () => {
-    fire.auth().signOut();
+    userLogoutRequest();
   };
 
   return (
@@ -24,4 +44,9 @@ export const MainNav: React.SFC<IMainNavProps> = ({ t, loggedIn }) => {
   );
 }
 
-export default translate()(withRouter(MainNav));
+export default withRouter<any>(
+  compose(
+    translate(),
+    connect<IStateProps, IDispatchProps>(mapState, mapDispatch),
+  )(MainNav),
+);

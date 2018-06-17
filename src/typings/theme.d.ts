@@ -1,15 +1,21 @@
 declare interface ITheme {
-  colors: {
+  palette: {
     curiousBlue: string;
     blackSqueeze: string;
     athensGrey: string;
-    
     blackRussian: string;
     vulcan: string;
     slateGrey: string;
+    cadetGrey: string;
     lightGrey: string;
     white: string;
   };
+  colors: {
+    overlayBackground: string;
+
+    spinnerLight: string;
+    spinnerDark: string;
+  }
   fontSizes: {
     xxl: string;
     h1: string;

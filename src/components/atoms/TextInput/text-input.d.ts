@@ -2,9 +2,9 @@ declare interface ITextInputBaseProps {
   type?: 'text' | 'email' | 'password';
   label?: string;
   placeholder?: string;
+  name: string;
   hint?: string;
   id?: string;
-  name?: string;
   warning?: string;
 }
 

@@ -1,4 +1,13 @@
-export * from './auth.actions';
-export * from './auth.reducer';
+import * as actions from './auth.actions';
+import { authReducer as reducer } from './auth.reducer';
+import * as selectors from './auth.selectors';
+
+export default reducer;
+
 export * from './auth.sagas';
-// export * from './auth.selectors';
+
+export const Auth = {
+  actions,
+  reducer,
+  selectors,
+}

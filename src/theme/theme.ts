@@ -1,14 +1,22 @@
+const palette = {
+  curiousBlue:       '#3297CE',
+  blackSqueeze:      '#F5F8FA',
+  blackRussian:      '#212529',
+  vulcan:            '#48515A',
+  slateGrey:         '#717F8D',
+  cadetGrey:         '#90A2B4',
+  lightGrey:         '#AAAAAA',
+  athensGrey:        '#DFDFDF',
+  white:             '#FFFFFF',
+}
+
 export const theme: ITheme = {
+  palette: { ...palette },
   colors: {
-    curiousBlue:       '#3297CE',
-    blackSqueeze:      '#F5F8FA',
-    
-    blackRussian:      '#212529',
-    vulcan:            '#48515A',
-    slateGrey:         '#717F8D',
-    lightGrey:         '#AAAAAA',
-    athensGrey:        '#DFDFDF',
-    white:             '#FFFFFF',
+    overlayBackground: `${palette.slateGrey}47`,
+
+    spinnerLight: palette.athensGrey,
+    spinnerDark:  palette.cadetGrey,
   },
   fontSizes: {
     xxl:               '40px',

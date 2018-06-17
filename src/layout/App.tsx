@@ -13,16 +13,11 @@ const selectors = (state: any) => state;
 
 const actions = (dispatch: Dispatch) => 
   bindActionCreators({
-    loadExercises: Exercises.actions.loadExercises,
     startExercise: Practise.actions.startExercise,
   },
   dispatch);
 
 export class App extends React.Component<any> {
-
-  componentWillMount() {
-    this.props.loadExercises();
-  }
 
   render() {
     const { location } = this.props;
@@ -32,9 +27,7 @@ export class App extends React.Component<any> {
         <S.Header>
           <h3>Practify</h3>
 
-          <MainNav
-            loggedIn
-          />
+          <MainNav />
 
         </S.Header>
 

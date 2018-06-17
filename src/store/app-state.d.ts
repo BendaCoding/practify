@@ -1,5 +1,5 @@
 declare interface IAppState {
-  // auth: IAuthState,
+  auth: IAuthState,
   practise: IPractiseState,
   exercises: IExercisesState,
 }

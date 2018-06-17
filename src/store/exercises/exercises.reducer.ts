@@ -1,18 +1,26 @@
-import { getType } from 'typesafe-actions';
-import { loadExercises } from './exercises.actions';
+import { loadExercisesRequest, loadExercisesSuccess } from './exercises.actions';
+import { createReducer } from '../create-reducer';
 
 export const initialState: IExercisesState = {
+  isLoading: false,
   exercises: [],
 };
 
-export const exercisesReducer = (state = {}, action: any) => {
-  switch (action.type) {
-    case getType(loadExercises):
-      return {
-        ...state,
-        exercises: action.exercises,
-      };
-    default:
-      return state;
-  }
-};
+export const exercisesReducer =  createReducer(initialState, {
+  loadExercisesRequest,
+  loadExercisesSuccess,
+})({
+  loadExercisesRequest: state => {
+    return {
+      ...state,
+      isLoading: true,
+    }
+  },
+  loadExercisesSuccess: (state, { payload }) => {
+    return {
+      ...state,
+      isLoading: false,
+      exercises: payload,
+    }
+  },
+});

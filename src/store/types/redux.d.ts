@@ -5,7 +5,7 @@ declare interface IReduxApiStructure {
     global: boolean;
     code: number;
   };
-  loading: boolean;
+  isLoading: boolean;
 }
 
 declare type ActionCreator = (...args: any[]) => { type: string };
@@ -34,3 +34,7 @@ declare type Handlers<TState, ActionMap extends IActionCreators> = {
  * This object always reflects the current state of the store
  */
 declare type Proxy<T> = { [P in keyof T]: Proxy<T[P]> };
+
+declare interface IPayload<T> {
+  payload: T;
+}

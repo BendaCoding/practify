@@ -1,7 +1,7 @@
 import { styled } from 'practify/theme';
 
 export const ExerciseCard = styled.div`
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.palette.white};
   margin-bottom: 12px;
   cursor: pointer;
   transition: border-color .2s ease;

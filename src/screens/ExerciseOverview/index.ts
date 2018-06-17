@@ -1,1 +1,1 @@
-export { ExerciseOverviewScreen } from './ExerciseOverviewScreen';
+export { default as ExerciseOverviewScreen } from './ExerciseOverviewScreen';

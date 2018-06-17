@@ -5,7 +5,7 @@ export const Nav = styled.nav`
   display: flex;
   align-items: center;
   margin-left: 24px;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.palette.white};
 
   a {
     line-height: 25px;

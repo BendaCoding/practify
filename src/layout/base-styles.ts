@@ -22,4 +22,15 @@ html body {
   opacity: 1;
   transition: opacity 250ms ease-in;
 }
+
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 `;
