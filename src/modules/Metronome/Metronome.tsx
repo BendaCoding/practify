@@ -7,7 +7,7 @@ import { Dispatch, bindActionCreators } from 'redux';
 
 const { actions, selectors } = MetronomeStore;
 
-const Metronome = ({ subdivisionsWithVolume = [], changeHandler }: any) => (
+const Metronome = ({ subdivisionsWithVolume = [], changeHandler, changeCompleteHandler }: any) => (
   <div className="my-5">
     <h1>Metronome</h1>
     <Beat>
@@ -37,6 +37,10 @@ export default compose(
   connect<any, any>(mapState, mapDispatch),
   withHandlers({
     changeHandler: ({ changeSubdivisionVolume }) => (index: number) =>
-      (volume: number) => changeSubdivisionVolume({ index, volume }),
+      (volume: number) => () => {
+        if (volume < 4 && volume > -1) {
+          changeSubdivisionVolume({ index, volume });
+        }
+      },
   }),
 )(Metronome);

@@ -1,1 +1,1 @@
-export { SubdivisionIndicator } from './SubdivisionIndicator/SubdivisionIndicator';
+export { SubdivisionIndicator } from './SubdivisionIndicator';

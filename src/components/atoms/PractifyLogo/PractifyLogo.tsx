@@ -3,10 +3,13 @@ import { theme } from 'practify/theme';
 
 interface IProps {
   color?: string;
-  size: number;
+  size?: number;
 }
 
-export const PractifyLogo: React.SFC<IProps> = ({ color = theme.colors.spinnerDark, size }) => (
+export const PractifyLogo: React.SFC<IProps> = ({
+  color = theme.colors.spinnerDark,
+  size = 30,
+}) => (
   <svg
     viewBox="0 0 913.18 862.11"
     width={`${size}px`}

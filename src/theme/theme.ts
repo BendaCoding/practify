@@ -15,7 +15,10 @@ export const theme: ITheme = {
   colors: {
     primary: `${palette.curiousBlue}`,
     secondary: `${palette.slateGrey}`,
+    disabled: `${palette.athensGrey}`,
+    light: `${palette.slateGrey}`,
 
+    bodyBackground: `${palette.blackSqueeze}`,
     overlayBackground: `${palette.slateGrey}47`,
     spinnerLight: palette.athensGrey,
     spinnerDark:  palette.cadetGrey,

@@ -5,5 +5,7 @@ export const Beat = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   font-size: 40px;
+  min-height: 190px;
 `;

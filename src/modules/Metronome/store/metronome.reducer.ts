@@ -33,7 +33,6 @@ export const metronomeReducer = createReducer(initialState, {
     }
   },
   changeSubdivisionVolume: (state, { payload }) => {
-    console.log("abc");
     return {
       ...state,
       subdivisionsWithVolume: [

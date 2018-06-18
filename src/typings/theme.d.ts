@@ -13,7 +13,10 @@ declare interface ITheme {
   colors: {
     primary: string;
     secondary: string;
-
+    disabled: string;
+    light: string;
+    
+    bodyBackground: string;
     overlayBackground: string;
     spinnerLight: string;
     spinnerDark: string;
