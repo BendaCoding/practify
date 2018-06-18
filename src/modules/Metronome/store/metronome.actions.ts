@@ -14,6 +14,10 @@ export const setPulse = createStandardAction('metronome/SET_PULSE')<
   number
 >();
 
+export const setBpm = createStandardAction('metronome/SET_BPM')<
+  number
+>();
+
 export const startMetronome = createStandardAction('metronome/START_METRONOME')();
 
 export const stopMetronome = createStandardAction('metronome/STOP_METRONOME')();

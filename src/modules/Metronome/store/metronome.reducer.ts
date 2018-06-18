@@ -1,7 +1,8 @@
-import { setPulse, startMetronome, stopMetronome, addSubdivision, removeSubdivision, changeSubdivisionVolume } from './metronome.actions';
+import { setPulse, startMetronome, stopMetronome, addSubdivision, removeSubdivision, changeSubdivisionVolume, setBpm } from './metronome.actions';
 import { createReducer } from '../../../store/create-reducer';
 
 export const initialState: IMetronomeState = {
+  bpm: 86,
   subdivisionsWithVolume: [3, 1, 2, 1],
   pulse: 4,
   isRunning: false,
@@ -14,6 +15,7 @@ export const metronomeReducer = createReducer(initialState, {
   removeSubdivision,
   changeSubdivisionVolume,
   setPulse,
+  setBpm,
   startMetronome,
   stopMetronome,
 })({
@@ -46,6 +48,12 @@ export const metronomeReducer = createReducer(initialState, {
     return {
       ...state,
       pulse: payload,
+    }
+  },
+  setBpm: (state, { payload }) => {
+    return {
+      ...state,
+      bpm: payload,
     }
   },
   startMetronome: state => {
