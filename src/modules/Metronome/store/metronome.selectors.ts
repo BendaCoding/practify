@@ -2,6 +2,11 @@ import { createSelector } from 'reselect';
 
 export const getMetronomeState = (state: IAppState): IMetronomeState => state.metronome;
 
+export const getBpm = createSelector(
+  getMetronomeState,
+  ({ bpm }) => bpm,
+);
+
 export const getSubdivisionsWithVolume = createSelector(
   getMetronomeState,
   ({ subdivisionsWithVolume }) => subdivisionsWithVolume,

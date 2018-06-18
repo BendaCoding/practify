@@ -10,7 +10,7 @@ export const changeSubdivisionVolume = createStandardAction('metronome/CHANGE_SU
   IMetronomeChangeSubdivisionVolumePayload
 >();
 
-export const setPulse = createStandardAction('metronome/SET_PULSE')<
+export const setSubdivisionsPerBeat = createStandardAction('metronome/SET_PULSE')<
   number
 >();
 

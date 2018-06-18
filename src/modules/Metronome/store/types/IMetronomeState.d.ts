@@ -1,8 +1,8 @@
 declare interface IMetronomeState {
   bpm: number;
-  subdivisionsWithVolume: number[];
-  pulse: number;
   isRunning: boolean;
+  subdivisionsWithVolume: number[];
+  subdivisionsPerBeat: number;
   totalBeats: number;
   elapsedSubdivisions: number;
 }
