@@ -29,5 +29,8 @@ declare interface ITheme {
     h4: string;
     body: string;
     small: string;
-  };
+  }
+  transitions: {
+    easeOutElastic: string;
+  }
 }

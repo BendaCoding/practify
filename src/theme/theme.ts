@@ -32,4 +32,7 @@ export const theme: ITheme = {
     body:              '13px',
     small:             '10px',
   },
+  transitions: {
+    easeOutElastic: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+  },
 };

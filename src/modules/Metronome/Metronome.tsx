@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Beat, SubdivisionIndicator } from './components';
-import { compose, withHandlers, lifecycle } from 'recompose';
+import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
 import { Metronome as MetronomeStore } from './store';
 import { Dispatch, bindActionCreators } from 'redux';
@@ -58,10 +58,5 @@ export default compose(
           changeSubdivisionVolume({ index, volume });
         }
       },
-  }),
-  lifecycle({
-    componentDidMount() {
-    
-    },
   }),
 )(Metronome);

@@ -4,7 +4,7 @@ import { Auth } from 'practify/store';
 import { withFormik } from 'formik';
 import { compose } from 'recompose';
 import { LoginForm } from './LoginForm';
-import { withLoader } from 'practify/components';
+import { withLoader } from 'practify/hocs';
 
 interface IStateProps {
   isLoading: boolean;

@@ -24,7 +24,8 @@
       "practify/screens": ["./src/screens"],
       "practify/store": ["./src/store"],
       "practify/theme": ["./src/theme"],
-      "practify/common": ["./src/common"]
+      "practify/common": ["./src/common"],
+      "practify/hocs": ["./src/hocs"]
     }
   },
   "exclude": [

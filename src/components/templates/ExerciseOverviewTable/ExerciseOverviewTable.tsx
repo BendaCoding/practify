@@ -8,8 +8,6 @@ interface IExerciseOverviewTableProps {
 export const ExerciseOverviewTable: React.SFC<IExerciseOverviewTableProps> = ({ exercises }) => (
   <div>
     <h1>Overview</h1>
-    <Table>
-      
-    </Table>
+    <Table />
   </div>
 );

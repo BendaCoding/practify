@@ -19,7 +19,7 @@ interface IScalerProps {
 
 export const Scaler = styledWithProps<IScalerProps>('div')`
   transform: scale(${({ size }) => size});
-  transition: 155ms transform ease-in-out;
+  transition: 235ms transform ${({ theme }) => theme.transitions.easeOutElastic};
 `;
 
 export const Controls = styled.div`
