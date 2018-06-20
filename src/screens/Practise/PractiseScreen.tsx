@@ -44,7 +44,7 @@ export const PracticeScreen: React.SFC<IPractiseScreenProps> = ({
       <h1>Single Stroke Roll</h1>
 
       <Timer
-        time={5}
+        time={55}
         isRunning={isRunning}
         onFinish={finishExercise}
         onClick={isRunning ? stopExercise : startExercise}

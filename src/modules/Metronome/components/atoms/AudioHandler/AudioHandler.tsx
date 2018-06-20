@@ -5,13 +5,13 @@ interface IAudioHandlerProps {
   isRunning: boolean;
   bpm: number;
   subdivision: number;
+  beatsWithVolume: number[];
 }
 
 export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
   
   state = {
-    qNote: 1,
-    subNote: 1,
+    currentBeat: 1,
   }
 
   timerId: any;
@@ -20,7 +20,7 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
     new Howl({
       src: ['audio/woodblock.mp3'],
       preload: true,
-      volume: 1,
+      volume: 0.33,
     }),
     new Howl({
       src: ['audio/woodblock.mp3'],
@@ -30,7 +30,7 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
     new Howl({
       src: ['audio/woodblock.mp3'],
       preload: true,
-      volume: 0.33,
+      volume: 1,
     }),
   ];
 
@@ -39,7 +39,7 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
     if (isRunning) {
       this.timerId = setInterval(
         this.update,
-        this.calculateInterval(bpm, subdivision),
+        this.calculateInterval(bpm),
       )
     }
   }
@@ -49,7 +49,7 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
       if (nextProps.isRunning) {
         this.timerId = setInterval(
           this.update,
-          this.calculateInterval(nextProps.bpm, nextProps.subdivision),
+          this.calculateInterval(nextProps.bpm),
         )
       } else {
         clearInterval(this.timerId);
@@ -61,12 +61,25 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
     clearInterval(this.timerId);
   }
 
-  calculateInterval = (bpm: number, subdivision: number) => Math.floor(60000 / (bpm * subdivision))
+  // calculateInterval = (bpm: number, subdivision: number) => Math.floor(60000 / (bpm * subdivision))
+  calculateInterval = (bpm: number) => Math.floor(60000 / bpm)
 
   update = () => {
-    const { subdivision } = this.props;
+    const { beatsWithVolume } = this.props;
+    const { currentBeat } = this.state;
+
+    const volume = beatsWithVolume[currentBeat - 1];
     
-    this.clickSounds[0].play();
+    if (volume > 0) {
+      const sound = this.clickSounds[volume - 1];
+      sound.play();
+    }
+    
+    const nextBeat = currentBeat < beatsWithVolume.length
+      ? currentBeat + 1
+      : 1;
+
+    this.setState({ currentBeat: nextBeat })
   }
 
   render() {

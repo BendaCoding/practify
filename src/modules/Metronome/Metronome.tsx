@@ -15,6 +15,7 @@ export const Metronome: React.SFC<IMetronomeProps> = ({
   subdivision,
   addBeat,
   removeBeat,
+  bpm,
   incrementSubdivision,
   decrementSubdivision,
 }: any) => {
@@ -29,8 +30,9 @@ export const Metronome: React.SFC<IMetronomeProps> = ({
 
       <AudioHandler
         isRunning={isRunning}
-        bpm={60}
+        bpm={bpm}
         subdivision={1}
+        beatsWithVolume={beatsWithVolume}
       />
 
       <Beat>
@@ -54,6 +56,7 @@ export const Metronome: React.SFC<IMetronomeProps> = ({
           <S.TimeSignature>
             {beatCount} / {subdivision}
           </S.TimeSignature>
+          {bpm} BPM
         </Box>
 
         <Box width="40%">
