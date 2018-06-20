@@ -6,6 +6,8 @@ interface IAudioHandlerProps {
   bpm: number;
   subdivision: number;
   beatsWithVolume: number[];
+  currentBeat: number;
+  tick: () => void;
 }
 
 export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
@@ -45,12 +47,21 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
   }
 
   componentWillReceiveProps(nextProps: IAudioHandlerProps) {
-    if (nextProps.isRunning ===! this.props.isRunning) {
+    const { isRunning, currentBeat } = this.props;
+
+    if (nextProps.isRunning ===! isRunning) {
       if (nextProps.isRunning) {
         this.timerId = setInterval(
           this.update,
           this.calculateInterval(nextProps.bpm),
         )
+
+        /**
+         * trigger initial click
+         */
+        if (currentBeat === 0) {
+          this.update();
+        }
       } else {
         clearInterval(this.timerId);
       }
@@ -61,25 +72,23 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
     clearInterval(this.timerId);
   }
 
-  // calculateInterval = (bpm: number, subdivision: number) => Math.floor(60000 / (bpm * subdivision))
   calculateInterval = (bpm: number) => Math.floor(60000 / bpm)
 
-  update = () => {
-    const { beatsWithVolume } = this.props;
-    const { currentBeat } = this.state;
-
-    const volume = beatsWithVolume[currentBeat - 1];
+  playSound = () => {
+    const { currentBeat, beatsWithVolume } = this.props;
     
+    const beatIndex = currentBeat === 0 ? 0 : currentBeat - 1;
+    const volume = beatsWithVolume[beatIndex];    
+
     if (volume > 0) {
       const sound = this.clickSounds[volume - 1];
       sound.play();
     }
-    
-    const nextBeat = currentBeat < beatsWithVolume.length
-      ? currentBeat + 1
-      : 1;
+  }
 
-    this.setState({ currentBeat: nextBeat })
+  update = () => {
+    this.props.tick();
+    this.playSound();
   }
 
   render() {

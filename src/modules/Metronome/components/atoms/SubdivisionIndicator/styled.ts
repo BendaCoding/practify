@@ -1,4 +1,7 @@
+import { PractifyLogo as Logo } from 'practify/components';
 import { styled, styledWithProps, css } from 'practify/theme';
+import { StyledFunction } from 'styled-components';
+import { IPractifyLogoProps } from './../../../../../components/atoms/PractifyLogo/PractifyLogo';
 
 interface IProps {
   active?: boolean;
@@ -39,7 +42,7 @@ interface IIconProps {
 const iconStyles = css`
   display: flex;
   height: 50%;
-  color: ${({ theme }) => theme.colors.light}
+  color: ${({ theme }) => theme.colors.light};
   opacity: 0;
   align-items: flex-start;
   justify-content: center;

@@ -10,10 +10,11 @@ export const incrementSubdivision = createStandardAction('metronome/INCREMENT_SU
 
 export const decrementSubdivision = createStandardAction('metronome/DECREMENT_SUBDIVISION')();
 
-export const changeSubdivisionVolume = createStandardAction('metronome/CHANGE_SUBDIVISION_VOLUME')<
+export const changeBeatsWithVolume = createStandardAction('metronome/CHANGE_SUBDIVISION_VOLUME')<
   IMetronomeChangeSubdivisionVolumePayload
 >();
 
+export const tick = createStandardAction('metronome/TICK')();
 
 export const setBpm = createStandardAction('metronome/SET_BPM')<
   number

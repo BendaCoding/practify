@@ -13,6 +13,7 @@ export interface IStateProps {
   beatsWithVolume: number[];
   subdivision: number;
   beatCount: number;
+  currentBeat: number;
 }
 
 export interface IDispatchProps {
@@ -22,6 +23,7 @@ export interface IDispatchProps {
   removeBeat: (index: number) => void;
   incrementSubdivision: () => void;
   decrementSubdivision: () => void;
+  tick: () => void;
 }
 
 export interface IOwnProps {
@@ -31,31 +33,33 @@ export interface IOwnProps {
 export type IMetronomeProps = IStateProps & IDispatchProps & IOwnProps;
 
 const mapState = (state: IAppState) => ({
-  beatsWithVolume: selectors.getSubdivisionsWithVolume(state),
+  beatsWithVolume: selectors.getBeatsWithVolume(state),
   beatCount: selectors.getBeatCount(state),
   subdivision: selectors.getSubdivision(state),
   bpm: selectors.getBpm(state),
   isRunning: Practise.selectors.getIsRunning(state),
+  currentBeat: selectors.getCurrentBeat(state),
 });
 
 const mapDispatch = (dispatch: Dispatch) =>
   bindActionCreators({
     startMetronome: actions.startMetronome,
     stopMetronome: actions.stopMetronome,
-    changeSubdivisionVolume: actions.changeSubdivisionVolume,
+    changeBeatsWithVolume: actions.changeBeatsWithVolume,
     addBeat: actions.addBeat,
     removeBeat: actions.removeBeat,
     incrementSubdivision: actions.incrementSubdivision,
     decrementSubdivision: actions.decrementSubdivision,
+    tick: actions.tick,
   }, dispatch);
 
 export default compose(
   connect<IStateProps, IDispatchProps, IOwnProps>(mapState, mapDispatch),
   withHandlers({
-    changeHandler: ({ changeSubdivisionVolume }) => (index: number) =>
+    changeHandler: ({ changeBeatsWithVolume }) => (index: number) =>
       (volume: number) => () => {
         if (volume < 4 && volume > -1) {
-          changeSubdivisionVolume({ index, volume });
+          changeBeatsWithVolume({ index, volume });
         }
       },
   }),

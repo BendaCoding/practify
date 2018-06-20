@@ -12,9 +12,14 @@ export const getIsRunning = createSelector(
   ({ isRunning }) => isRunning,
 );
 
-export const getSubdivisionsWithVolume = createSelector(
+export const getBeatsWithVolume = createSelector(
   getMetronomeState,
   ({ beatsWithVolume }) => beatsWithVolume,
+);
+
+export const getCurrentBeat = createSelector(
+  getMetronomeState,
+  ({ currentBeat }) => currentBeat,
 );
 
 export const getBeatCount = createSelector(

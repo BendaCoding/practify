@@ -9,6 +9,8 @@ import { IMetronomeProps } from './Metronome.container';
 
 export const Metronome: React.SFC<IMetronomeProps> = ({
   beatsWithVolume = [],
+  currentBeat,
+  tick,
   changeHandler,
   isRunning,
   beatCount,
@@ -33,6 +35,8 @@ export const Metronome: React.SFC<IMetronomeProps> = ({
         bpm={bpm}
         subdivision={1}
         beatsWithVolume={beatsWithVolume}
+        currentBeat={currentBeat}
+        tick={tick}
       />
 
       <Beat>
@@ -41,6 +45,8 @@ export const Metronome: React.SFC<IMetronomeProps> = ({
             volume={volume}
             onChange={changeHandler(index)}
             key={index}
+            active={index === currentBeat - 1}
+            transitionTimeout={60000 / bpm / 2}
           />
         ))}
       </Beat>
@@ -57,6 +63,7 @@ export const Metronome: React.SFC<IMetronomeProps> = ({
             {beatCount} / {subdivision}
           </S.TimeSignature>
           {bpm} BPM
+          <h1>{currentBeat}</h1>
         </Box>
 
         <Box width="40%">
