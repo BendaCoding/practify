@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Howl } from 'howler';
+import setDynterval from 'dynamic-interval';
 
 interface IAudioHandlerProps {
   isRunning: boolean;
@@ -11,9 +12,9 @@ interface IAudioHandlerProps {
 }
 
 export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
-  
+
   state = {
-    currentBeat: 1,
+    time: 0,
   }
 
   timerId: any;
@@ -22,12 +23,17 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
     new Howl({
       src: ['audio/woodblock.mp3'],
       preload: true,
-      volume: 0.33,
+      volume: 0.15,
     }),
     new Howl({
       src: ['audio/woodblock.mp3'],
       preload: true,
-      volume: 0.66,
+      volume: 0.35,
+    }),
+    new Howl({
+      src: ['audio/woodblock.mp3'],
+      preload: true,
+      volume: 0.55,
     }),
     new Howl({
       src: ['audio/woodblock.mp3'],
@@ -36,40 +42,50 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
     }),
   ];
 
+  setTimer() {
+    const { bpm } = this.props;
+    const time = this.calculateInterval( bpm );
+    this.setState({ time });
+
+    this.timerId = setDynterval( () => {
+      this.update();  
+      return { wait: this.state.time };
+    }, { wait: time });
+  }
+
   componentDidMount() {
     const { isRunning, bpm, subdivision } = this.props;
     if (isRunning) {
-      this.timerId = setInterval(
-        this.update,
-        this.calculateInterval(bpm),
-      )
+      this.setTimer();
     }
   }
 
   componentWillReceiveProps(nextProps: IAudioHandlerProps) {
-    const { isRunning, currentBeat } = this.props;
+    const { isRunning, currentBeat, bpm } = this.props;
 
+    /**
+     * Start stop metronome
+     */
     if (nextProps.isRunning ===! isRunning) {
       if (nextProps.isRunning) {
-        this.timerId = setInterval(
-          this.update,
-          this.calculateInterval(nextProps.bpm),
-        )
+        this.setTimer();
 
-        /**
-         * trigger initial click
-         */
+        /* Trigger initial tick */
         if (currentBeat === 0) {
           this.update();
         }
       } else {
-        clearInterval(this.timerId);
+        this.timerId.clear();
       }
+    }
+
+    if (nextProps.bpm !== bpm) {
+      this.setState({ time: this.calculateInterval(nextProps.bpm) })
     }
   }
 
   componentWillUnmount() {
-    clearInterval(this.timerId);
+    this.timerId.clear();
   }
 
   calculateInterval = (bpm: number) => Math.floor(60000 / bpm)

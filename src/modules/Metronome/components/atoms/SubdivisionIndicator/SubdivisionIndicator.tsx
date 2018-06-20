@@ -20,10 +20,11 @@ interface IProps {
 }
 
 const sizes = {
-  0: 1,
-  1: 1.66,
-  2: 2.66,
-  3: 3.66,
+  0: 0.75,
+  1: 1.2,
+  2: 1.8,
+  3: 2.66,
+  4: 3.66,
 }
 
 export const SubdivisionIndicator: React.SFC<IProps> = ({
@@ -42,7 +43,7 @@ export const SubdivisionIndicator: React.SFC<IProps> = ({
       />
 
       <S.Controls>
-        <S.Plus disabled={volume === 3} onClick={onChange(volume + 1)}>
+        <S.Plus disabled={volume === 4} onClick={onChange(volume + 1)}>
           <FaPlus size={10} />
         </S.Plus>
         <S.Minus disabled={volume === 0} onClick={onChange(volume - 1)}>

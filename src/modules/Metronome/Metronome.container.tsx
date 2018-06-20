@@ -24,6 +24,7 @@ export interface IDispatchProps {
   incrementSubdivision: () => void;
   decrementSubdivision: () => void;
   tick: () => void;
+  setBpm: (bpm: number) => void;
 }
 
 export interface IOwnProps {
@@ -51,6 +52,7 @@ const mapDispatch = (dispatch: Dispatch) =>
     incrementSubdivision: actions.incrementSubdivision,
     decrementSubdivision: actions.decrementSubdivision,
     tick: actions.tick,
+    setBpm: actions.setBpm,
   }, dispatch);
 
 export default compose(
@@ -58,7 +60,7 @@ export default compose(
   withHandlers({
     changeHandler: ({ changeBeatsWithVolume }) => (index: number) =>
       (volume: number) => () => {
-        if (volume < 4 && volume > -1) {
+        if (volume >= 0 && volume <= 4) {
           changeBeatsWithVolume({ index, volume });
         }
       },

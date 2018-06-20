@@ -18,12 +18,17 @@ export const Metronome: React.SFC<IMetronomeProps> = ({
   addBeat,
   removeBeat,
   bpm,
+  setBpm,
   incrementSubdivision,
   decrementSubdivision,
 }: any) => {
 
   const removeLastBeat = () => {
     removeBeat(beatCount - 1);
+  }
+
+  const setBpmHandler = (add: number) => () => {
+    setBpm(bpm + add);
   }
 
   return (
@@ -54,8 +59,8 @@ export const Metronome: React.SFC<IMetronomeProps> = ({
       <Flex>
         <Box width="40%">
           Beats:<br />
-          <Button onClick={addBeat} shouldTriggerOnHold label="+" className="mr-2" />
-          <Button onClick={removeLastBeat} shouldTriggerOnHold label="-" />
+          <Button type="link" onClick={removeLastBeat} shouldTriggerOnHold label="-" className="mr-2" />
+          <Button type="link" onClick={addBeat} shouldTriggerOnHold label="+" />
         </Box>
 
         <Box width="20%">
@@ -63,13 +68,19 @@ export const Metronome: React.SFC<IMetronomeProps> = ({
             {beatCount} / {subdivision}
           </S.TimeSignature>
           {bpm} BPM
+          
+          <div>
+            <Button onClick={setBpmHandler(-1)} shouldTriggerOnHold label="-" className="mr-2" />
+            <Button onClick={setBpmHandler(1)} shouldTriggerOnHold label="+" />
+          </div>
+
           <h1>{currentBeat}</h1>
         </Box>
 
         <Box width="40%">
           Subdivision:<br />
-          <Button onClick={incrementSubdivision} label="+" className="mr-2" />
-          <Button onClick={decrementSubdivision} label="-" />
+          <Button onClick={decrementSubdivision} label="-" className="mr-2" />
+          <Button onClick={incrementSubdivision} label="+" />
         </Box>
       </Flex>
       

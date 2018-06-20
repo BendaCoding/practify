@@ -6,7 +6,7 @@ import { createReducer } from '../../../store/create-reducer';
 export const initialState: IMetronomeState = {
   bpm: 86,
   isRunning: false,
-  beatsWithVolume: [3, 1, 2, 1],
+  beatsWithVolume: [4, 1, 3, 1],
   currentBeat: 0,
   subdivision: 4,
   totalMeasures: 40,
@@ -81,6 +81,9 @@ export const metronomeReducer = createReducer(initialState, {
     }
   },
   setBpm: (state, { payload }) => {
+    if (payload < 20 || payload > 300) {
+      return state;
+    }
     return {
       ...state,
       bpm: payload,
