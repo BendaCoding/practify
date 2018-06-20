@@ -22,15 +22,15 @@ export const Button: React.SFC<IButtonProps> =
 
   const buttonClassNames = `btn btn-${type} ${className}`;
 
-  // const handleClick = preventDefault && onClick
-  //   ? (e: any) => {
-  //       e.preventDefault();
-  //       onClick();
-  //     }
-  //   : onClick
+  const handleClick = preventDefault && onClick
+    ? (e: any) => {
+        e.preventDefault();
+        onClick();
+      }
+    : onClick
   
   const WrappedButton = (
-    <button className={buttonClassNames} onClick={onClick}>
+    <button className={buttonClassNames} onClick={handleClick}>
       {label}
     </button>
   );
@@ -42,7 +42,7 @@ export const Button: React.SFC<IButtonProps> =
   return (
     <Repeatable
       style={{display: 'inline-block'}}
-      onHold={onClick}
+      onHold={handleClick}
       repeatDelay={450}
       repeatInterval={95}
     >
