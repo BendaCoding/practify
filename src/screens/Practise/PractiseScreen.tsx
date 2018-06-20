@@ -50,8 +50,14 @@ export const PracticeScreen: React.SFC<IPractiseScreenProps> = ({
     startExercise();
     startMetronome();
   }
+
   const stop = () => {
     stopExercise();
+    stopMetronome();
+  }
+
+  const finish = () => {
+    finishExercise();
     stopMetronome();
   }
 
@@ -64,7 +70,7 @@ export const PracticeScreen: React.SFC<IPractiseScreenProps> = ({
         <Timer
           time={55}
           isRunning={isRunning}
-          onFinish={finishExercise}
+          onFinish={finish}
           onClick={isRunning ? stop : start}
         />
 
