@@ -38,7 +38,7 @@ export const MainNav: React.SFC<IProps> = ({ t, loggedIn, userLogoutRequest }) =
     <Nav>
       {loggedIn && <React.Fragment>
         <NavLink to={routes.practise}>Practice</NavLink>
-        <NavLink to={routes.exerciseOverview}>Exercise Overview</NavLink>
+        <NavLink to={routes.browse}>Browse</NavLink>
         <a className="ml-auto mr-0" onClick={logout}>Logout</a>
       </React.Fragment>}
     </Nav>

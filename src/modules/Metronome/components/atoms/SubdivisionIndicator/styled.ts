@@ -42,7 +42,7 @@ interface IIconProps {
 const iconStyles = css`
   display: flex;
   height: 50%;
-  color: ${({ theme }) => theme.colors.light};
+  color: ${({ theme }) => theme.colors.dimmed};
   opacity: 0;
   align-items: flex-start;
   justify-content: center;

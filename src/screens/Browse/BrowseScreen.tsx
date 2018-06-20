@@ -3,13 +3,19 @@ import { lifecycle, compose } from 'recompose';
 import { connect, Dispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Exercises } from 'practify/store';
-import { Container } from 'practify/components';
+import { Container, ExercisesTable } from 'practify/components';
 
-const ExerciseOverviewScreen = () => (
+const BrowseScreen = ({ exercises }: any) => (
   <Container>
     <h1>Overview</h1>
+
+    <ExercisesTable exercises={exercises} />
   </Container>
 );
+
+const mapState = (state: IAppState) => ({
+  exercises: Exercises.selectors.exercises(state),
+})
 
 const mapDispatch = (dispatch: Dispatch) =>
   bindActionCreators({
@@ -18,10 +24,10 @@ const mapDispatch = (dispatch: Dispatch) =>
 );
 
 export default compose<any, any>(
-  connect<any, any>(undefined, mapDispatch),
+  connect<any, any>(mapState, mapDispatch),
   lifecycle<any, any>({
     componentDidMount() {
       this.props.loadExercises();
     },
   }),
-)(ExerciseOverviewScreen)
+)(BrowseScreen)

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Route } from 'react-router-dom';
 import { TransitionSwitch, AuthRoute } from 'practify/components';
-import { HomeScreen, PracticeScreen, ExerciseOverviewScreen, NotFoundScreen } from 'practify/screens';
+import { HomeScreen, PracticeScreen, BrowseScreen, NotFoundScreen } from 'practify/screens';
 import { MainNav } from './MainNav';
 import { withRouter, RouteComponentProps } from 'react-router';
 import * as S from './styled';
@@ -26,7 +26,7 @@ export class App extends React.Component<RouteComponentProps<any>> {
           <TransitionSwitch location={location}>
             <Route exact path={routes.home} component={HomeScreen} />
             <AuthRoute exact path={routes.practise} component={PracticeScreen} />
-            <AuthRoute path={routes.exerciseOverview} component={ExerciseOverviewScreen} />
+            <AuthRoute path={routes.browse} component={BrowseScreen} />
             <Route component={NotFoundScreen} />
           </TransitionSwitch>
         </main>

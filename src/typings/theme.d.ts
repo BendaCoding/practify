@@ -14,7 +14,12 @@ declare interface ITheme {
     primary: string;
     secondary: string;
     disabled: string;
+    dimmed: string;
     light: string;
+    
+    table: {
+      hoverBackground: string;
+    }
     
     bodyBackground: string;
     overlayBackground: string;

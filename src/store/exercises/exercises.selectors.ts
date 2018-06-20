@@ -1,13 +1,14 @@
-// import { createSelector } from 'reselect';
+// tslint:disable: no-shadowed-variable
+import { createSelector } from 'reselect';
 
-// export const getPractiseState = (state: IAppState): IPractiseState => state.practise;
+export const getExercisesState = (state: IAppState): IExercisesState => state.exercises;
 
-// export const getSelectedExerciseId = createSelector(
-//   [ getPractiseState ],
-//   (practiseState) => practiseState.selectedExerciseId,
-// );
+export const isLoading = createSelector(
+  [ getExercisesState ],
+  ({ isLoading }) => isLoading, // tslint:disable
+);
 
-// export const getIsRunning = createSelector(
-//   [ getPractiseState ],
-//   (practiseState) => practiseState.isRunning,
-// );
+export const exercises = createSelector(
+  [ getExercisesState ],
+  ({ exercises }) => exercises,
+);

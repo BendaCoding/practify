@@ -53,6 +53,12 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
     }, { wait: time });
   }
 
+  clearTimer() {
+    if (this.timerId) {
+      this.timerId.clear();
+    }
+  }
+
   componentDidMount() {
     const { isRunning, bpm, subdivision } = this.props;
     if (isRunning) {
@@ -75,7 +81,7 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
           this.update();
         }
       } else {
-        this.timerId.clear();
+        this.clearTimer()
       }
     }
 
@@ -85,7 +91,7 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
   }
 
   componentWillUnmount() {
-    this.timerId.clear();
+    this.clearTimer();
   }
 
   calculateInterval = (bpm: number) => Math.floor(60000 / bpm)

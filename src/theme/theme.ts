@@ -16,10 +16,17 @@ export const theme: ITheme = {
     primary: `${palette.curiousBlue}`,
     secondary: `${palette.slateGrey}`,
     disabled: `${palette.athensGrey}`,
-    light: `${palette.slateGrey}`,
+    dimmed: `${palette.slateGrey}`,
+    light: `${palette.athensGrey}`,
 
+    table: {
+      hoverBackground: `${palette.lightGrey}22`,
+    },
+    
     bodyBackground: `${palette.blackSqueeze}`,
+    
     overlayBackground: `${palette.slateGrey}47`,
+
     spinnerLight: palette.athensGrey,
     spinnerDark:  palette.cadetGrey,
   },
