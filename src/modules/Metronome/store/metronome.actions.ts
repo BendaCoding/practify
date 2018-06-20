@@ -6,13 +6,15 @@ export const removeBeat = createStandardAction('metronome/REMOVE_BEAT')<
   number
 >();
 
+export const changeBeatVolumeAtIndex = createStandardAction('metronome/CHANGE_BEAT_VOLUME_AT_INDEX')<
+  IMetronomeChangeBeatVolumeAtIndexPayload
+>();
+
 export const incrementSubdivision = createStandardAction('metronome/INCREMENT_SUBDIVISION')();
 
 export const decrementSubdivision = createStandardAction('metronome/DECREMENT_SUBDIVISION')();
 
-export const changeBeatsWithVolume = createStandardAction('metronome/CHANGE_SUBDIVISION_VOLUME')<
-  IMetronomeChangeSubdivisionVolumePayload
->();
+
 
 export const tick = createStandardAction('metronome/TICK')();
 

@@ -46,7 +46,7 @@ const mapDispatch = (dispatch: Dispatch) =>
   bindActionCreators({
     startMetronome: actions.startMetronome,
     stopMetronome: actions.stopMetronome,
-    changeBeatsWithVolume: actions.changeBeatsWithVolume,
+    changeBeatVolumeAtIndex: actions.changeBeatVolumeAtIndex,
     addBeat: actions.addBeat,
     removeBeat: actions.removeBeat,
     incrementSubdivision: actions.incrementSubdivision,
@@ -58,10 +58,10 @@ const mapDispatch = (dispatch: Dispatch) =>
 export default compose(
   connect<IStateProps, IDispatchProps, IOwnProps>(mapState, mapDispatch),
   withHandlers({
-    changeHandler: ({ changeBeatsWithVolume }) => (index: number) =>
+    changeHandler: ({ changeBeatVolumeAtIndex }) => (index: number) =>
       (volume: number) => () => {
         if (volume >= 0 && volume <= 4) {
-          changeBeatsWithVolume({ index, volume });
+          changeBeatVolumeAtIndex({ index, volume });
         }
       },
   }),

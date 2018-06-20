@@ -1,4 +1,4 @@
-declare interface IMetronomeChangeSubdivisionVolumePayload {
+declare interface IMetronomeChangeBeatVolumeAtIndexPayload {
   index: number;
   volume: number;
 }
