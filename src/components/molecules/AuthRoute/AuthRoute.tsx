@@ -16,8 +16,6 @@ interface IRouteProps extends RouteProps {
 type IProps = IStateProps & IRouteProps;
 
 export const AuthRoute: React.SFC<IProps> = ({ component: Component, loggedIn, ...rest }) => {
-  console.log(loggedIn);
-  console.log("asdasd");
   const renderedComponent = (props: any) => (
     loggedIn
     ? <Component { ...props } />

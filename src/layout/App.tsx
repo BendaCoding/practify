@@ -3,24 +3,15 @@ import { Route } from 'react-router-dom';
 import { TransitionSwitch, AuthRoute } from 'practify/components';
 import { HomeScreen, PracticeScreen, ExerciseOverviewScreen, NotFoundScreen } from 'practify/screens';
 import { MainNav } from './MainNav';
-import { withRouter } from 'react-router';
-import { Practise, Exercises } from 'practify/store';
-import { connect, Dispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { withRouter, RouteComponentProps } from 'react-router';
 import * as S from './styled';
+import { routes } from 'practify/common';
 
-const selectors = (state: any) => state;
-
-const actions = (dispatch: Dispatch) => 
-  bindActionCreators({
-    startExercise: Practise.actions.startExercise,
-  },
-  dispatch);
-
-export class App extends React.Component<any> {
+export class App extends React.Component<RouteComponentProps<any>> {
 
   render() {
-    const { location } = this.props;
+    const { location } = this.props;
+
     return (
       <div className="app">
 
@@ -33,9 +24,9 @@ export class App extends React.Component<any> {
 
         <main>
           <TransitionSwitch location={location}>
-            <Route exact path="/" component={HomeScreen} />
-            <AuthRoute exact path="/practise" component={PracticeScreen} />
-            <AuthRoute path="/overview" component={ExerciseOverviewScreen} />
+            <Route exact path={routes.home} component={HomeScreen} />
+            <AuthRoute exact path={routes.practise} component={PracticeScreen} />
+            <AuthRoute path={routes.exerciseOverview} component={ExerciseOverviewScreen} />
             <Route component={NotFoundScreen} />
           </TransitionSwitch>
         </main>
@@ -45,4 +36,4 @@ export class App extends React.Component<any> {
   }
 }
 
-export default connect(selectors, actions)(withRouter(App));
+export default withRouter(App);

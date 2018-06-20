@@ -1,62 +1,68 @@
 import * as React from 'react';
 import { Beat, SubdivisionIndicator } from './components';
-import { compose, withHandlers } from 'recompose';
-import { connect } from 'react-redux';
-import { Metronome as MetronomeStore } from './store';
-import { Dispatch, bindActionCreators } from 'redux';
 import { AudioHandler } from './components/atoms/AudioHandler';
-import { Practise } from 'practify/store';
+import { Button } from 'practify/components';
+import { Flex, Box } from 'grid-styled';
+import * as S from './styled';
+import { IMetronomeProps } from './Metronome.container';
 
-const { actions, selectors } = MetronomeStore;
 
-const Metronome = ({
-  subdivisionsWithVolume = [],
+export const Metronome: React.SFC<IMetronomeProps> = ({
+  beatsWithVolume = [],
   changeHandler,
-  changeCompleteHandler,
   isRunning,
-}: any) => (
-  <div className="my-5">
-    <h1>Metronome</h1>
+  beatCount,
+  subdivision,
+  addBeat,
+  removeBeat,
+  incrementSubdivision,
+  decrementSubdivision,
+}: any) => {
 
-    <AudioHandler
-      isRunning={isRunning}
-      bpm={60}
-      subdivision={1}
-    />
+  const removeLastBeat = () => {
+    removeBeat(beatCount - 1);
+  }
 
-    <Beat>
-      {subdivisionsWithVolume.map((volume: number, index: number) => (
-        <SubdivisionIndicator
-          volume={volume}
-          onChange={changeHandler(index)}
-          key={index}
-        />
-      ))}
-    </Beat>
-  </div>
-)
+  return (
+    <div className="my-5">
+      <h1>Metronome</h1>
 
-const mapState = (state: IAppState) => ({
-  subdivisionsWithVolume: selectors.getSubdivisionsWithVolume(state),
-  bpm: selectors.getBpm(state),
-  isRunning: Practise.selectors.getIsRunning(state),
-});
+      <AudioHandler
+        isRunning={isRunning}
+        bpm={60}
+        subdivision={1}
+      />
 
-const mapDispatch = (dispatch: Dispatch) =>
-  bindActionCreators({
-    startMetronome: actions.startMetronome,
-    stopMetronome: actions.stopMetronome,
-    changeSubdivisionVolume: actions.changeSubdivisionVolume,
-  }, dispatch);
+      <Beat>
+        {beatsWithVolume.map((volume: number, index: number) => (
+          <SubdivisionIndicator
+            volume={volume}
+            onChange={changeHandler(index)}
+            key={index}
+          />
+        ))}
+      </Beat>
+      
+      <Flex>
+        <Box width="40%">
+          Beats:<br />
+          <Button onClick={addBeat} shouldTriggerOnHold label="+" className="mr-2" />
+          <Button onClick={removeLastBeat} shouldTriggerOnHold label="-" />
+        </Box>
 
-export default compose(
-  connect<any, any>(mapState, mapDispatch),
-  withHandlers({
-    changeHandler: ({ changeSubdivisionVolume }) => (index: number) =>
-      (volume: number) => () => {
-        if (volume < 4 && volume > -1) {
-          changeSubdivisionVolume({ index, volume });
-        }
-      },
-  }),
-)(Metronome);
+        <Box width="20%">
+          <S.TimeSignature>
+            {beatCount} / {subdivision}
+          </S.TimeSignature>
+        </Box>
+
+        <Box width="40%">
+          Subdivision:<br />
+          <Button onClick={incrementSubdivision} label="+" className="mr-2" />
+          <Button onClick={decrementSubdivision} label="-" />
+        </Box>
+      </Flex>
+      
+    </div>
+  )
+}

@@ -1,18 +1,19 @@
 import { createStandardAction } from 'typesafe-actions';
 
-export const addSubdivision = createStandardAction('metronome/ADD_SUBDIVISION')();
+export const addBeat = createStandardAction('metronome/ADD_BEAT')();
 
-export const removeSubdivision = createStandardAction('metronome/REMOVE_SUBDIVISION')<
+export const removeBeat = createStandardAction('metronome/REMOVE_BEAT')<
   number
 >();
+
+export const incrementSubdivision = createStandardAction('metronome/INCREMENT_SUBDIVISION')();
+
+export const decrementSubdivision = createStandardAction('metronome/DECREMENT_SUBDIVISION')();
 
 export const changeSubdivisionVolume = createStandardAction('metronome/CHANGE_SUBDIVISION_VOLUME')<
   IMetronomeChangeSubdivisionVolumePayload
 >();
 
-export const setSubdivisionsPerBeat = createStandardAction('metronome/SET_PULSE')<
-  number
->();
 
 export const setBpm = createStandardAction('metronome/SET_BPM')<
   number

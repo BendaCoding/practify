@@ -6,6 +6,7 @@ import { compose } from 'recompose';
 import { Auth } from 'practify/store';
 import { connect, Dispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { routes } from 'practify/common';
 
 interface IStateProps {
   loggedIn: boolean;
@@ -36,8 +37,8 @@ export const MainNav: React.SFC<IProps> = ({ t, loggedIn, userLogoutRequest }) =
   return (
     <Nav>
       {loggedIn && <React.Fragment>
-        <NavLink to="/practise">Practice</NavLink>
-        <NavLink to="/overview">Exercise Overview</NavLink>
+        <NavLink to={routes.practise}>Practice</NavLink>
+        <NavLink to={routes.exerciseOverview}>Exercise Overview</NavLink>
         <a className="ml-auto mr-0" onClick={logout}>Logout</a>
       </React.Fragment>}
     </Nav>

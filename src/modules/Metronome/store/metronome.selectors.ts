@@ -7,24 +7,30 @@ export const getBpm = createSelector(
   ({ bpm }) => bpm,
 );
 
-export const getSubdivisionsWithVolume = createSelector(
-  getMetronomeState,
-  ({ subdivisionsWithVolume }) => subdivisionsWithVolume,
-);
-
-export const getSubdivisions = createSelector(
-  getMetronomeState,
-  ({ subdivisionsWithVolume }) => subdivisionsWithVolume.length,
-);
-
 export const getIsRunning = createSelector(
   getMetronomeState,
   ({ isRunning }) => isRunning,
 );
 
-export const getTotalBeats = createSelector(
+export const getSubdivisionsWithVolume = createSelector(
   getMetronomeState,
-  ({ totalBeats }) => totalBeats,
+  ({ beatsWithVolume }) => beatsWithVolume,
+);
+
+export const getBeatCount = createSelector(
+  getMetronomeState,
+  ({ beatsWithVolume }) => beatsWithVolume.length,
+);
+
+
+export const getSubdivision = createSelector(
+  getMetronomeState,
+  ({ subdivision }) => subdivision,
+);
+
+export const getTotalMeasures = createSelector(
+  getMetronomeState,
+  ({ totalMeasures }) => totalMeasures,
 );
 
 export const getElapsedSubdivisions = createSelector(
@@ -33,6 +39,6 @@ export const getElapsedSubdivisions = createSelector(
 );
 
 export const getBeatsAndSubdivisionsLeft = createSelector(
-  [ getTotalBeats, getElapsedSubdivisions ],
+  [ getTotalMeasures, getElapsedSubdivisions ],
   (a, b) => ({ a, b }),
 );

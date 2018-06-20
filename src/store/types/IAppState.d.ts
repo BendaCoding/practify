@@ -3,4 +3,5 @@ declare interface IAppState {
   practise: IPractiseState;
   exercises: IExercisesState;
   metronome: IMetronomeState;
+  router: IRouterState;
 }

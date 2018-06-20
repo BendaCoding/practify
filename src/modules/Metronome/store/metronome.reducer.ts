@@ -1,53 +1,70 @@
-import { startMetronome, stopMetronome, addSubdivision, removeSubdivision, changeSubdivisionVolume, setBpm, setSubdivisionsPerBeat } from './metronome.actions';
+import { startMetronome, stopMetronome, addBeat, removeBeat,
+  changeSubdivisionVolume, setBpm,
+  incrementSubdivision, decrementSubdivision } from './metronome.actions';
 import { createReducer } from '../../../store/create-reducer';
 
 export const initialState: IMetronomeState = {
   bpm: 86,
   isRunning: false,
-  subdivisionsWithVolume: [3, 1, 2, 1],
-  subdivisionsPerBeat: 4,
-  totalBeats: 40,
+  beatsWithVolume: [3, 1, 2, 1],
+  subdivision: 4,
+  totalMeasures: 40,
   elapsedSubdivisions: 0,
 };
 
 export const metronomeReducer = createReducer(initialState, {
-  addSubdivision,
-  removeSubdivision,
+  addBeat,
+  removeBeat,
+  incrementSubdivision,
+  decrementSubdivision,
   changeSubdivisionVolume,
-  setSubdivisionsPerBeat,
   setBpm,
   startMetronome,
   stopMetronome,
 })({
-  addSubdivision: state => {
+  addBeat: state => {
+    if (state.beatsWithVolume.length >= 32) {
+      return state;
+    }
     return {
       ...state,
-      subdivisionsWithVolume: state.subdivisionsWithVolume.concat(2),
+      beatsWithVolume: state.beatsWithVolume.concat(2),
     }
   },
-  removeSubdivision: (state, { payload }) => {
+  removeBeat: (state, { payload }) => {
+    if (state.beatsWithVolume.length <= 1) {
+      return state;
+    }
     return {
       ...state,
-      subdivisionsWithVolume: [
-        ...state.subdivisionsWithVolume.slice(0, payload),
-        ...state.subdivisionsWithVolume.slice(payload + 1),
+      beatsWithVolume: [
+        ...state.beatsWithVolume.slice(0, payload),
+        ...state.beatsWithVolume.slice(payload + 1),
       ],
+    }
+  },
+  incrementSubdivision: state => {
+    const { subdivision } = state;
+    return {
+      ...state,
+      subdivision: subdivision < 32 ? state.subdivision + 1 : subdivision,
+    }
+  },
+  decrementSubdivision: state => {
+    const { subdivision } = state;
+    return {
+      ...state,
+      subdivision: subdivision > 1 ? state.subdivision - 1 : subdivision,
     }
   },
   changeSubdivisionVolume: (state, { payload }) => {
     return {
       ...state,
-      subdivisionsWithVolume: [
-        ...state.subdivisionsWithVolume.slice(0, payload.index),
+      beatsWithVolume: [
+        ...state.beatsWithVolume.slice(0, payload.index),
         payload.volume,
-        ...state.subdivisionsWithVolume.slice(payload.index + 1),
+        ...state.beatsWithVolume.slice(payload.index + 1),
       ],
-    }
-  },
-  setSubdivisionsPerBeat: (state, { payload }) => {
-    return {
-      ...state,
-      subdivisionsPerBeat: payload,
     }
   },
   setBpm: (state, { payload }) => {
