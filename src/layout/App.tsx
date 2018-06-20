@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Route } from 'react-router-dom';
-import { TransitionSwitch, AuthRoute } from 'practify/components';
+import { TransitionSwitch, AuthRoute, PractifyTypo } from 'practify/components';
 import { HomeScreen, PracticeScreen, BrowseScreen, NotFoundScreen } from 'practify/screens';
 import { MainNav } from './MainNav';
 import { withRouter, RouteComponentProps } from 'react-router';
@@ -16,7 +16,7 @@ export class App extends React.Component<RouteComponentProps<any>> {
       <div className="app">
 
         <S.Header>
-          <h3>Practify</h3>
+          <PractifyTypo />
 
           <MainNav />
 

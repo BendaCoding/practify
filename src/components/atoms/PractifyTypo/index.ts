@@ -1,0 +1,1 @@
+export { PractifyTypo } from './PractifyTypo';

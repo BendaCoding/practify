@@ -2,6 +2,7 @@ export { Button } from './Button';
 export { Container } from './Container';
 export { Fade } from './Fade';
 export { PractifyLogo } from './PractifyLogo';
+export { PractifyTypo } from './PractifyTypo';
 export { ProgressBar } from './ProgressBar';
 export { Td } from './Td';
 export { TextInput } from './TextInput';
