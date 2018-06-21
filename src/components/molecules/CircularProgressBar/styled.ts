@@ -1,4 +1,4 @@
-import { styled, styledWithProps } from 'practify/theme';
+import { styled } from 'practify/theme';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -11,7 +11,11 @@ export const Background = styled.circle`
   stroke: ${props => props.theme.palette.athensGrey};
 `;
 
-export const Progress = styledWithProps<ICommonProps>('circle')`
+interface ICommonProps {
+  isRunning: boolean;
+}
+
+export const Progress = styled<ICommonProps, any>('circle')`
   fill: none;
   stroke: ${({ isRunning, theme: { palette }}) =>
     isRunning ? palette.curiousBlue : palette.lightGrey};
@@ -20,11 +24,9 @@ export const Progress = styledWithProps<ICommonProps>('circle')`
   transition: stroke 200ms ease-out;
 `;
 
-interface ICommonProps {
-  isRunning: boolean;
-}
 
-export const Text = styledWithProps<ICommonProps>('div')`
+
+export const Text = styled<ICommonProps, any>('div')`
   ${({ isRunning, theme: { palette, fontSizes }}) => `
     color: ${isRunning ? palette.vulcan : palette.athensGrey};
     font-size: ${fontSizes.h1};

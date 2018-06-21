@@ -38,4 +38,11 @@ declare interface ITheme {
   transitions: {
     easeOutElastic: string;
   }
+  breakpoint: {
+    xs: string;
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
+  }
 }

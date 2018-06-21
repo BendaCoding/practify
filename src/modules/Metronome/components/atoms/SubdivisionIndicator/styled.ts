@@ -1,12 +1,4 @@
-import { PractifyLogo as Logo } from 'practify/components';
-import { styled, styledWithProps, css } from 'practify/theme';
-import { StyledFunction } from 'styled-components';
-import { IPractifyLogoProps } from './../../../../../components/atoms/PractifyLogo/PractifyLogo';
-
-interface IProps {
-  active?: boolean;
-}
-
+import { styled, css } from 'practify/theme';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -20,7 +12,7 @@ interface IScalerProps {
   size: number;
 }
 
-export const Scaler = styledWithProps<IScalerProps>('div')`
+export const Scaler = styled<IScalerProps, any>('div')`
   transform: scale(${({ size }) => size});
   transition: 235ms transform ${({ theme }) => theme.transitions.easeOutElastic};
 `;
@@ -56,7 +48,7 @@ const iconStyles = css`
   }
 `;
 
-export const Plus = styledWithProps<IIconProps>('div')`
+export const Plus = styled<IIconProps, any>('div')`
   ${iconStyles}
 
   ${({ disabled, theme }) => disabled && `
@@ -65,7 +57,7 @@ export const Plus = styledWithProps<IIconProps>('div')`
   `}
   `;
   
-  export const Minus = styledWithProps<IIconProps>('div')`
+  export const Minus = styled<IIconProps, any>('div')`
   ${iconStyles}
   align-items: flex-end;
 

@@ -1,4 +1,4 @@
-import { styledWithProps } from 'practify/theme';
+import { styled } from 'practify/theme';
 
 // type WrapperProps = Omit<IWithLoaderProps, 'isLoading'>
  interface IWrapperProps {
@@ -7,7 +7,7 @@ import { styledWithProps } from 'practify/theme';
   minHeight: number;
 }
 
-export const Wrapper = styledWithProps<IWrapperProps>('div')`
+export const Wrapper = styled<IWrapperProps, any>('div')`
   flex: 1;
   display: flex;
   align-items: center;

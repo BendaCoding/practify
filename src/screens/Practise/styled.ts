@@ -2,8 +2,11 @@ import { styled } from 'practify/theme';
 
 export const Screen = styled.div`
   display: grid;
-  grid-template-columns: 1fr 380px;
-  padding: 32px 24px;
+
+  @media (min-width: ${({ theme: { breakpoint }}) => breakpoint.lg}) {
+    grid-template-columns: 1fr 380px;
+    padding: 32px 24px;
+  }
 `;
 
 export const Content = styled.div`
