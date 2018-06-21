@@ -6,6 +6,7 @@ import { MainNav } from './MainNav';
 import { withRouter, RouteComponentProps } from 'react-router';
 import * as S from './styled';
 import { routes } from 'practify/common';
+import "typeface-roboto";
 
 export class App extends React.Component<RouteComponentProps<any>> {
 

@@ -5,7 +5,7 @@ export const baseStyles = () => injectGlobal`
 html body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', 'Helvetica', sans-serif;
   background: #F5F8FA;
 }
 

@@ -61,6 +61,7 @@
     "tslint": "^5.7.0",
     "tslint-config-prettier": "^1.10.0",
     "tslint-react": "^3.2.0",
+    "typeface-roboto": "^0.0.54",
     "typesafe-actions": "^2.0.4",
     "uglifyjs-webpack-plugin": "^1.1.8",
     "url-loader": "0.6.2",
