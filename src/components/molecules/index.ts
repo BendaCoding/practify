@@ -1,6 +1,7 @@
 export { AuthRoute } from './AuthRoute';
 export { CircularProgressBar } from './CircularProgressBar';
 export { ExerciseCard } from './ExerciseCard';
+export { LoginRoute } from './LoginRoute';
 export { Spinner } from './Spinner';
 export { TBody } from './TBody';
 export { THead } from './THead';

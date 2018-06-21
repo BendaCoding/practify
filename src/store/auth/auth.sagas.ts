@@ -9,30 +9,30 @@ import { routes } from 'practify/common';
 function * userLoginSaga({ payload: { email, password }}: IPayload<IAuthLoginRequest>) {
   try {
     yield call(rsFire.auth.signInWithEmailAndPassword, email, password);
-    yield [
+    yield all([
       put(userLoginSuccess()),
       put(push(routes.practise)),
-    ];
+    ]);
   } catch (error) {
-    yield [
+    yield all([
       put(userLoginFail(error)),
       put(push(routes.home)),
-    ]
+    ])
   }
 }
 
 function * userLogoutSaga() {
   try {
     yield call(rsFire.auth.signOut);
-    yield [
+    yield all([
       put(userLogoutSuccess()),
       put(push(routes.home)),
-    ]
+    ])
   } catch (error) {
-    yield [
+    yield all([
       put(userLogoutFail(error)),
       put(push(routes.home)),
-    ]
+    ])
   }
 }
 
@@ -41,7 +41,6 @@ function * userSyncSaga() {
 
   while(true) {
     const { error, user } = yield take(channel);
-
     if (user) {
       yield put(userLoginSync(user));
     } else {
@@ -53,15 +52,15 @@ function * userSyncSaga() {
 function * userRegisterSaga({ payload: { email, password }}: IPayload<IAuthLoginRequest>) {
   try {
     yield call(rsFire.auth.createUserWithEmailAndPassword(email, password));
-    yield [
+    yield all([
       put(userRegisterSuccess()),
       put(push(routes.practise)),
-    ];
+    ]);
   } catch (error) {
-    yield [
+    yield all([
       put(userRegisterFail(error)),
       put(push(routes.home)),
-    ]
+    ]);
   }
 }
 
