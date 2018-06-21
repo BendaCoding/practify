@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NavLink, withRouter, RouteComponentProps } from 'react-router-dom';
 import { translate, InjectedTranslateProps } from 'react-i18next';
-import { Nav } from './styled';
+import * as S from './styled';
 import { compose } from 'recompose';
 import { Auth } from 'practify/store';
 import { connect, Dispatch } from 'react-redux';
@@ -35,13 +35,20 @@ export const MainNav: React.SFC<IProps> = ({ t, loggedIn, userLogoutRequest }) =
   };
 
   return (
-    <Nav>
+    <S.Nav>
       {loggedIn && <React.Fragment>
-        <NavLink to={routes.practise}>Practice</NavLink>
-        <NavLink to={routes.browse}>Browse</NavLink>
+        
+        <S.NavLink to={routes.practise}>
+          <S.IconPractise color="#fff" size={14} /> Practice
+        </S.NavLink>
+
+        <S.NavLink to={routes.browse}>
+          <S.IconBrowse /> Browse
+        </S.NavLink>
+        
         <a className="ml-auto mr-0" onClick={logout}>Logout</a>
       </React.Fragment>}
-    </Nav>
+    </S.Nav>
   );
 }
 

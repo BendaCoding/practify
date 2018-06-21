@@ -5,9 +5,12 @@ const palette = {
   vulcan:            '#48515A',
   slateGrey:         '#717F8D',
   cadetGrey:         '#90A2B4',
+  cornFlower:        '#95C9E6',
   lightGrey:         '#AAAAAA',
   athensGrey:        '#DFDFDF',
-  white:             '#FFFFFF',
+  gallery:           '#EFEFEF',
+  white:             '#FFF',
+  black:             '#000',
 }
 
 export const theme: ITheme = {
@@ -18,6 +21,12 @@ export const theme: ITheme = {
     disabled: `${palette.athensGrey}`,
     dimmed: `${palette.slateGrey}`,
     light: `${palette.athensGrey}`,
+
+    mainNav: {
+      link: `${palette.cornFlower}`,
+      linkHover: `${palette.gallery}`,
+      linkActive: `${palette.gallery}`,
+    },
 
     table: {
       hoverBackground: `${palette.lightGrey}22`,

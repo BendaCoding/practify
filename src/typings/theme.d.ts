@@ -7,8 +7,11 @@ declare interface ITheme {
     vulcan: string;
     slateGrey: string;
     cadetGrey: string;
+    cornFlower: string;
     lightGrey: string;
+    gallery: string;
     white: string;
+    black: string;
   };
   colors: {
     primary: string;
@@ -17,6 +20,12 @@ declare interface ITheme {
     dimmed: string;
     light: string;
     
+    mainNav: {
+      link: string;
+      linkHover: string;
+      linkActive: string;
+    }
+
     table: {
       hoverBackground: string;
     }

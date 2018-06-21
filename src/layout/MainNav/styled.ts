@@ -1,4 +1,7 @@
-import styled from 'styled-components';
+import { styled } from 'practify/theme';
+import { PractifyLogo } from 'practify/components';
+import { FaNewspaperO } from 'react-icons/lib/fa';
+import { NavLink as Link } from 'react-router-dom';
 
 export const Nav = styled.nav`
   width: 100%;
@@ -6,22 +9,40 @@ export const Nav = styled.nav`
   align-items: center;
   margin-left: 24px;
   color: ${({ theme }) => theme.palette.white};
+`;
 
-  a {
-    line-height: 25px;
-    padding-top: 6px;
-    display: block;
-    color: #95C9E6;
-    margin-right: 18px;
-    transition: color .2s ease-in;
+export const NavLink = styled(Link)`
+  line-height: 25px;
+  padding-top: 4px;
+  display: block;
+  color: ${({ theme }) => theme.colors.mainNav.link};
+  margin-right: 18px;
+  transition: color .2s ease-in;
 
-    &:hover {
-      color: #efefef;
-      text-decoration: none;
-    }
+  &:hover {
+    color: ${({ theme }) => theme.colors.mainNav.linkHover};
+    text-decoration: none;
+  }
 
-    &.active {
-      color: #fefefe;
-    }
+  &.active {
+    color: ${({ theme }) => theme.colors.mainNav.linkActive};
   }
 `;
+
+export const IconPractise = styled(PractifyLogo)`
+  position: relative;
+  transition: fill .2s ease-in;
+  fill: ${({ theme }) => theme.colors.mainNav.link};
+  top: 2px;
+  
+  ${NavLink}:hover &,
+  ${NavLink}.active & {
+    fill: ${({ theme }) => theme.colors.mainNav.linkHover};
+  }
+`;
+
+export const IconBrowse = styled(FaNewspaperO)`
+  position: relative;
+  top: -1px;
+`;
+

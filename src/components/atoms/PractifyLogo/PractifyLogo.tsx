@@ -5,12 +5,14 @@ export interface IPractifyLogoProps {
   color?: string;
   size?: number;
   transition?: string;
+  className?: string;
 }
 
 export const PractifyLogo: React.SFC<IPractifyLogoProps> = ({
   color = theme.colors.spinnerDark,
   size = 30,
   transition = '',
+  className = '',
 }) => {
 
   const style = transition ? { style: { transition } } : {};
@@ -21,6 +23,7 @@ export const PractifyLogo: React.SFC<IPractifyLogoProps> = ({
       width={`${size}px`}
       height={`${size}px`}
       fill={color}
+      className={className}
       {...style}>
       <defs />
       <path
