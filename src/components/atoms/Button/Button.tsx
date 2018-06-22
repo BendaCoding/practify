@@ -7,6 +7,7 @@ export interface IButtonProps {
   onClick?: (e?: any) => void;
   shouldTriggerOnHold?: boolean;
   className?: string;
+  disabled?: boolean;
   preventDefault?: boolean;
 }
 
@@ -17,6 +18,7 @@ export const Button: React.SFC<IButtonProps> =
   shouldTriggerOnHold = false,
   label,
   className,
+  disabled,
   preventDefault = false,
 }) => {
 
@@ -30,7 +32,7 @@ export const Button: React.SFC<IButtonProps> =
     : onClick
   
   const WrappedButton = (
-    <button className={buttonClassNames} onClick={handleClick}>
+    <button disabled={disabled} className={buttonClassNames} onClick={handleClick}>
       {label}
     </button>
   );

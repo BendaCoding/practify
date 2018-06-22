@@ -49,17 +49,23 @@ function * userSyncSaga() {
   }
 }
 
-function * userRegisterSaga({ payload: { email, password }}: IPayload<IAuthLoginRequest>) {
+function * userRegisterSaga({ payload: { email, password, ...rest }}: IPayload<IAuthRegisterRequest>) {
   try {
-    yield call(rsFire.auth.createUserWithEmailAndPassword(email, password));
+    const data = yield call(rsFire.auth.createUserWithEmailAndPassword, email, password);
+
+    yield call(
+      rsFire.firestore.setDocument,
+      `users/${data.user.uid}`,
+      rest,
+    );
+
     yield all([
       put(userRegisterSuccess()),
-      put(push(routes.practise)),
+      put(push(routes.browse)),
     ]);
   } catch (error) {
     yield all([
       put(userRegisterFail(error)),
-      put(push(routes.home)),
     ]);
   }
 }

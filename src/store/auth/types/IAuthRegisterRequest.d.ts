@@ -1,4 +1,5 @@
 declare interface IAuthRegisterRequest extends IAuthLoginRequest {
-  firstname?: string;
+  nickname: string;
+  firstname: string;
   lastname?: string;
 }

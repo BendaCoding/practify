@@ -2,6 +2,8 @@ import * as firebase from 'firebase';
 import 'firebase/firestore';
 import ReduxSagaFirebase from 'redux-saga-firebase';
 
+import * as users from './users';
+
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
@@ -17,6 +19,12 @@ export const fire = firebase.initializeApp(config);
 
 export const rsFire = new ReduxSagaFirebase(fire);
 
-const firestore = firebase.firestore();
+export const firestore = firebase.firestore();
 const settings = { timestampsInSnapshots: true };
 firestore.settings(settings);
+
+export const collections = {
+  users: firestore.collection('users'),
+}
+
+export { users };

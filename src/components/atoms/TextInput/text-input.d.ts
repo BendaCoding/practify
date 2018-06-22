@@ -6,6 +6,7 @@ declare interface ITextInputBaseProps {
   hint?: string;
   id?: string;
   warning?: string;
+  isLoading?: boolean;
 }
 
 declare interface ITextInputControlledProps extends ITextInputBaseProps {

@@ -19,7 +19,7 @@ export const LoginForm: React.SFC<ILoginFormProps> = ({ email, password, toggleF
         <Field
           name="email"
           label="Email"
-          placeholder="Username"
+          placeholder="Email"
           component={TextInput}
         />
 
