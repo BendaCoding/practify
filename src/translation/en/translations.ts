@@ -1,3 +1,5 @@
+import { FaThumbTack } from "react-icons/lib/fa";
+
 export const appEN = {
   global: {},
   home: {
@@ -15,5 +17,8 @@ export const appEN = {
         nicknameTaken: 'Someone already took your nickname :(',
       },
     },
+  },
+  notFound: {
+    headline: 'Sorry, couldn\'t find that.',
   },
 };

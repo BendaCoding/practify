@@ -1,6 +1,6 @@
 import { styled } from 'practify/theme';
 import { PractifyLogo } from 'practify/components';
-import { FaNewspaperO } from 'react-icons/lib/fa';
+import { FaNewspaperO, FaHome } from 'react-icons/lib/fa';
 import { NavLink as Link } from 'react-router-dom';
 
 export const Nav = styled.nav`
@@ -29,11 +29,16 @@ export const NavLink = styled(Link)`
   }
 `;
 
+export const IconStart = styled(FaHome)`
+  position: relative;
+  top: -1px;
+`;
+
 export const IconPractise = styled(PractifyLogo)`
   position: relative;
   transition: fill .2s ease-in;
   fill: ${({ theme }) => theme.colors.mainNav.link};
-  top: 2px;
+  top: 1.5px;
   
   ${NavLink}:hover &,
   ${NavLink}.active & {
@@ -45,4 +50,3 @@ export const IconBrowse = styled(FaNewspaperO)`
   position: relative;
   top: -1px;
 `;
-

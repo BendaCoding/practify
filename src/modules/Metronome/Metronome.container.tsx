@@ -1,4 +1,4 @@
-import { compose, withHandlers } from 'recompose';
+import { compose, withHandlers, lifecycle } from 'recompose';
 import { connect } from 'react-redux';
 import { Metronome as MetronomeStore } from './store';
 import { Dispatch, bindActionCreators } from 'redux';
@@ -64,5 +64,10 @@ export default compose(
           changeBeatVolumeAtIndex({ index, volume });
         }
       },
+  }),
+  lifecycle<IMetronomeProps, any>({
+    componentWillUnmount() {
+      this.props.stopMetronome();
+    },
   }),
 )(Metronome);

@@ -2,8 +2,9 @@ import { combineReducers, createStore, compose, applyMiddleware } from 'redux';
 import { connectRouter, routerMiddleware } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
 
-import practiseReducer from './practise';
 import authReducer from './auth';
+import practiseReducer from './practise';
+import playlistsReducer from './playlists';
 import exercisesReducer from './exercises';
 import { metronomeReducer } from './../modules/Metronome/store/metronome.reducer';
 
@@ -14,6 +15,7 @@ export const rootReducer = combineReducers({
   auth: authReducer,
   practise: practiseReducer,
   exercises: exercisesReducer,
+  playlists: playlistsReducer,
   metronome: metronomeReducer,
 });
 

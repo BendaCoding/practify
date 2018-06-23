@@ -24,8 +24,8 @@ export const theme: ITheme = {
 
     mainNav: {
       link: `${palette.cornFlower}`,
-      linkHover: `${palette.gallery}`,
-      linkActive: `${palette.gallery}`,
+      linkHover: `${palette.white}`,
+      linkActive: `${palette.white}`,
     },
 
     table: {

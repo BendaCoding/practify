@@ -19,7 +19,7 @@ interface ITimerState {
 
 export class Timer extends React.Component<ITimerProps, ITimerState> {
 
-  static defaultProps: Partial<ITimerProps> = {
+  public static defaultProps: Partial<ITimerProps> = {
     tickInterval: 0.01,
   };
 
@@ -30,24 +30,6 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
       interval: null,
       isRunning: false,
     };
-  }
-
-  componentWillReceiveProps(nextProps: ITimerProps) {
-    const { isRunning, interval, elapsed } = this.state;
-    const { time } = this.props;
-    const nextIsRunning = nextProps.isRunning;
-
-    if (isRunning !== nextIsRunning) {
-      if (nextIsRunning && !interval) {
-
-        if (elapsed >= time) {
-          this.resetTimer();
-        }
-        this.startTimer();
-      } else {
-        this.stopTimer();
-      }
-    }
   }
 
   startTimer = () => {
@@ -86,6 +68,28 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
     }
 
     this.setState({ elapsed: newElapsed });
+  }
+
+  componentWillReceiveProps(nextProps: ITimerProps) {
+    const { isRunning, interval, elapsed } = this.state;
+    const { time } = this.props;
+    const nextIsRunning = nextProps.isRunning;
+
+    if (isRunning !== nextIsRunning) {
+      if (nextIsRunning && !interval) {
+
+        if (elapsed >= time) {
+          this.resetTimer();
+        }
+        this.startTimer();
+      } else {
+        this.stopTimer();
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    this.resetTimer();
   }
 
   render() {

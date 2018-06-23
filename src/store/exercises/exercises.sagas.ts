@@ -8,13 +8,13 @@ function * loadExercisesSaga() {
   try {
     const snapshot = yield call(rsFire.firestore.getCollection, 'exercises');
     let exercises: any; snapshot.forEach((exercise: any) => { exercises = { ...exercises, [exercise.id]: exercise.data() }})
-    yield [
+    yield all([
       put(loadExercisesSuccess(exercises)),
-    ];
+    ]);
   } catch (error) {
-    yield [
+    yield all([
       put(loadExercisesFail(error)),
-    ]
+    ]);
   }
 }
 

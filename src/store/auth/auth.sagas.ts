@@ -66,6 +66,7 @@ function * userRegisterSaga({ payload: { email, password, ...rest }}: IPayload<I
   } catch (error) {
     yield all([
       put(userRegisterFail(error)),
+      put(push(routes.home)),
     ]);
   }
 }

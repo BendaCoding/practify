@@ -1,1 +1,1 @@
-export { default as PracticeScreen } from './PractiseScreen';
+export { default as PracticeScreen } from './PractiseScreen.container';

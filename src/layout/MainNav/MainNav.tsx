@@ -38,8 +38,12 @@ export const MainNav: React.SFC<IProps> = ({ t, loggedIn, userLogoutRequest }) =
     <S.Nav>
       {loggedIn && <React.Fragment>
         
+        <S.NavLink to={routes.start}>
+          <S.IconStart size={15} /> Start
+        </S.NavLink>
+
         <S.NavLink to={routes.practise}>
-          <S.IconPractise color="#fff" size={14} /> Practice
+          <S.IconPractise size={14} /> Practice
         </S.NavLink>
 
         <S.NavLink to={routes.browse}>

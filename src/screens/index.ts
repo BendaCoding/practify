@@ -1,4 +1,5 @@
 export { BrowseScreen } from './Browse';
-export { HomeScreen } from './Home';
+export { LoginScreen } from './Login';
 export { NotFoundScreen } from './NotFound';
 export { PracticeScreen } from './Practise';
+export { StartScreen } from './Start';
