@@ -1,9 +1,10 @@
+import { facebookAuthProvider, googleAuthProvider } from './../../firebase/index';
 import { call, all, put, fork, take, takeEvery } from 'redux-saga/effects';
 import { rsFire } from 'practify/firebase';
 import { getType } from 'typesafe-actions';
 import { push } from 'connected-react-router'
 import { userLoginRequest, userLoginSuccess, userLoginFail, userLoginSync, userLogoutSuccess,
-  userLogoutFail, userLogoutRequest, userRegisterSuccess, userRegisterFail, userRegisterRequest } from './auth.actions';
+  userLogoutFail, userLogoutRequest, userRegisterSuccess, userRegisterFail, userRegisterRequest, userOAuthRequest } from './auth.actions';
 import { routes } from 'practify/common';
 
 function * userLoginSaga({ payload: { email, password }}: IPayload<IAuthLoginRequest>) {
@@ -49,6 +50,8 @@ function * userSyncSaga() {
   }
 }
 
+
+
 function * userRegisterSaga({ payload: { email, password, ...rest }}: IPayload<IAuthRegisterRequest>) {
   try {
     const data = yield call(rsFire.auth.createUserWithEmailAndPassword, email, password);
@@ -71,11 +74,22 @@ function * userRegisterSaga({ payload: { email, password, ...rest }}: IPayload<I
   }
 }
 
+function* userOAuthSaga({ payload }: IPayload<IAuthLinkRequest>) {
+  try {
+    const authProvider = payload === 'facebook' ? facebookAuthProvider : googleAuthProvider;
+    const data = yield call(rsFire.auth.signInWithPopup, authProvider);
+    yield put(userOAuthRequest(data));
+  } catch(error) {
+    yield put(userLoginFail(error));
+  }
+}
+
 export function * authSaga () {
   yield fork(userSyncSaga)
   yield all([
     takeEvery((getType(userLoginRequest) as any), userLoginSaga as any),
     takeEvery((getType(userLogoutRequest) as any), userLogoutSaga as any),
     takeEvery((getType(userRegisterRequest) as any), userRegisterSaga as any),
+    takeEvery((getType(userOAuthRequest) as any), userOAuthSaga as any),
   ]);
 }

@@ -2,7 +2,7 @@ import { connect, Dispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Auth } from 'practify/store';
 import { withFormik } from 'formik';
-import { compose } from 'recompose';
+import { compose, withHandlers } from 'recompose';
 import { LoginForm } from './LoginForm';
 import { withLoader } from 'practify/hocs';
 
@@ -11,12 +11,13 @@ interface IStateProps {
 }
 
 interface IDispatchProps {
-  userLoginRequest: (credentials: IAuthRegisterRequest) => void;
+  userLoginRequest: (credentials: IAuthLoginRequest) => void;
+  userOAuthRequest: (provider: 'facebook' | 'google') => any;
 }
 
 interface IOwnProps {
   toggleForm: () => void;
-  userLoginRequest: (credentials: IAuthLoginRequest) => void;
+  oAuthLogin: (authProvider: string) => any;
 }
 
 interface IValues {
@@ -32,6 +33,7 @@ const mapState = (state: IAppState) => ({
 const mapDispatch = (dispatch: Dispatch) => (
   bindActionCreators({
     userLoginRequest: Auth.actions.userLoginRequest,
+    userOAuthRequest: Auth.actions.userOAuthRequest,
   }, dispatch)
 );
 
@@ -40,7 +42,7 @@ export type ILoginFormProps = IStateProps & IDispatchProps & IValues & IOwnProps
 export const LoginFormContainer = compose<any, any>(
   connect<IStateProps, IDispatchProps, IOwnProps>(mapState, mapDispatch),
   withLoader({ minHeight: 340 }),
-  withFormik<IOwnProps, IValues, any>({
+  withFormik<IOwnProps & IDispatchProps, IValues, any>({
     mapPropsToValues: () => ({
       email: '',
       password: '',
@@ -48,5 +50,8 @@ export const LoginFormContainer = compose<any, any>(
     handleSubmit: ({ email, password }, { props: { userLoginRequest }}) => {
       userLoginRequest({ email, password });
     },
+  }),
+  withHandlers({
+    oAuthLogin: ({ userOAuthRequest }) => (authProvider: string) => () => userOAuthRequest(authProvider),
   }),
 )(LoginForm);

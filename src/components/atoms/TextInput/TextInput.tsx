@@ -2,12 +2,35 @@ import * as classnames from 'classnames';
 import { isEmpty } from 'lodash';
 import * as React from 'react';
 import * as S from './styles';
+import { FieldProps } from 'formik';
+
+interface ITextInputBaseProps extends FieldProps {
+  name: string;
+  type?: 'text' | 'email' | 'password';
+  label?: string;
+  placeholder?: string;
+  hint?: string;
+  id?: string;
+  error?: string;
+  isLoading?: boolean;
+}
+
+interface ITextInputControlledProps extends ITextInputBaseProps {
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+interface ITextInputUncontrolledProps extends ITextInputBaseProps {
+  ref: string;
+  defaultValue?: string;
+}
+
 
 type TextInputProps = ITextInputControlledProps | ITextInputUncontrolledProps;
 
-export const TextInput: React.SFC<any> = ({ label, hint, error, field, form, ...rest }) => {
+export const TextInput: React.SFC<TextInputProps> = ({ label, hint, error, field, form, ...rest }) => {
 
-  const hintClassNames = classnames('form-text text-muted', { 'has-warning': false });
+  const hintClassNames = classnames('form-text text-muted', { 'has-error': false });
 
   const descriptiveText = error || hint;
   

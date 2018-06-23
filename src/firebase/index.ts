@@ -16,12 +16,13 @@ const config = {
 };
 
 export const fire = firebase.initializeApp(config);
-
-// export const databaseRef = firebase.database();
-
 export const rsFire = new ReduxSagaFirebase(fire);
 
 export const firestore = firebase.firestore();
+
+export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+export const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
+
 const settings = { timestampsInSnapshots: true };
 firestore.settings(settings);
 

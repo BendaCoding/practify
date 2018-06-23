@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Repeatable from 'react-repeatable'; 
+import * as S from './styled';
 
 export interface IButtonProps {
   type?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' | 'link';
@@ -9,6 +10,8 @@ export interface IButtonProps {
   className?: string;
   disabled?: boolean;
   preventDefault?: boolean;
+  icon?: React.Component;
+  iconLeft?: boolean;
 }
 
 export const Button: React.SFC<IButtonProps> =
@@ -20,6 +23,8 @@ export const Button: React.SFC<IButtonProps> =
   className,
   disabled,
   preventDefault = false,
+  children,
+  iconLeft = false,
 }) => {
 
   const buttonClassNames = `btn btn-${type} ${className}`;
@@ -33,7 +38,15 @@ export const Button: React.SFC<IButtonProps> =
   
   const WrappedButton = (
     <button disabled={disabled} className={buttonClassNames} onClick={handleClick}>
-      {label}
+      
+      {!iconLeft && label}
+
+      <S.IconWrapper>
+        {children}
+      </S.IconWrapper>
+
+      {iconLeft && label}
+
     </button>
   );
 

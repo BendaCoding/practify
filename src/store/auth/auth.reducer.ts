@@ -1,5 +1,5 @@
 import { createReducer } from '../create-reducer';
-import { userLoginSuccess, userLoginRequest, userLoginFail, userLoginSync, userLogoutRequest, userLogoutSuccess, userLogoutFail } from './auth.actions';
+import { userLoginSuccess, userLoginRequest, userLoginFail, userLoginSync, userLogoutRequest, userLogoutSuccess, userLogoutFail, userOAuthRequest, userOAuthSuccess } from './auth.actions';
 
 export const initialState: IAuthState = {
   loggedIn: false,
@@ -16,6 +16,8 @@ export const authReducer = createReducer(initialState, {
   userLogoutRequest,
   userLogoutSuccess,
   userLogoutFail,
+  userOAuthRequest,
+  userOAuthSuccess,
 })({
   userLoginRequest: state => {
     return {
@@ -64,6 +66,12 @@ export const authReducer = createReducer(initialState, {
       ...state,
       isLoading: false,
       error: payload,
+    }
+  },
+  userOAuthRequest: (state, { payload }) => {
+    return {
+      ...state,
+      isLoading: true,
     }
   },
 });

@@ -40,3 +40,7 @@ export const userRegisterSuccess = createStandardAction('auth/USER_REGISTER_SUCC
 export const userRegisterFail = createStandardAction('auth/USER_REGISTER_FAIL')<
   IApiErrorResponse
 >();
+
+export const userOAuthRequest = createStandardAction('auth/USER_O_AUTH_REQUEST')<string>();
+
+export const userOAuthSuccess = createStandardAction('auth/USER_O_AUTH_SUCCESS')<object>();

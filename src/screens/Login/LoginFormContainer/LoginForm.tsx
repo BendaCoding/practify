@@ -3,12 +3,9 @@ import { TextInput, Button } from 'practify/components';
 import { Form, Field } from 'formik';
 import { Flex } from 'grid-styled';
 import { ILoginFormProps } from './LoginForm.container';
+import { FaGoogle, FaFacebook } from 'react-icons/lib/fa';
 
-export const LoginForm: React.SFC<ILoginFormProps> = ({ email, password, toggleForm, userLoginRequest }: ILoginFormProps) => {
-
-  const onLoginWithFacebook = () => {
-    // a
-  };
+export const LoginForm: React.SFC<ILoginFormProps> = ({ toggleForm, oAuthLogin }: ILoginFormProps) => {
 
   return (
     <div>
@@ -50,14 +47,19 @@ export const LoginForm: React.SFC<ILoginFormProps> = ({ email, password, toggleF
       <Button
         label="Sign in with Google"
         type="dark"
+        onClick={oAuthLogin('google')}
         className="mr-2"
-      />
+      >
+        <FaGoogle />
+      </Button>
 
       <Button
         label="Sign in with Facebook"
-        onClick={onLoginWithFacebook}
+        onClick={oAuthLogin('facebook')}
         type="dark"
-      />
+      >
+        <FaFacebook />
+      </Button>
 
     </div>
   );
