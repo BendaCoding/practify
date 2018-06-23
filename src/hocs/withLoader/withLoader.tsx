@@ -39,9 +39,9 @@ export const withLoader = (userConfig: IWithLoaderOptions = defaultConfig) => (W
     const shouldRenderWrappedComponent = (isLoading && type === 'overlay') || !isLoading;
 
     const spinnerColor = type === 'light'
-      ? theme.colors.spinnerLight
+      ? theme.colors.spinner.light
       : type === 'dark'
-        ? theme.colors.spinnerDark
+        ? theme.colors.spinner.dark
         : theme.palette.white
 
     return (

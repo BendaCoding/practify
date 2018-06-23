@@ -9,6 +9,9 @@ export interface ITimerProps {
   onTick?: (...args: any[]) => void;
   onClick?: () => void;
   tickInterval?: number;
+  size?:number;
+  strokeWidth?:number;
+
 }
 
 interface ITimerState {
@@ -21,6 +24,8 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
 
   public static defaultProps: Partial<ITimerProps> = {
     tickInterval: 0.01,
+    strokeWidth:14,
+    size:250,
   };
 
   constructor(props: ITimerProps) {
@@ -93,7 +98,7 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
   }
 
   render() {
-    const { time, isRunning, onClick } = this.props;
+    const { time, isRunning, onClick, size, strokeWidth } = this.props;
     const { elapsed } = this.state;
 
     const seconds = (time - elapsed) + 0.9999;
@@ -113,6 +118,8 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
           isRunning={isRunning}
           finished={finished}
           onClick={onClick}
+          size={size}
+          strokeWidth={strokeWidth}
         />
     );
   }

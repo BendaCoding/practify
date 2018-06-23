@@ -1,10 +1,6 @@
-import * as React from 'react';
-import { ExerciseCard, Timer, Button } from 'practify/components';
 import { connect, Dispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Practise } from 'practify/store';
-import * as S from './styled';
-import { Metronome } from '../../modules';
 import { Metronome as MetronomeStore } from '../../modules/Metronome/store'
 import { PracticeScreen } from './PractiseScreen';
 import { compose, lifecycle } from 'recompose';

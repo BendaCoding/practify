@@ -9,7 +9,6 @@ interface IExercisesTableProps {
 export const ExercisesTable: React.SFC<IExercisesTableProps> = ({ exercises }) => {
   return (
   <div>
-    <h3>Exercises</h3>
     <Table>
       <TBody>
         {

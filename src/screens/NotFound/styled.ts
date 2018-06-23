@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  background: ${({ theme }) => theme.colors.bodyBackground};
+  background: ${({ theme }) => theme.colors.background};
   display: flex;
   justify-content: center;
   align-items: center;

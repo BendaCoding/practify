@@ -1,6 +1,9 @@
 declare interface ITheme {
   palette: {
     curiousBlue: string;
+    navyBlue: string;
+    limeade: string;
+    milanoRed: string;
     blackSqueeze: string;
     athensGrey: string;
     blackRussian: string;
@@ -10,9 +13,17 @@ declare interface ITheme {
     cornFlower: string;
     lightGrey: string;
     gallery: string;
+    firebush: string;
     white: string;
     black: string;
   };
+  infoPalette: {
+    color1: string;
+    color2: string;
+    color3: string;
+    color4: string;
+    color5: string;
+  }
   colors: {
     primary: string;
     secondary: string;
@@ -20,6 +31,12 @@ declare interface ITheme {
     dimmed: string;
     light: string;
     
+    typo: {
+      primary: string;
+      secondary: string;
+      inverted: string;
+    }
+
     mainNav: {
       link: string;
       linkHover: string;
@@ -30,10 +47,13 @@ declare interface ITheme {
       hoverBackground: string;
     }
     
-    bodyBackground: string;
+    background: string;
     overlayBackground: string;
-    spinnerLight: string;
-    spinnerDark: string;
+
+    spinner: {
+      light: string;
+      dark: string;
+    }
   }
   fontSizes: {
     xxl: string;
@@ -53,5 +73,11 @@ declare interface ITheme {
     md: string;
     lg: string;
     xl: string;
+  }
+  shadows: {
+    regular: string;
+  }
+  borders: {
+    borderRadius: string;
   }
 }

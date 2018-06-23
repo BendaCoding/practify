@@ -3,4 +3,5 @@ export const routes = {
   start: '/start',
   practise: '/practise',
   browse: '/browse',
+  playlist: '/playlist',
 };

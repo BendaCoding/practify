@@ -29,32 +29,29 @@ const mapDispatch = (dispatch: Dispatch) =>
   dispatch,
 );
 
-export const MainNav: React.SFC<IProps> = ({ t, loggedIn, userLogoutRequest }) => {
-  const logout = () => {
-    userLogoutRequest();
-  };
+export const MobileNav: React.SFC<IProps> = ({ t, loggedIn, userLogoutRequest }) => {
 
   return (
     <S.Nav>
       {loggedIn && <React.Fragment>
         
+      
         <S.NavLink to={routes.start}>
-          <S.IconStart size={15} /> Start
+          <S.IconStart size={16} /> <S.Label>Start</S.Label>
         </S.NavLink>
 
         <S.NavLink to={routes.practise}>
-          <S.IconPractise size={14} /> Practice
+          <S.IconPractise size={14} /> <S.Label>Practice</S.Label>
         </S.NavLink>
-
+      
         <S.NavLink to={routes.browse}>
-          <S.IconBrowse /> Browse
+          <S.IconBrowse /> <S.Label>Browse</S.Label>
         </S.NavLink>
-
-           <S.NavLink to={routes.playlist}>
-          <S.IconBrowse /> Playlist
+      
+        <S.NavLink to={routes.playlist}>
+          <S.IconBrowse /> <S.Label>Playlist</S.Label>
         </S.NavLink>
-
-        <a className="ml-auto mr-0" onClick={logout}>Logout</a>
+        
       </React.Fragment>}
     </S.Nav>
   );
@@ -64,5 +61,5 @@ export default withRouter<any>(
   compose(
     translate(),
     connect<IStateProps, IDispatchProps>(mapState, mapDispatch),
-  )(MainNav),
+  )(MobileNav),
 );

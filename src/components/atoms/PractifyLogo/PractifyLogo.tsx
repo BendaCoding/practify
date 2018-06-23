@@ -9,7 +9,7 @@ export interface IPractifyLogoProps {
 }
 
 export const PractifyLogo: React.SFC<IPractifyLogoProps> = ({
-  color = theme.colors.spinnerDark,
+  color = theme.colors.spinner.dark,
   size = 30,
   transition = '',
   className = '',

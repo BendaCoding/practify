@@ -3,6 +3,7 @@ export { CircularProgressBar } from './CircularProgressBar';
 export { ExerciseCard } from './ExerciseCard';
 export { LoginRoute } from './LoginRoute';
 export { Spinner } from './Spinner';
+export { SteppedProgressBar } from './SteppedProgressBar';
 export { TBody } from './TBody';
 export { THead } from './THead';
 export { Timer } from './Timer';

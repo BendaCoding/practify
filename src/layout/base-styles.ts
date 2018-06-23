@@ -7,8 +7,17 @@ html body {
   padding: 0;
   font-family: 'Roboto', 'Helvetica', sans-serif;
   background: #F5F8FA;
+  height:100vh;
+  width:100%;
 }
 
+#root{
+  height:100%;
+}
+
+.app{
+  height:100%;
+}
 .fade-enter {
   opacity: 0;
   z-index: 1;

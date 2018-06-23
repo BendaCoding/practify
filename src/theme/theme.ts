@@ -1,5 +1,11 @@
+/**
+ * Main Color palette
+ */
 const palette = {
   curiousBlue:       '#3297CE',
+  navyBlue:          '#135EDA',
+  limeade:           '#63A12C',
+  milanoRed:         '#A13530',
   blackSqueeze:      '#F5F8FA',
   blackRussian:      '#212529',
   vulcan:            '#48515A',
@@ -9,35 +15,61 @@ const palette = {
   lightGrey:         '#AAAAAA',
   athensGrey:        '#DFDFDF',
   gallery:           '#EFEFEF',
+  firebush:          '#DE9D49',
   white:             '#FFF',
   black:             '#000',
 }
 
+/**
+ * This palette is meant for info graphics, tags and other contract giving elements
+ */
+const infoPalette = {
+  color1:            '#65C45D',
+  color2:            '#C45D8A',
+  color3:            '#7C5DC4',
+  color4:            '#CD594D',
+  color5:            '#E5DA60',
+}
+
+/**
+ * Main Practify theme for drums
+ */
 export const theme: ITheme = {
-  palette: { ...palette },
+  
+  palette:              { ...palette },
+  infoPalette:          { ...infoPalette },
+
   colors: {
-    primary: `${palette.curiousBlue}`,
-    secondary: `${palette.slateGrey}`,
-    disabled: `${palette.athensGrey}`,
-    dimmed: `${palette.slateGrey}`,
-    light: `${palette.athensGrey}`,
+    primary:            palette.curiousBlue,
+    secondary:          palette.slateGrey,
+    disabled:           palette.athensGrey,
+    dimmed:             palette.slateGrey,
+    light:              palette.athensGrey,
+    background:         palette.blackSqueeze,
+
+    typo: {
+      primary:          palette.blackRussian,
+      secondary:        palette.slateGrey,
+      inverted:         palette.athensGrey,
+    },
 
     mainNav: {
-      link: `${palette.cornFlower}`,
-      linkHover: `${palette.white}`,
-      linkActive: `${palette.white}`,
+      link:             palette.cornFlower,
+      linkHover:        palette.gallery,
+      linkActive:       palette.gallery,
     },
 
     table: {
       hoverBackground: `${palette.lightGrey}22`,
     },
     
-    bodyBackground: `${palette.blackSqueeze}`,
     
     overlayBackground: `${palette.slateGrey}47`,
 
-    spinnerLight: palette.athensGrey,
-    spinnerDark:  palette.cadetGrey,
+    spinner: {
+      light:           palette.athensGrey,
+      dark:            palette.cadetGrey,
+    },
   },
   fontSizes: {
     xxl:               '40px',
@@ -46,16 +78,22 @@ export const theme: ITheme = {
     h3:                '18px',
     h4:                '16px',
     body:              '13px',
-    small:             '10px',
+    small:             '11px',
   },
   transitions: {
-    easeOutElastic: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+    easeOutElastic:    'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
   },
   breakpoint: {
-    xs: '0px',
-    sm: '576px',
-    md: '768px',
-    lg: '992px',
-    xl: '1200px',
+    xs:                '0px',
+    sm:                '576px',
+    md:                '768px',
+    lg:                '992px',
+    xl:                '1200px',
+  },
+  shadows: {
+    regular:           `0px 2px 4px ${palette.athensGrey}`,
+  },
+  borders: {
+    borderRadius:      '2px',
   },
 };

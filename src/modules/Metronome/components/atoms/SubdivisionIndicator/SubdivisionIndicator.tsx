@@ -38,7 +38,7 @@ export const SubdivisionIndicator: React.SFC<IProps> = ({
 
       <PractifyLogo
         size={30}
-        color={active ? theme.colors.primary : theme.colors.spinnerDark}
+        color={active ? theme.colors.primary : theme.colors.spinner.dark}
         transition={`${transitionTimeout}ms all ease-out`}
       />
 
