@@ -3,7 +3,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
 
 import authReducer from './auth';
-import practiseReducer from './practise';
+import practiceReducer from './practice';
 import playlistsReducer from './playlists';
 import exercisesReducer from './exercises';
 import { metronomeReducer } from './../modules/Metronome/store/metronome.reducer';
@@ -13,7 +13,7 @@ import rootSaga from './root-saga';
 
 export const rootReducer = combineReducers({
   auth: authReducer,
-  practise: practiseReducer,
+  practice: practiceReducer,
   exercises: exercisesReducer,
   playlists: playlistsReducer,
   metronome: metronomeReducer,

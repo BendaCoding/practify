@@ -1,7 +1,7 @@
 export const routes = {
   home: '/',
   start: '/start',
-  practise: '/practise',
+  practice: '/practice',
   browse: '/browse',
   playlist: '/playlist',
 };

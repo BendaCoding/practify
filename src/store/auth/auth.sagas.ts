@@ -12,7 +12,7 @@ function * userLoginSaga({ payload: { email, password }}: IPayload<IAuthLoginReq
     yield call(rsFire.auth.signInWithEmailAndPassword, email, password);
     yield all([
       put(userLoginSuccess()),
-      put(push(routes.practise)),
+      put(push(routes.practice)),
     ]);
   } catch (error) {
     yield all([

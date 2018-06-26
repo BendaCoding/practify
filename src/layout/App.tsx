@@ -30,7 +30,7 @@ export class App extends React.Component<RouteComponentProps<any>> {
           <TransitionSwitch location={location}>
             <LoginRoute exact path={routes.home} component={LoginScreen} />
             <AuthRoute exact path={routes.start} component={StartScreen} />
-            <AuthRoute exact path={routes.practise} component={PracticeScreen} />
+            <AuthRoute exact path={routes.practice} component={PracticeScreen} />
             <AuthRoute path={routes.browse} component={BrowseScreen} />
             <AuthRoute path={routes.playlist} component={PlaylistScreen} />
             <Route component={NotFoundScreen} />

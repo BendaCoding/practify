@@ -1,3 +1,4 @@
+// tslint:disable: no-shadowed-variable
 import { createSelector } from 'reselect';
 
 export const getAuthState = (state: IAppState) => state.auth;

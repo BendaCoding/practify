@@ -36,7 +36,7 @@ export const IconStart = styled(FaHome)`
   top: -1px;
 `;
 
-export const IconPractise = styled(PractifyLogo)`
+export const IconPractice = styled(PractifyLogo)`
   position: relative;
   transition: fill 0.2s ease-in;
   fill: ${({ theme }) => theme.colors.mainNav.link};

@@ -6,14 +6,14 @@ export interface IExerciseCardProps {
   name: string;
   desc: string;
   _id: string;
-  onClick: (id: string) => void;
+  onClick: (index: number) => void;
   active?: boolean;
 }
 
 export class ExerciseCard extends React.Component<IExerciseCardProps> {
 
   onClick = () => {
-    this.props.onClick(this.props._id);
+    this.props.onClick(1);
   }
 
   render() {

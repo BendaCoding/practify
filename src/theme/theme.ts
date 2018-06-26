@@ -50,7 +50,7 @@ export const theme: ITheme = {
     typo: {
       primary:          palette.blackRussian,
       secondary:        palette.slateGrey,
-      inverted:         palette.athensGrey,
+      inverted:         palette.gallery,
     },
 
     mainNav: {
@@ -63,7 +63,10 @@ export const theme: ITheme = {
       hoverBackground: `${palette.lightGrey}22`,
     },
     
-    
+    countIn: {
+      overlay:        `${palette.slateGrey}47`,
+    },
+
     overlayBackground: `${palette.slateGrey}47`,
 
     spinner: {

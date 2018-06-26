@@ -1,6 +1,6 @@
 declare interface IAppState {
   auth: IAuthState;
-  practise: IPractiseState;
+  practice: IPracticeState;
   exercises: IExercisesState;
   playlists: IPlaylistsState;
   metronome: IMetronomeState;

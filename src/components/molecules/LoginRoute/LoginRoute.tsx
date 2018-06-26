@@ -19,7 +19,7 @@ export const LoginRoute: React.SFC<IProps> = ({ component: Component, loggedIn, 
   const renderedComponent = (props: any) => (
     !loggedIn
     ? <Component { ...props } />
-    : <Redirect to={routes.browse} />
+    : <Redirect to={routes.practice} />
   );
   return <Route {...rest} render={renderedComponent} />
 }

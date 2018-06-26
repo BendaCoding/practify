@@ -40,8 +40,8 @@ export const MobileNav: React.SFC<IProps> = ({ t, loggedIn, userLogoutRequest })
           <S.IconStart size={16} /> <S.Label>Start</S.Label>
         </S.NavLink>
 
-        <S.NavLink to={routes.practise}>
-          <S.IconPractise size={14} /> <S.Label>Practice</S.Label>
+        <S.NavLink to={routes.practice}>
+          <S.IconPractice size={14} /> <S.Label>Practice</S.Label>
         </S.NavLink>
       
         <S.NavLink to={routes.browse}>

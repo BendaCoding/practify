@@ -7,11 +7,11 @@ export interface ITimerProps {
   isRunning: boolean;
   onFinish: (...args: any[]) => void;
   onTick?: (...args: any[]) => void;
+  onEverySecond?: () => void;
   onClick?: () => void;
   tickInterval?: number;
-  size?:number;
-  strokeWidth?:number;
-
+  size?: number;
+  strokeWidth?: number;
 }
 
 interface ITimerState {
@@ -24,8 +24,8 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
 
   public static defaultProps: Partial<ITimerProps> = {
     tickInterval: 0.01,
-    strokeWidth:14,
-    size:250,
+    strokeWidth: 14,
+    size: 250,
   };
 
   constructor(props: ITimerProps) {
@@ -38,16 +38,23 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
   }
 
   startTimer = () => {
-    const { tickInterval } = this.props;
+    const { tickInterval, onEverySecond } = this.props;
     const interval = setInterval(
       this.tick, tickInterval! * 1000,
     );
-    this.setState({ interval, isRunning: true });
+    
+    this.setState({
+      interval,
+      isRunning: true,
+    });
   }
 
   stopTimer = () => {
     clearInterval(this.state.interval);
-    this.setState({ interval: null, isRunning: false });
+    this.setState({
+      interval: null,
+      isRunning: false,
+    });
   }
 
   resetTimer = () => {
@@ -56,7 +63,7 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
   }
 
   tick = () => {
-    const { tickInterval, time, onTick, onFinish } = this.props;
+    const { tickInterval, time, onTick, onFinish, onEverySecond } = this.props;
     const { elapsed } = this.state;
 
     let newElapsed = elapsed + tickInterval!;
@@ -68,8 +75,18 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
       onFinish();
     }
 
+    /**
+     * Invoke the onTick Callback if set
+     */
     if (onTick) {
       onTick();
+    }
+
+    /**
+     * Invoke the onEverySecond Callback if set and we've stepped a second
+     */
+    if ( onEverySecond && Math.floor(elapsed) !== Math.floor(newElapsed)) {
+      onEverySecond();
     }
 
     this.setState({ elapsed: newElapsed });

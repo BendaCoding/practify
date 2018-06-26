@@ -1,19 +1,27 @@
 import * as React from 'react';
-import { ExerciseCard, Timer, Button, SteppedProgressBar, ExerciseDescriptionCard } from 'practify/components';
+import { ExerciseCard, Timer, Button, SteppedProgressBar, ExerciseDescriptionCard, CountIn, Fade } from 'practify/components';
 import * as S from './styled';
 import { Metronome } from '../../modules';
-import { IPractiseScreenProps } from './PractiseScreen.container';
+import { IPracticeScreenProps } from './PracticeScreen.container';
 
-export const PracticeScreen: React.SFC<IPractiseScreenProps> = ({
-  selectedExerciseId,
+export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
+  selectedExerciseIndex,
   isRunning,
+  isCountInRunning,
+  bpm,
+  beatCount,
+  startCountIn,
+  stopCountIn,
   startExercise,
+  exerciseTick,
   stopExercise,
+  shouldTriggerCountIn,
   startMetronome,
   stopMetronome,
   finishExercise,
   selectExercise,
 }) => {
+
   const start = () => {
     startExercise();
     startMetronome();
@@ -28,20 +36,54 @@ export const PracticeScreen: React.SFC<IPractiseScreenProps> = ({
     finishExercise();
     stopMetronome();
   };
+  
+  const stopCountInAndMetronome = () => {
+    stopCountIn();
+    stopMetronome();
+  }
+  
+  const onTimerClick =
+    shouldTriggerCountIn
+    ? !isCountInRunning
+      ? startCountIn
+      : stopCountInAndMetronome
+    : !isRunning
+      ? start
+      : stop;
+
+  const startExerciseFromCountIn = () => {
+    if (isCountInRunning) {
+      start();
+    }
+  }
 
   return (
     <S.Screen>
       <S.Md>
         <S.Content>
           <h1>Single Stroke Roll</h1>
+          
           <Timer
             time={55}
             isRunning={isRunning}
             onFinish={finish}
-            onClick={isRunning ? stop : start}
+            onClick={onTimerClick}
+            onEverySecond={exerciseTick}
           />
 
           <Metronome />
+
+          {
+            isCountInRunning &&
+            <Fade>
+              <CountIn
+                beatCount={beatCount}
+                interval={60000 / bpm}
+                onFinish={startExerciseFromCountIn}
+              />
+            </Fade>
+          }
+
         </S.Content>
 
         <S.Aside>
@@ -78,14 +120,14 @@ export const PracticeScreen: React.SFC<IPractiseScreenProps> = ({
           <S.Desc>
             This is a descriptive Text pertaining to the Exercise. Do as I say!!
           </S.Desc>
-          <Timer
+          {/* <Timer
             time={55}
             isRunning={isRunning}
             onFinish={finish}
             onClick={isRunning ? stop : start}
             size={120}
             strokeWidth={7}
-          />
+          /> */}
         </S.Content>
       </S.Sm>
     </S.Screen>

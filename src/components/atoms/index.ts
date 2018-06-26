@@ -1,5 +1,7 @@
 export { Button } from './Button';
+export { Card } from './Card';
 export { Container } from './Container';
+export { CountIn } from './CountIn';
 export { Fade } from './Fade';
 export { PractifyLogo } from './PractifyLogo';
 export { PractifyTypo } from './PractifyTypo';

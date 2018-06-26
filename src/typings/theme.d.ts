@@ -30,6 +30,7 @@ declare interface ITheme {
     disabled: string;
     dimmed: string;
     light: string;
+    background: string;
     
     typo: {
       primary: string;
@@ -46,8 +47,11 @@ declare interface ITheme {
     table: {
       hoverBackground: string;
     }
-    
-    background: string;
+
+
+    countIn: {
+      overlay: string;
+    }
     overlayBackground: string;
 
     spinner: {
