@@ -1,0 +1,1 @@
+export { CoverCard } from './CoverCard';

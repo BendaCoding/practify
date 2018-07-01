@@ -7,7 +7,16 @@ import { getType } from 'typesafe-actions';
 function * loadExercisesSaga() {
   try {
     const snapshot = yield call(rsFire.firestore.getCollection, 'exercises');
-    let exercises: any; snapshot.forEach((exercise: any) => { exercises = { ...exercises, [exercise.id]: exercise.data() }})
+    let exercises: any;
+    snapshot.forEach((exercise: any) => {
+      exercises = {
+        ...exercises,
+        [exercise.id]: {
+          id: exercise.id,
+          ...exercise.data(),
+        },
+      };
+    })
     yield all([
       put(loadExercisesSuccess(exercises)),
     ]);

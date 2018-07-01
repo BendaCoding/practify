@@ -1,4 +1,4 @@
 declare interface IExercisesState {
   isLoading: boolean;
-  exercises: any[];
+  exercises: ILoadExercisesResponse;
 }

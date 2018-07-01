@@ -26,7 +26,8 @@
       "practify/store": ["./src/store"],
       "practify/theme": ["./src/theme"],
       "practify/common": ["./src/common"],
-      "practify/hocs": ["./src/hocs"]
+      "practify/hocs": ["./src/hocs"],
+      "practify/modules": ["./src/modules"]
     }
   },
   "exclude": [

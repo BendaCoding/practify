@@ -1,27 +1,42 @@
-import * as React from 'react';
-import { ExerciseCard, Timer, Button, SteppedProgressBar, ExerciseDescriptionCard, CountIn, Fade } from 'practify/components';
-import * as S from './styled';
-import { Metronome } from '../../modules';
-import { IPracticeScreenProps } from './PracticeScreen.container';
+import * as React from "react";
+import {
+  Timer,
+  SteppedProgressBar,
+  Card,
+  CountIn,
+  Fade,
+  H1,
+  H2,
+  ExercisesTable,
+  Hidden,
+} from "practify/components";
+import * as S from "./styled";
+import { Metronome } from "practify/modules";
+import { IPracticeScreenProps } from "./PracticeScreen.container";
+
+
 
 export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
-  selectedExerciseIndex,
   isRunning,
   isCountInRunning,
+  shouldTriggerCountIn,
   bpm,
   beatCount,
   startCountIn,
   stopCountIn,
   startExercise,
-  exerciseTick,
   stopExercise,
-  shouldTriggerCountIn,
+  exerciseTick,
   startMetronome,
   stopMetronome,
   finishExercise,
   selectExercise,
+  exercises,
+  playlist,
+  selectedExerciseIndex,
+  selectedExerciseElapsed,
+  selectedExercisePeriod,
 }) => {
-
   const start = () => {
     startExercise();
     startMetronome();
@@ -36,14 +51,13 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
     finishExercise();
     stopMetronome();
   };
-  
+
   const stopCountInAndMetronome = () => {
     stopCountIn();
     stopMetronome();
-  }
-  
-  const onTimerClick =
-    shouldTriggerCountIn
+  };
+
+  const onTimerClick = shouldTriggerCountIn
     ? !isCountInRunning
       ? startCountIn
       : stopCountInAndMetronome
@@ -55,81 +69,72 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
     if (isCountInRunning) {
       start();
     }
-  }
+  };
+  
+  const exercise = exercises[selectedExerciseIndex] || {};
 
   return (
     <S.Screen>
-      <S.Md>
-        <S.Content>
-          <h1>Single Stroke Roll</h1>
-          
-          <Timer
-            time={55}
-            isRunning={isRunning}
-            onFinish={finish}
-            onClick={onTimerClick}
-            onEverySecond={exerciseTick}
-          />
+  
+      <SteppedProgressBar steps={6} progress={3} />
 
-          <Metronome />
+      <S.Avatar />
 
-          {
-            isCountInRunning &&
-            <Fade>
-              <CountIn
-                beatCount={beatCount}
-                interval={60000 / bpm}
-                onFinish={startExerciseFromCountIn}
-              />
-            </Fade>
-          }
+      <S.Heading>
+        <H1>{exercise.name}</H1>
+        <H2>{playlist!.name}</H2>
+      </S.Heading>
 
-        </S.Content>
+      <S.ExerciseCard>
+        <Card>
+          <img src="/img/sheet.jpg" style={{ width: "100%" }} />
+          <br />
+          <img src="/img/sheet.jpg" style={{ width: "100%" }} />
+        </Card>
+      </S.ExerciseCard>
 
-        <S.Aside>
-          <ExerciseCard
-            name="Single Stroke Roll"
-            desc="a brief teaser"
-            _id="1"
-            active={true}
-            onClick={selectExercise}
-          />
+      <S.Info>
+        <p>128 bpm</p>
+        <p>G Dur</p>
+      </S.Info>
 
-          <ExerciseCard
-            name="Double Stroke Roll"
-            desc="a brief teaser"
-            _id="2"
-            onClick={selectExercise}
-          />
+      <S.Description>{exercise.description}</S.Description>
 
-          <Button type="success" onClick={startExercise} label="Start" />
+      <S.TransportControls>
+        <Timer
+          time={selectedExercisePeriod}
+          elapsed={selectedExerciseElapsed}
+          timerId={selectedExerciseIndex}
+          isRunning={isRunning}
+          onFinish={finish}
+          onClick={onTimerClick}
+          onEverySecond={exerciseTick}
+          size={120}
+          strokeWidth={4}
+        />
+        
+        <Hidden>
+          <Metronome/>
+        </Hidden>
 
-          <Button
-            type="warning"
-            onClick={stopExercise}
-            label="Stop"
-            className="ml-2"
-          />
-        </S.Aside>
-      </S.Md>
-      {/* @TODO: Merge this into one markup, not separated */}
-      <S.Sm>
-        <S.Content>
-          <SteppedProgressBar steps={6} progress={3} />
-          <ExerciseDescriptionCard bpm={128} mKey="G Dur">srthzdfrtj</ExerciseDescriptionCard>
-          <S.Desc>
-            This is a descriptive Text pertaining to the Exercise. Do as I say!!
-          </S.Desc>
-          {/* <Timer
-            time={55}
-            isRunning={isRunning}
-            onFinish={finish}
-            onClick={isRunning ? stop : start}
-            size={120}
-            strokeWidth={7}
-          /> */}
-        </S.Content>
-      </S.Sm>
+        {isCountInRunning && (
+          <Fade>
+            <CountIn
+              beatCount={beatCount}
+              interval={60000 / bpm}
+              onFinish={startExerciseFromCountIn}
+            />
+          </Fade>
+        )}
+      </S.TransportControls>
+      <S.Aside>
+        <ExercisesTable
+          exercises={exercises}
+          onExerciseClick={selectExercise}
+        />
+      </S.Aside>
     </S.Screen>
+
+
   );
-}
+};

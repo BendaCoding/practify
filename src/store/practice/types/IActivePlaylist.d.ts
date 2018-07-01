@@ -4,4 +4,5 @@ declare interface IActivePlaylist extends Pick<IPlaylist, 'name' | 'description'
 
 interface IExerciseReferenceWithTracking extends IExerciseReference {
   elapsed: number;
+  active?: boolean;
 }

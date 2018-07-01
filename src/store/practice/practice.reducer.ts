@@ -3,15 +3,17 @@ import { Action } from 'redux';
 import { createReducer } from '../../store/create-reducer';
 
 export const initialState: IPracticeState = {
+  selectedExerciseIndex: 0,
   isRunning: false,
   isCountInRunning: false,
-  selectedExerciseIndex: 0,
   playlist: {
-    name: 'asd',
-    description: 'as',
+    name: 'Phil\'s Phrygian Phantasies',
+    description: 'Don\'t even ask ....' ,
     exercises: [
-      { exerciseId: '1', period: 120, elapsed: 0 },
-    ]
+      { exerciseId: 'A9iFOgEKRjLJEDAhbBgv', period: 120, elapsed: 0 },
+      { exerciseId: 'RF1hijgMHZS163iK6Iq3', period: 100, elapsed: 0 },
+      { exerciseId: 'GDuZrgmhGDzHyiLpfrvA', period: 80, elapsed: 0 },
+    ],
   },
 };
 
@@ -30,7 +32,12 @@ export const practiceReducer: any = createReducer(initialState, {
   },
 
   selectExercise: (state: IPracticeState, { payload} ): IPracticeState => {
-    return { ...state, selectedExerciseIndex: payload };
+    return {
+      ...state,
+      isRunning: false,
+      isCountInRunning: false,
+      selectedExerciseIndex: payload,
+    };
   },
   startExercise: (state: IPracticeState, action: Action): IPracticeState => {
     return { ...state, isRunning: true, isCountInRunning: false };

@@ -4,6 +4,8 @@ import { CircularProgressBar } from '../CircularProgressBar';
 
 export interface ITimerProps {
   time: number;
+  elapsed: number;
+  timerId: number;
   isRunning: boolean;
   onFinish: (...args: any[]) => void;
   onTick?: (...args: any[]) => void;
@@ -31,7 +33,7 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
   constructor(props: ITimerProps) {
     super(props);
     this.state = {
-      elapsed: 0,
+      elapsed: props.elapsed,
       interval: null,
       isRunning: false,
     };
@@ -94,8 +96,17 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
 
   componentWillReceiveProps(nextProps: ITimerProps) {
     const { isRunning, interval, elapsed } = this.state;
-    const { time } = this.props;
+    const { time, timerId } = this.props;
     const nextIsRunning = nextProps.isRunning;
+
+    /**
+     * We changed exercises
+     */
+    if (timerId !== nextProps.timerId) {
+      this.setState({
+        elapsed: nextProps.elapsed,
+      });
+    }
 
     if (isRunning !== nextIsRunning) {
       if (nextIsRunning && !interval) {

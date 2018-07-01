@@ -28,13 +28,18 @@ describe('practiceReducer', () => {
     const selectedIndex = 1;
 
     const reducer = practiceReducer({}, selectExercise(selectedIndex));
-    expect(reducer).toEqual({ selectedExerciseIndex: selectedIndex });
+    expect(reducer).toEqual({
+      isRunning: false,
+      isCountInRunning: false,
+      selectedExerciseIndex: selectedIndex,
+    });
   });
 
   it('should handle START_EXERCISE', () => {
     const reducer = practiceReducer({}, startExercise());
     expect(reducer).toEqual({
       isRunning: true,
+      isCountInRunning: false,
     });
   });
 

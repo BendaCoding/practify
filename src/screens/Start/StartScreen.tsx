@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Container, Fade } from "practify/components";
-import { withState, withHandlers, compose } from 'recompose';
+import { Container } from "practify/components";
 
 export const StartScreen: React.SFC<any> = () => (
   <Container>

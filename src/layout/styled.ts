@@ -4,6 +4,7 @@ export const Header = styled.header`
   display: flex;
   height: 50px;
   padding: 0 24px;
+  width:100%;
   color: ${({ theme }) => theme.palette.white};
   background: ${({ theme }) => theme.palette.curiousBlue};
 
@@ -19,6 +20,7 @@ export const NavLarge = styled.div`
 
   @media (min-width: ${({ theme: { breakpoint } }) => breakpoint.md}) {
     display: flex;
+    width: 100%;
   }
 `;
 

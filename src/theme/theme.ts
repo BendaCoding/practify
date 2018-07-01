@@ -51,6 +51,7 @@ export const theme: ITheme = {
       primary:          palette.blackRussian,
       secondary:        palette.slateGrey,
       inverted:         palette.gallery,
+      highlight:        palette.curiousBlue,
     },
 
     mainNav: {
@@ -97,6 +98,8 @@ export const theme: ITheme = {
     regular:           `0px 2px 4px ${palette.athensGrey}`,
   },
   borders: {
+    default:           `1px solid ${palette.athensGrey}`,
     borderRadius:      '2px',
   },
+  space: [0, 6, 12, 24, 36, 48, 96, 192, 384]
 };

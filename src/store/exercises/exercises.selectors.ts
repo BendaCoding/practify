@@ -8,7 +8,14 @@ export const isLoading = createSelector(
   ({ isLoading }) => isLoading, // tslint:disable
 );
 
-export const exercises = createSelector(
+export const exerciseEntities = createSelector(
   [ getExercisesState ],
-  ({ exercises }) => exercises,
+  ({ exercises }) => {
+    return exercises ? exercises : []
+  }
+);
+
+export const exercises = createSelector(
+  [ exerciseEntities ],
+  (exercises) => Object.keys(exercises).map((id: string) => ({ id, ...exercises[id] }))
 );

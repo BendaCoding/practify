@@ -36,6 +36,7 @@ declare interface ITheme {
       primary: string;
       secondary: string;
       inverted: string;
+      highlight: string;
     }
 
     mainNav: {
@@ -82,6 +83,8 @@ declare interface ITheme {
     regular: string;
   }
   borders: {
+    default: string;
     borderRadius: string;
   }
+  space: number[];
 }

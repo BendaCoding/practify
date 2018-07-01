@@ -8,7 +8,12 @@ export const isLoading = createSelector(
   ({ isLoading }) => isLoading, // tslint:disable
 );
 
-export const playlists = createSelector(
+export const playlistEntities = createSelector(
   [ getPlaylistsState ],
   ({ playlists }) => playlists,
+);
+
+export const playlists = createSelector(
+  [ playlistEntities ],
+  (playlists) => Object.keys(playlists).map(id => ({ id, ...playlists[id] })),
 );

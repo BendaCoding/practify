@@ -1,10 +1,11 @@
 import { styled, css } from "practify/theme";
 
 export const Bar = styled.div`
-  height: 4px;
+  height: 3px;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  grid-area:SteppedProgressBar;
   background: ${({ theme }) => theme.palette.gallery};
 `;
 

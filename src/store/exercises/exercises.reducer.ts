@@ -3,7 +3,7 @@ import { createReducer } from '../create-reducer';
 
 export const initialState: IExercisesState = {
   isLoading: false,
-  exercises: [],
+  exercises: {},
 };
 
 export const exercisesReducer =  createReducer(initialState, {

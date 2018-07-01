@@ -1,10 +1,12 @@
-import * as React from "react";
-import * as S from "./styled";
+import { styled } from "practify/theme";
+import { Box } from "grid-styled";
 
-export const Card: React.SFC<{}> = props => {
-  return (
-    <S.Card>
-      <S.Content>{props.children}</S.Content>
-    </S.Card>
-  );
-};
+export const Card = Box.extend`
+  width: 100%;
+  box-shadow: ${({ theme }) => theme.shadows.regular};
+  background: ${({ theme }) => theme.palette.white};
+  overflow-y: auto;
+  text-align: center;
+  padding: 20px;
+  max-height: 100%;
+`;

@@ -1,2 +1,3 @@
-export { Table } from './Table';
+export { CoverFlick } from './CoverFlick';
 export { HeroSection } from './HeroSection';
+export { Table } from './Table';

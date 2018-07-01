@@ -1,6 +1,6 @@
 import { connect, Dispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Practice } from 'practify/store';
+import { Practice, Exercises } from 'practify/store';
 import { Metronome as MetronomeStore } from '../../modules/Metronome/store'
 import { PracticeScreen } from './PracticeScreen';
 import { compose, lifecycle } from 'recompose';
@@ -8,11 +8,15 @@ import { compose, lifecycle } from 'recompose';
 const mapState = (state: IAppState) => ({
   isRunning: Practice.selectors.isRunning(state),
   isCountInRunning: Practice.selectors.isCountInRunning(state),
+  
   selectedExerciseIndex: Practice.selectors.selectedExerciseIndex(state),
-  elapsed: Practice.selectors.selectedExerciseElapsed(state),
+  selectedExerciseElapsed: Practice.selectors.selectedExerciseElapsed(state),
+  selectedExercisePeriod: Practice.selectors.selectedExercisePeriod(state),
   shouldTriggerCountIn: Practice.selectors.shouldTriggerCountIn(state),
   bpm: MetronomeStore.selectors.getBpm(state),
   beatCount: MetronomeStore.selectors.getBeatCount(state),
+  exercises: Practice.selectors.exercisesForPlaylist(state),
+  playlist: Practice.selectors.playlist(state),
 });
 
 const mapDispatch = (dispatch: Dispatch) =>
@@ -26,6 +30,8 @@ const mapDispatch = (dispatch: Dispatch) =>
     stopMetronome: MetronomeStore.actions.stopMetronome,
     finishExercise: Practice.actions.finishExercise,
     selectExercise: Practice.actions.selectExercise,
+    loadExercises: Exercises.actions.loadExercisesRequest,
+    loadPlaylist: Practice.actions.loadPlaylist,
   },
   dispatch,
 );
@@ -33,23 +39,29 @@ const mapDispatch = (dispatch: Dispatch) =>
 interface IStateProps {
   isRunning: boolean;
   isCountInRunning: boolean;
-  selectedExerciseIndex: number;
-  elapsed: number;
   shouldTriggerCountIn: boolean;
+  
+  selectedExerciseIndex: number;
+  selectedExerciseElapsed: number;
+  selectedExercisePeriod: number;
+  
   bpm: number;
   beatCount: number;
+  exercises: IExercise[];
+  playlist: IActivePlaylist | null;
 }
 
 interface IDispatchProps {
-  startCountIn: () => any;
-  stopCountIn: () => any;
-  startExercise: () => any;
-  exerciseTick: () => any;
-  stopExercise: () => any;
-  startMetronome: () => any;
-  stopMetronome: () => any;
-  finishExercise: () => any;
-  selectExercise: (exerciseIndex: number) => any;
+  startCountIn: typeof Practice.actions.startCountIn;
+  stopCountIn: typeof Practice.actions.stopCountIn;
+  startExercise: typeof Practice.actions.startExercise;
+  stopExercise: typeof Practice.actions.stopExercise;
+  exerciseTick: typeof Practice.actions.exerciseTick;
+  finishExercise: typeof Practice.actions.finishExercise;
+  startMetronome: typeof MetronomeStore.actions.startMetronome;
+  stopMetronome: typeof MetronomeStore.actions.stopMetronome;
+  loadExercises: typeof Exercises.actions.loadExercisesRequest;
+  selectExercise: typeof Practice.actions.selectExercise;
 }
 
 export type IPracticeScreenProps = IStateProps & IDispatchProps;
@@ -62,6 +74,10 @@ export default compose(
   lifecycle<IPracticeScreenProps, any>({
     componentWillUnmount() {
       this.props.stopExercise();
+    },
+    componentDidMount() {
+      this.props.loadExercises();
+
     },
   }),
 )(PracticeScreen);

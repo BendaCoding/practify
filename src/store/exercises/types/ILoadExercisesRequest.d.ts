@@ -1,6 +1,9 @@
 declare interface IExercise {
   name: string;
   description: string;
+  id: string;
 }
 
-declare type ILoadExercisesRequest = IExercise[];
+declare interface ILoadExercisesResponse {
+  [id: string]: IExercise;
+}

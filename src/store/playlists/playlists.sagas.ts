@@ -6,7 +6,16 @@ import { getType } from 'typesafe-actions';
 function * loadPlaylistsSaga() {
   try {
     const snapshot = yield call(rsFire.firestore.getCollection, 'playlists');
-    let playlists: any; snapshot.forEach((playlist: any) => { playlists = { ...playlists, [playlist.id]: playlist.data() }})
+    let playlists: any;
+    snapshot.forEach((playlist: any) => {
+      playlists = {
+        ...playlists,
+        [playlist.id]: {
+          id: playlist.id,
+          ...playlist.data(),
+        },
+      }
+    })
     yield all([
       put(loadPlaylistsSuccess(playlists)),
     ]);

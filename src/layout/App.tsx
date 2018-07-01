@@ -15,17 +15,16 @@ export class App extends React.Component<RouteComponentProps<any>> {
 
     return (
       <div className="app">
-      
+        <S.NavLarge>
         <S.Header>
-          <S.NavLarge>
+        
             <NavLink to={routes.browse}>
               <PractifyTypo />
             </NavLink>
             <MainNav />
-          </S.NavLarge>
-          <S.NavMobile>Current Page</S.NavMobile>
+        
         </S.Header>
-
+        </S.NavLarge>
         <main>
           <TransitionSwitch location={location}>
             <LoginRoute exact path={routes.home} component={LoginScreen} />
