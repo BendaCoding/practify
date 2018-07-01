@@ -1,0 +1,1 @@
+export { CoverCardWithHoverContent } from './CoverCardWithHoverContent';

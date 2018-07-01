@@ -7,7 +7,9 @@ import { Container, CoverFlick } from 'practify/components';
 
 const BrowseScreen = ({ exercises, playlists }: any) => {
 
-  playlists = playlists.map((pl: IPlaylist) => ({ ...pl, coverUrl: 'https://i.scdn.co/image/859b7acb1389b23a300da985a74817b6c6273ff2' }));
+  const onPlaylistClick = (playlistId: string) => {
+    console.log(playlistId);
+  }
 
   return (
     <Container>
@@ -16,6 +18,10 @@ const BrowseScreen = ({ exercises, playlists }: any) => {
       <CoverFlick
         title="Recently Practiced"
         items={playlists}
+        options={{
+          dots: true,
+        }}
+        onClick={onPlaylistClick}
       />
 
     </Container>

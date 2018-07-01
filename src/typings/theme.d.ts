@@ -36,6 +36,7 @@ declare interface ITheme {
       primary: string;
       secondary: string;
       inverted: string;
+      contrast: string;
       highlight: string;
     }
 
@@ -53,7 +54,7 @@ declare interface ITheme {
     countIn: {
       overlay: string;
     }
-    overlayBackground: string;
+    overlayBg: string;
 
     spinner: {
       light: string;
@@ -87,4 +88,10 @@ declare interface ITheme {
     borderRadius: string;
   }
   space: number[];
+  components: {
+    coverCardWithHoverContent: {
+      overlayBg: string;
+      transition: string;
+    }
+  }
 }

@@ -22,6 +22,6 @@ export const Wrapper = styled<IWrapperProps, any>('div')`
         bottom: 0;
         right: 0;
         z-index: ${zIndex};
-        background: ${theme.colors.overlayBackground};
+        background: ${theme.colors.overlayBg};
     ` : ''}
 `;

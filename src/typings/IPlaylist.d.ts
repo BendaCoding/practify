@@ -1,6 +1,11 @@
 declare interface IPlaylist {
   name: string;
   description: string;
+  coverUrl: string;
+  ratings: {
+    average: number;
+    count: number;
+  }
   exercises: IExerciseReference[];
 }
 

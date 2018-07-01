@@ -1,7 +1,10 @@
 import { injectGlobal, css } from "practify/theme";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const baseStyles = () => injectGlobal`
+
   html body {
     margin: 0;
     padding: 0;
@@ -39,27 +42,6 @@ export const baseStyles = () => injectGlobal`
     }
     to {
       transform: rotate(360deg);
-    }
-  }
-
-  .flickity-prev-next-button {
-    width: 24px;
-    height: 24px;
-    top: 0;
-    transform: translateY(-39px);
-    background: none;
-
-    &:hover {
-      background: none;
-    }
-    
-    &.next {
-      right: 19px;
-    }
-
-    &.previous {
-      left: auto;
-      right: 44px;
     }
   }
   

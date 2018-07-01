@@ -16,8 +16,8 @@ const palette = {
   athensGrey:        '#DFDFDF',
   gallery:           '#EFEFEF',
   firebush:          '#DE9D49',
-  white:             '#FFF',
-  black:             '#000',
+  white:             '#FFFFFF',
+  black:             '#000000',
 }
 
 /**
@@ -51,6 +51,7 @@ export const theme: ITheme = {
       primary:          palette.blackRussian,
       secondary:        palette.slateGrey,
       inverted:         palette.gallery,
+      contrast:         palette.white,
       highlight:        palette.curiousBlue,
     },
 
@@ -68,7 +69,7 @@ export const theme: ITheme = {
       overlay:        `${palette.slateGrey}47`,
     },
 
-    overlayBackground: `${palette.slateGrey}47`,
+    overlayBg: `${palette.slateGrey}47`,
 
     spinner: {
       light:           palette.athensGrey,
@@ -101,5 +102,11 @@ export const theme: ITheme = {
     default:           `1px solid ${palette.athensGrey}`,
     borderRadius:      '2px',
   },
-  space: [0, 6, 12, 24, 36, 48, 96, 192, 384]
+  space: [0, 6, 12, 24, 36, 48, 96, 192, 384],
+  components: {
+    coverCardWithHoverContent: {
+      overlayBg:         `${palette.black}76`,
+      transition:      '90ms opacity ease-in',
+    }
+  }
 };

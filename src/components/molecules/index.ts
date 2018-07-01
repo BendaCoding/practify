@@ -1,5 +1,6 @@
 export { AuthRoute } from './AuthRoute';
 export { CircularProgressBar } from './CircularProgressBar';
+export { CoverCardWithHoverContent } from './CoverCardWithHoverContent';
 export { ExerciseCard } from './ExerciseCard';
 export { LoginRoute } from './LoginRoute';
 export { Spinner } from './Spinner';
