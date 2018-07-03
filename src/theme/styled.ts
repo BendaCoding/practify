@@ -1,4 +1,5 @@
-import * as styledComponents from 'styled-components';
+import * as styledComponents from "styled-components";
+import { space, width, fontSize, color } from "styled-system";
 
 const {
   default: styled,
@@ -8,4 +9,14 @@ const {
   ThemeProvider,
 } = styledComponents as styledComponents.ThemedStyledComponentsModule<ITheme>;
 
-export { css, injectGlobal, keyframes, ThemeProvider, styled };
+export {
+  css,
+  injectGlobal,
+  keyframes,
+  ThemeProvider,
+  styled,
+  space,
+  width,
+  fontSize,
+  color,
+};

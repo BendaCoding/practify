@@ -39,7 +39,8 @@ export const Screen = styled.div`
 `;
 
 export const Aside = styled.aside`
-  margin-left: 12px;
+  margin-left: ${props => `${props.theme.space[3]}px`};
+  padding-top: ${props => `${props.theme.space[3]}px`};
   grid-area: playlistArea;
   align-self: start;
   @media (max-width: ${({ theme: { breakpoint } }) => breakpoint.lg}) {

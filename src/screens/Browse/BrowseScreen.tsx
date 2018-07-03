@@ -18,9 +18,6 @@ const BrowseScreen = ({ exercises, playlists }: any) => {
       <CoverFlick
         title="Recently Practiced"
         items={playlists}
-        options={{
-          dots: true,
-        }}
         onClick={onPlaylistClick}
       />
 

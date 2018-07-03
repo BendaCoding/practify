@@ -18,6 +18,11 @@ export const appEN = {
       },
     },
   },
+  practice: {
+    aside: {
+      title: 'Exercises',
+    },
+  },
   notFound: {
     headline: 'Sorry, couldn\'t find that.',
   },

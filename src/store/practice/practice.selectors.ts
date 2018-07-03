@@ -55,9 +55,14 @@ export const shouldTriggerCountIn = createSelector(
 export const exercisesForPlaylist = createSelector(
   [ playlist, Exercises.selectors.exerciseEntities, selectedExerciseIndex ],
   (playlist, allExercises, selectedExerciseIndex) => playlist && !isEmpty(playlist) && !isEmpty(allExercises)
-    ? playlist.exercises.map((exercise, index) => ({
-        ...allExercises[exercise.exerciseId],
-        active: selectedExerciseIndex === index,
-      }))
+    ? playlist.exercises.map((exerciseReference, index) => {
+        const exercise = allExercises[exerciseReference.exerciseId];
+        const progress = exerciseReference.elapsed / exerciseReference.period * 100;
+        return {
+          ...exercise,
+          active: selectedExerciseIndex === index,
+          progress,
+        }
+      })
     : [],
 );

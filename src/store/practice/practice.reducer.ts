@@ -1,6 +1,7 @@
 import { loadPlaylist, selectExercise, startExercise, stopExercise, finishExercise, exerciseTick, startCountIn, stopCountIn } from './practice.actions';
 import { Action } from 'redux';
 import { createReducer } from '../../store/create-reducer';
+import { get } from 'lodash';
 
 export const initialState: IPracticeState = {
   selectedExerciseIndex: 0,
@@ -10,9 +11,9 @@ export const initialState: IPracticeState = {
     name: 'Phil\'s Phrygian Phantasies',
     description: 'Don\'t even ask ....' ,
     exercises: [
-      { exerciseId: 'A9iFOgEKRjLJEDAhbBgv', period: 120, elapsed: 0 },
-      { exerciseId: 'RF1hijgMHZS163iK6Iq3', period: 100, elapsed: 0 },
-      { exerciseId: 'GDuZrgmhGDzHyiLpfrvA', period: 80, elapsed: 0 },
+      { exerciseId: 'A9iFOgEKRjLJEDAhbBgv', period: 50, elapsed: 0 },
+      { exerciseId: 'RF1hijgMHZS163iK6Iq3', period: 40, elapsed: 0 },
+      { exerciseId: 'GDuZrgmhGDzHyiLpfrvA', period: 35, elapsed: 0 },
     ],
   },
 };

@@ -1,31 +1,33 @@
-import * as classnames from 'classnames';
-import * as React from 'react';
+import React, { SFC } from 'react';
 import * as S from './styled';
+import { Card, ProgressBar } from '../../atoms';
+import { CommonProps, ResponsiveProp } from 'grid-styled';
 
-export interface IExerciseCardProps {
+export interface IOwnProps {
   name: string;
-  desc: string;
-  _id: string;
-  onClick: (index: number) => void;
+  description: string;
   active?: boolean;
+  onClick?: () => any;
+  progress?: number;
 }
 
-export class ExerciseCard extends React.Component<IExerciseCardProps> {
+type IExerciseCardProps = IOwnProps & CommonProps;
 
-  onClick = () => {
-    this.props.onClick(1);
-  }
-
-  render() {
-    const { name, desc, active }: IExerciseCardProps = this.props;
-    const cardClasses = classnames({ 'active': active}, 'card');
-    return (
-      <S.ExerciseCard className={cardClasses} onClick={this.onClick}>
-        <div className="card-body">
-          <S.CardTitle>{name}</S.CardTitle>
-          <S.CardText>{desc}</S.CardText>
-        </div>
-      </S.ExerciseCard>
-    );
-  }
+export const ExerciseCard: SFC<IExerciseCardProps> = ({
+  name,
+  description,
+  active,
+  onClick,
+  progress,
+  color,
+  ...rest
+}) => {
+  const clickHandler = onClick ? onClick : () => '';
+  return (
+    <S.Card onClick={clickHandler} {...rest}>
+      <S.CardTitle>{name}</S.CardTitle>
+      <S.CardText>{description}</S.CardText>
+      <ProgressBar progress={progress} />
+    </S.Card>
+  );
 }

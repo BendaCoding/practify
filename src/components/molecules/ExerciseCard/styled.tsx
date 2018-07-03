@@ -1,6 +1,7 @@
 import { styled } from 'practify/theme';
+import { Card as BaseCard } from '../../atoms/Card';
 
-export const ExerciseCard = styled.div`
+export const Wrapper = styled.div`
   background: ${({ theme }) => theme.palette.white};
   margin-bottom: 12px;
   cursor: pointer;
@@ -8,6 +9,13 @@ export const ExerciseCard = styled.div`
 
   &.active {
     position: relative;
+  }
+`;
+
+export const Card = styled(BaseCard)`
+  cursor: pointer;
+  &:hover {
+    
   }
 `;
 

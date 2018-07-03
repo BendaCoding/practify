@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import {
   Timer,
   SteppedProgressBar,
@@ -7,8 +7,8 @@ import {
   Fade,
   H1,
   H2,
-  ExercisesTable,
   Hidden,
+  PlaylistCards,
 } from "practify/components";
 import * as S from "./styled";
 import { Metronome } from "practify/modules";
@@ -17,6 +17,7 @@ import { IPracticeScreenProps } from "./PracticeScreen.container";
 
 
 export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
+  t,
   isRunning,
   isCountInRunning,
   shouldTriggerCountIn,
@@ -48,8 +49,8 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
   };
 
   const finish = () => {
-    finishExercise();
     stopMetronome();
+    finishExercise();
   };
 
   const stopCountInAndMetronome = () => {
@@ -88,8 +89,6 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
       <S.ExerciseCard>
         <Card>
           <img src="/img/sheet.jpg" style={{ width: "100%" }} />
-          <br />
-          <img src="/img/sheet.jpg" style={{ width: "100%" }} />
         </Card>
       </S.ExerciseCard>
 
@@ -127,12 +126,17 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
           </Fade>
         )}
       </S.TransportControls>
+      
       <S.Aside>
-        <ExercisesTable
+        
+        <PlaylistCards
           exercises={exercises}
-          onExerciseClick={selectExercise}
+          selectExercise={selectExercise}
+          selectedExerciseIndex={selectedExerciseIndex}
         />
+
       </S.Aside>
+
     </S.Screen>
 
 

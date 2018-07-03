@@ -32,7 +32,6 @@ const defaultOptions = {
       settings: {
         slidesToShow: 5,
         slidesToScroll: 5,
-        dots: false,
       },
     },
     {
@@ -40,7 +39,6 @@ const defaultOptions = {
       settings: {
         slidesToShow: 3,
         slidesToScroll: 3,
-        dots: false,
       },
     },
     {
@@ -48,7 +46,6 @@ const defaultOptions = {
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
-        dots: false,
       },
     },
     {
@@ -56,9 +53,8 @@ const defaultOptions = {
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
-        dots: false,
       },
-    }
+    },
   ],
 }
 

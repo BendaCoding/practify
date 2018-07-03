@@ -107,6 +107,6 @@ export const theme: ITheme = {
     coverCardWithHoverContent: {
       overlayBg:         `${palette.black}76`,
       transition:      '90ms opacity ease-in',
-    }
-  }
+    },
+  },
 };
