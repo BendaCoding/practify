@@ -1,6 +1,6 @@
-import { getBeatsWithVolume } from './../metronome.selectors';
+import { getBeatsWithVolume } from '../metronome.selectors';
 import { addBeat, removeBeat, incrementSubdivision,
-  decrementSubdivision, tick, changeBeatVolumeAtIndex, setBpm, startMetronome, stopMetronome } from './../metronome.actions';
+  decrementSubdivision, tick, changeBeatVolumeAtIndex, setBpm, startMetronome, stopMetronome } from '../metronome.actions';
 import { metronomeReducer, initialState } from '../metronome.reducer';
 import { assign, dropRight } from 'lodash';
 

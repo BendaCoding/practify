@@ -2,7 +2,7 @@ import React, { SFC } from "react";
 import Slider, { Settings as SliderSettings } from "react-slick";
 import { CoverCard } from "../../atoms/CoverCard";
 import { H4, H3 } from "../../atoms";
-import { Box } from "grid-styled";
+import { Box, CommonProps } from "grid-styled";
 import * as S from './styled';
 import { CoverCardWithHoverContent } from "../../molecules";
 import { FaPlay } from "react-icons/lib/fa";
@@ -15,7 +15,7 @@ interface ICoverFlickItem {
   onClick?: (id: string) => void;
 }
 
-interface ICoverFlickProps {
+interface ICoverFlickProps extends CommonProps {
   items: ICoverFlickItem[];
   title?: string;
   options?: SliderSettings,
@@ -63,6 +63,8 @@ export const CoverFlick: SFC<ICoverFlickProps> = ({
   items,
   options,
   onClick,
+  color,
+  ...rest
 }) => {
 
   const mergedOptions = {
@@ -71,7 +73,7 @@ export const CoverFlick: SFC<ICoverFlickProps> = ({
   }
 
   return (
-    <Box mb={2}>
+    <Box {...rest}>
 
       <S.Header>
         <H3>{title}</H3>

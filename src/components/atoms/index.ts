@@ -1,3 +1,4 @@
+export { Animate } from './Animate';
 export { Button } from './Button';
 export { Card } from './Card';
 export { Container } from './Container';
@@ -11,6 +12,7 @@ export { Hidden } from './Hidden';
 export { PractifyLogo } from './PractifyLogo';
 export { PractifyTypo } from './PractifyTypo';
 export { ProgressBar } from './ProgressBar';
+export { RatingStars } from './RatingStars';
 export { Tag } from './Tag';
 export { Td } from './Td';
 export { TextInput } from './TextInput';

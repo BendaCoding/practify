@@ -1,5 +1,5 @@
 import * as React from "react"
-import { PractifyLogo } from '../../';
+import { PractifyLogo } from 'practify/components';
 import * as S from './styled';
 import { Fade } from "../../atoms";
 

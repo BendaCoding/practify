@@ -1,4 +1,5 @@
 declare interface IPlaylist {
+  id: string;
   name: string;
   description: string;
   coverUrl: string;

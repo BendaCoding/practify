@@ -68,7 +68,7 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
     const { tickInterval, time, onTick, onFinish, onEverySecond } = this.props;
     const { elapsed } = this.state;
 
-    let newElapsed = elapsed + tickInterval!;
+    const newElapsed = elapsed + tickInterval!;
 
     /**
      * Invoke the onTick Callback if set
@@ -85,9 +85,8 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
     }
 
     if (newElapsed >= time) {
-      newElapsed = 0;
+      // newElapsed = 0;
       this.stopTimer();
-      console.log("on FINISH");
       onFinish();
     }
 

@@ -1,7 +1,8 @@
-import * as firebase from 'firebase/app';
-import 'firebase/app';
+import * as fb from 'firebase';
+import 'firebase';
 import 'firebase/auth';
 import 'firebase/firestore';
+// import 'firebase/storage';
 import ReduxSagaFirebase from 'redux-saga-firebase';
 
 import * as users from './users';
@@ -15,19 +16,19 @@ const config = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER_ID,
 };
 
-export const fire = firebase.initializeApp(config);
-export const rsFire = new ReduxSagaFirebase(fire);
+export const firebase = fb.initializeApp(config);
+export const rsf = new ReduxSagaFirebase(firebase);
 
-export const firestore = firebase.firestore();
+export const firestore = fb.firestore();
+firestore.settings({ timestampsInSnapshots: true });
 
-export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-export const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
-
-const settings = { timestampsInSnapshots: true };
-firestore.settings(settings);
+export const googleAuthProvider = new fb.auth.GoogleAuthProvider();
+export const facebookAuthProvider = new fb.auth.FacebookAuthProvider();
 
 export const collections = {
   users: firestore.collection('users'),
 }
+
+export const storage = firebase.storage();
 
 export { users };

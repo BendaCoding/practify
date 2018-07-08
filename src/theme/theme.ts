@@ -16,6 +16,7 @@ const palette = {
   athensGrey:        '#DFDFDF',
   gallery:           '#EFEFEF',
   firebush:          '#DE9D49',
+  confetti:          '#EFE255',
   white:             '#FFFFFF',
   black:             '#000000',
 }
@@ -28,7 +29,7 @@ const infoPalette = {
   color2:            '#C45D8A',
   color3:            '#7C5DC4',
   color4:            '#CD594D',
-  color5:            '#E5DA60',
+  color5:            '#EFE255',
 }
 
 /**
@@ -46,6 +47,9 @@ export const theme: ITheme = {
     dimmed:             palette.slateGrey,
     light:              palette.athensGrey,
     background:         palette.blackSqueeze,
+    success:            palette.limeade,
+    error:              palette.firebush,
+    info:               palette.confetti,
 
     typo: {
       primary:          palette.blackRussian,
@@ -87,6 +91,7 @@ export const theme: ITheme = {
   },
   transitions: {
     easeOutElastic:    'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+    gradualEaseInOut:  'cubic-bezier(.54,.24,.44,.78)',
   },
   breakpoint: {
     xs:                '0px',

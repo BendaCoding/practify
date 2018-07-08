@@ -1,6 +1,6 @@
-import { facebookAuthProvider, googleAuthProvider } from './../../firebase/index';
+import { facebookAuthProvider, googleAuthProvider } from 'practify/firebase';
 import { call, all, put, fork, take, takeEvery } from 'redux-saga/effects';
-import { rsFire } from 'practify/firebase';
+import { rsf } from 'practify/firebase';
 import { getType } from 'typesafe-actions';
 import { push } from 'connected-react-router'
 import { userLoginRequest, userLoginSuccess, userLoginFail, userLoginSync, userLogoutSuccess,
@@ -9,7 +9,7 @@ import { routes } from 'practify/common';
 
 function * userLoginSaga({ payload: { email, password }}: IPayload<IAuthLoginRequest>) {
   try {
-    yield call(rsFire.auth.signInWithEmailAndPassword, email, password);
+    yield call(rsf.auth.signInWithEmailAndPassword, email, password);
     yield all([
       put(userLoginSuccess()),
       put(push(routes.practice)),
@@ -24,7 +24,7 @@ function * userLoginSaga({ payload: { email, password }}: IPayload<IAuthLoginReq
 
 function * userLogoutSaga() {
   try {
-    yield call(rsFire.auth.signOut);
+    yield call(rsf.auth.signOut);
     yield all([
       put(userLogoutSuccess()),
       put(push(routes.home)),
@@ -38,7 +38,7 @@ function * userLogoutSaga() {
 }
 
 function * userSyncSaga() {
-  const channel = yield call(rsFire.auth.channel);
+  const channel = yield call(rsf.auth.channel);
 
   while(true) {
     const { error, user } = yield take(channel);
@@ -54,10 +54,10 @@ function * userSyncSaga() {
 
 function * userRegisterSaga({ payload: { email, password, ...rest }}: IPayload<IAuthRegisterRequest>) {
   try {
-    const data = yield call(rsFire.auth.createUserWithEmailAndPassword, email, password);
+    const data = yield call(rsf.auth.createUserWithEmailAndPassword, email, password);
 
     yield call(
-      rsFire.firestore.setDocument,
+      rsf.firestore.setDocument,
       `users/${data.user.uid}`,
       rest,
     );
@@ -77,7 +77,7 @@ function * userRegisterSaga({ payload: { email, password, ...rest }}: IPayload<I
 function* userOAuthSaga({ payload }: IPayload<IAuthLinkRequest>) {
   try {
     const authProvider = payload === 'facebook' ? facebookAuthProvider : googleAuthProvider;
-    const data = yield call(rsFire.auth.signInWithPopup, authProvider);
+    const data = yield call(rsf.auth.signInWithPopup, authProvider);
     yield put(userOAuthRequest(data));
   } catch(error) {
     yield put(userLoginFail(error));

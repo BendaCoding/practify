@@ -6,8 +6,13 @@ export const ProgressBar = styled.div`
   background: ${({ theme }) => theme.colors.light};
 `;
 
-export const Filled = styled.div`
-  transition: 250ms width;
+interface IFilledProps {
+  noTransition?: boolean;
+}
+
+export const Filled = styled<IFilledProps, any>('div')`
   height: 6px;
   background: ${props => props.theme.colors.primary};
+  transition: 1000ms width;
+  ${({ noTransition }) => noTransition && `transition: none;`}
 `;

@@ -9,3 +9,4 @@ export { SteppedProgressBar } from './SteppedProgressBar';
 export { TBody } from './TBody';
 export { THead } from './THead';
 export { Timer } from './Timer';
+export { Panel } from './Panel';

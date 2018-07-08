@@ -1,36 +1,29 @@
 import * as React from 'react';
 import { Fragment, SFC } from 'react';
-import { Spinner } from 'practify/components';
+import { Spinner, Fade } from 'practify/components';
 import * as S from './styled';
 import { theme } from 'practify/theme';
 
 interface IWithLoaderOptions {
-  type?: 'light' | 'dark' | 'overlay';
-  size?: 'sm' | 'md' | 'lg';
-  zIndex?: number;
-  minHeight?: number;
-}
-
-interface IWithLoaderProps {
   type: 'light' | 'dark' | 'overlay';
   size: 'sm' | 'md' | 'lg';
   zIndex: number;
   minHeight: number;
 }
 
-interface IWrappedComponentProps extends IWithLoaderProps {
+export interface IWithLoaderProps {
   isLoading: boolean;
 }
 
-const defaultConfig: IWithLoaderProps = {
+const defaultConfig: IWithLoaderOptions = {
   type: 'dark',
   size: 'md',
   zIndex: 1,
-  minHeight: 40,
+  minHeight: 120,
 }
 
-export const withLoader = (userConfig: IWithLoaderOptions = defaultConfig) => (WrappedComponent: any) => {
-  const ComponentWithLoader: SFC<IWrappedComponentProps> = ({ isLoading, ...rest }) => {
+export const withLoader = (userConfig: Partial<IWithLoaderOptions> = defaultConfig) => (WrappedComponent: any) => {
+  const ComponentWithLoader: SFC<IWithLoaderProps> = ({ isLoading, ...rest }) => {
     const { type, size, zIndex, minHeight } = {
       ...defaultConfig,
       ...userConfig,
@@ -51,6 +44,7 @@ export const withLoader = (userConfig: IWithLoaderOptions = defaultConfig) => (W
             <Spinner color={spinnerColor} size={size} />
           </S.Wrapper>
         )}
+
         {shouldRenderWrappedComponent && <WrappedComponent {...rest} />}
       </Fragment>
     )

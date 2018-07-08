@@ -14,6 +14,7 @@ declare interface ITheme {
     lightGrey: string;
     gallery: string;
     firebush: string;
+    confetti: string;
     white: string;
     black: string;
   };
@@ -31,6 +32,9 @@ declare interface ITheme {
     dimmed: string;
     light: string;
     background: string;
+    success: string;
+    error: string;
+    info: string;
     
     typo: {
       primary: string;
@@ -72,6 +76,7 @@ declare interface ITheme {
   }
   transitions: {
     easeOutElastic: string;
+    gradualEaseInOut: string;
   }
   breakpoint: {
     xs: string;

@@ -1,40 +1,42 @@
-import React, { SFC, Fragment } from "react";
+import React, { SFC } from "react";
 import { Flex } from "grid-styled";
-import { H2 } from "../../atoms";
 import { translate, InjectedTranslateProps } from "react-i18next";
 import { IExerciseWithPlaylistData } from "../../../store/practice/types/IExerciseWithPlaylistData";
-import * as S from './styled';
+import { ExerciseCard } from "../../molecules";
+import { withLoader } from "practify/hocs";
+import { compose } from "recompose";
+import { IWithLoaderProps } from "../../../hocs/withLoader/withLoader";
 
-interface IOwnProps {
+interface IOuterProps extends IWithLoaderProps {
   exercises: IExerciseWithPlaylistData[];
   selectExercise: any;
   selectedExerciseIndex: number;
 }
 
-type IPlaylistCards = IOwnProps & InjectedTranslateProps;
+type IInnerProps = IOuterProps & InjectedTranslateProps;
 
-export const PlaylistCards: SFC<IPlaylistCards> = ({ t, exercises, selectExercise, selectedExerciseIndex }) => {
+export const PlaylistCards: SFC<IInnerProps> = ({ t, exercises, selectExercise, selectedExerciseIndex }) => {
   const clickHandler = (index: number) => () => selectExercise(index);
 
   return (
-    <Fragment>
-      <H2 mb={2}>{t("practice.aside.title")}</H2>
-
       <Flex flexDirection="column">
         {exercises.map((ex: IExerciseWithPlaylistData, index: number) => (
-          <S.ExerciseCard
+          <ExerciseCard
             name={ex.name}
-            description={ex.description}
             mb={3}
             progress={ex.progress}
+            timeLeft={ex.timeLeft}
+            finished={ex.finished}
             onClick={clickHandler(index)}
             active={index === selectedExerciseIndex}
             key={ex.name}
           />
         ))}
       </Flex>
-    </Fragment>
   );
 };
 
-export default translate()(PlaylistCards);
+export default compose<IInnerProps, IOuterProps>(
+  translate(),
+  withLoader(),
+)(PlaylistCards);

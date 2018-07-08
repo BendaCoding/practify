@@ -7,14 +7,14 @@ import {
   Fade,
   H1,
   H2,
-  Hidden,
   PlaylistCards,
+  ExerciseHeader,
 } from "practify/components";
 import * as S from "./styled";
 import { Metronome } from "practify/modules";
 import { IPracticeScreenProps } from "./PracticeScreen.container";
-
-
+import { CoverCard } from "../../components/atoms/CoverCard";
+import { Flex } from "grid-styled";
 
 export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
   t,
@@ -31,10 +31,12 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
   startMetronome,
   stopMetronome,
   finishExercise,
+  logExercise,
   selectExercise,
   exercises,
   playlist,
   selectedExerciseIndex,
+  selectedExerciseId,
   selectedExerciseElapsed,
   selectedExercisePeriod,
 }) => {
@@ -51,6 +53,7 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
   const finish = () => {
     stopMetronome();
     finishExercise();
+    logExercise({ exerciseId: selectedExerciseId, instrumentId: 'drums' });
   };
 
   const stopCountInAndMetronome = () => {
@@ -79,23 +82,35 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
   
       <SteppedProgressBar steps={6} progress={3} />
 
-      <S.Avatar />
+      <S.AvatarArea>
+        <CoverCard
+          coverUrl={playlist!.coverUrl}
+        />
+      </S.AvatarArea>
 
-      <S.Heading>
-        <H1>{exercise.name}</H1>
-        <H2>{playlist!.name}</H2>
-      </S.Heading>
+      <S.HeadingArea>
+        <ExerciseHeader
+          title={exercise.name}
+          playlist={playlist!}
+        />
+      </S.HeadingArea>
 
-      <S.ExerciseCard>
+      <S.ExerciseArea>
         <Card>
           <img src="/img/sheet.jpg" style={{ width: "100%" }} />
         </Card>
-      </S.ExerciseCard>
+      </S.ExerciseArea>
 
-      <S.Info>
-        <p>128 bpm</p>
-        <p>G Dur</p>
-      </S.Info>
+      <S.InfoArea>
+
+        <Flex justifyContent="space-between">
+          <p>128 bpm</p>
+          <p>G Dur</p>
+        </Flex>
+
+        <Metronome />
+
+      </S.InfoArea>
 
       <S.Description>{exercise.description}</S.Description>
 
@@ -111,10 +126,6 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
           size={120}
           strokeWidth={4}
         />
-        
-        <Hidden>
-          <Metronome/>
-        </Hidden>
 
         {isCountInRunning && (
           <Fade>
@@ -129,7 +140,10 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
       
       <S.Aside>
         
+        <H2 mb={2}>{t("practice.aside.title")}</H2>
+
         <PlaylistCards
+          isLoading={exercises.length === 0}
           exercises={exercises}
           selectExercise={selectExercise}
           selectedExerciseIndex={selectedExerciseIndex}

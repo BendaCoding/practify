@@ -1,7 +1,9 @@
+import { IExerciseWithPlaylistData } from './types/IExerciseWithPlaylistData';
+import moment from 'moment';
 // tslint:disable: no-shadowed-variable
 import { createSelector } from 'reselect';
 import { Exercises } from '../exercises';
-import { set, isEmpty } from 'lodash';
+import { set, get, isEmpty } from 'lodash';
 
 export const practiceState = (state: IAppState): IPracticeState => state.practice;
 
@@ -27,9 +29,7 @@ export const playlist = createSelector(
 
 export const selectedExerciseId = createSelector(
   [ playlist, selectedExerciseIndex ],
-  (playlist, selectedExerciseIndex) => selectedExerciseIndex && playlist
-    ? playlist[selectedExerciseIndex].exerciseId
-    : '',
+  (playlist, selectedExerciseIndex) => get(playlist, `exercises[${selectedExerciseIndex}].exerciseId`)
 );
 
 export const selectedExercise = createSelector(
@@ -58,11 +58,16 @@ export const exercisesForPlaylist = createSelector(
     ? playlist.exercises.map((exerciseReference, index) => {
         const exercise = allExercises[exerciseReference.exerciseId];
         const progress = exerciseReference.elapsed / exerciseReference.period * 100;
-        return {
+        const timeLeft = moment.unix(exerciseReference.period - exerciseReference.elapsed).format('mm:ss');
+        const finished = exerciseReference.finished;
+        const exerciseWithPlaylistData: IExerciseWithPlaylistData = {
           ...exercise,
           active: selectedExerciseIndex === index,
           progress,
+          timeLeft,
+          finished,
         }
+        return exerciseWithPlaylistData;
       })
     : [],
 );

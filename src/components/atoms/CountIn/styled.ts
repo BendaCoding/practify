@@ -1,4 +1,4 @@
-import { playlists } from './../../../store/playlists/playlists.selectors';
+import { playlists } from '../../../store/playlists/playlists.selectors';
 import { styled, keyframes } from 'practify/theme';
 
 export const Wrapper = styled.div`

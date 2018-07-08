@@ -1,4 +1,4 @@
-import { CoverCard } from './../../atoms/CoverCard';
+import { CoverCard } from '../../atoms/CoverCard';
 import { styled } from 'practify/theme';
 
 export const Wrapper = CoverCard.extend`

@@ -1,4 +1,4 @@
-import { userLoginSync } from './../auth.actions';
+import { userLoginSync } from '../auth.actions';
 import { userLoginFail, userLoginSuccess, userLoginRequest } from '../auth.actions';
 import { authReducer, initialState } from '../auth.reducer';
 import { userMock } from '../__mocks__/user.mock';

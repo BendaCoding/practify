@@ -1,11 +1,11 @@
 import { loadPlaylistsRequest, loadPlaylistsSuccess, loadPlaylistsFail } from './playlists.actions';
 import { call, put, all, takeEvery } from 'redux-saga/effects';
-import { rsFire } from 'practify/firebase';
+import { rsf } from 'practify/firebase';
 import { getType } from 'typesafe-actions';
 
 function * loadPlaylistsSaga() {
   try {
-    const snapshot = yield call(rsFire.firestore.getCollection, 'playlists');
+    const snapshot = yield call(rsf.firestore.getCollection, 'playlists');
     let playlists: any;
     snapshot.forEach((playlist: any) => {
       playlists = {

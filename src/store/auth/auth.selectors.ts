@@ -8,9 +8,14 @@ export const getLoggedIn = createSelector(
   (authState: IAuthState) => authState.loggedIn,
 );
 
-export const getUser = createSelector(
+export const user = createSelector(
   getAuthState,
   (authState: IAuthState) => authState.user,
+);
+
+export const userId = createSelector(
+  user,
+  (userState: IUser) => userState.uid,
 );
 
 export const getError = createSelector(

@@ -2,7 +2,7 @@
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
   "defaultSeverity": "warning",
   "rules": {
-    "trailing-comma": [true, { "multiline": "always", "singleline": "never" }],
+    "trailing-comma": [true, { "multiline": { "arguments": "never" }, "singleline": "never" }],
     "member-access": false,
     "object-literal-sort-keys": false,
     "ordered-imports": false,

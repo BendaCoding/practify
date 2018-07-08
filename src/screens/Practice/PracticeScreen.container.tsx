@@ -12,6 +12,7 @@ const mapState = (state: IAppState) => ({
   isCountInRunning: Practice.selectors.isCountInRunning(state),
   
   selectedExerciseIndex: Practice.selectors.selectedExerciseIndex(state),
+  selectedExerciseId: Practice.selectors.selectedExerciseId(state),
   selectedExerciseElapsed: Practice.selectors.selectedExerciseElapsed(state),
   selectedExercisePeriod: Practice.selectors.selectedExercisePeriod(state),
   shouldTriggerCountIn: Practice.selectors.shouldTriggerCountIn(state),
@@ -31,6 +32,7 @@ const mapDispatch = (dispatch: Dispatch) =>
     startMetronome: MetronomeStore.actions.startMetronome,
     stopMetronome: MetronomeStore.actions.stopMetronome,
     finishExercise: Practice.actions.finishExercise,
+    logExercise: Exercises.actions.logExerciseRequest,
     selectExercise: Practice.actions.selectExercise,
     loadExercises: Exercises.actions.loadExercisesRequest,
     loadPlaylist: Practice.actions.loadPlaylist,
@@ -44,6 +46,7 @@ interface IStateProps {
   shouldTriggerCountIn: boolean;
   
   selectedExerciseIndex: number;
+  selectedExerciseId: string;
   selectedExerciseElapsed: number;
   selectedExercisePeriod: number;
   
@@ -60,6 +63,7 @@ interface IDispatchProps {
   stopExercise: typeof Practice.actions.stopExercise;
   exerciseTick: typeof Practice.actions.exerciseTick;
   finishExercise: typeof Practice.actions.finishExercise;
+  logExercise: typeof Exercises.actions.logExerciseRequest;
   startMetronome: typeof MetronomeStore.actions.startMetronome;
   stopMetronome: typeof MetronomeStore.actions.stopMetronome;
   loadExercises: typeof Exercises.actions.loadExercisesRequest;

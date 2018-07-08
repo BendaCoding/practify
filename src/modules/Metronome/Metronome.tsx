@@ -5,46 +5,49 @@ import { Button } from 'practify/components';
 import { Flex, Box } from 'grid-styled';
 import * as S from './styled';
 import { IMetronomeProps } from './Metronome.container';
+import { SettingsPanel } from './components/molecules/SettingsPanel';
 
+export class Metronome extends React.PureComponent<IMetronomeProps> {
 
-export const Metronome: React.SFC<IMetronomeProps> = ({
-  beatsWithVolume = [],
-  currentBeat,
-  tick,
-  changeHandler,
-  isRunning,
-  beatCount,
-  subdivision,
-  addBeat,
-  removeBeat,
-  bpm,
-  setBpm,
-  incrementSubdivision,
-  decrementSubdivision,
-}: any) => {
-
-  const removeLastBeat = () => {
-    removeBeat(beatCount - 1);
+  state = {
+    settingsPanel: false,
+  }
+  toggleSettingsPanel = () => {
+    this.setState({settingsPanel: !this.state.settingsPanel});
   }
 
-  const setBpmHandler = (add: number) => () => {
-    setBpm(bpm + add);
+  removeLastBeat = () => {
+    this.props.removeBeat(this.props.beatCount - 1);
   }
 
+  setBpmHandler = (add: number) => () => {
+    this.props.setBpm(this.props.bpm + add);
+  }
+  render() {
   return (
     <div className="my-5">
-      <h1>Metronome</h1>
 
       <AudioHandler
-        isRunning={isRunning}
-        bpm={bpm}
+        isRunning={this.props.isRunning}
+        bpm={this.props.bpm}
         subdivision={1}
-        beatsWithVolume={beatsWithVolume}
-        currentBeat={currentBeat}
-        tick={tick}
+        beatsWithVolume={this.props.beatsWithVolume}
+        currentBeat={this.props.currentBeat}
+        tick={this.props.tick}
       />
+      
+      <Button onClick={this.toggleSettingsPanel} label="Settings" />
 
-      <Beat>
+    <SettingsPanel onClick={this.toggleSettingsPanel} active={this.state.settingsPanel} />
+    
+
+
+    </div>
+  )}
+}
+
+// Commented for now
+ {/* <Beat>
         {beatsWithVolume.map((volume: number, index: number) => (
           <SubdivisionIndicator
             volume={volume}
@@ -82,8 +85,5 @@ export const Metronome: React.SFC<IMetronomeProps> = ({
           <Button onClick={decrementSubdivision} label="-" className="mr-2" />
           <Button onClick={incrementSubdivision} label="+" />
         </Box>
-      </Flex>
+      </Flex>  */}
       
-    </div>
-  )
-}

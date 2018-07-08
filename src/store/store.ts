@@ -6,7 +6,7 @@ import authReducer from './auth';
 import practiceReducer from './practice';
 import playlistsReducer from './playlists';
 import exercisesReducer from './exercises';
-import { metronomeReducer } from './../modules/Metronome/store/metronome.reducer';
+import { metronomeReducer } from '../modules/Metronome/store/metronome.reducer';
 
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './root-saga';

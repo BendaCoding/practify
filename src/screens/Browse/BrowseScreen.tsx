@@ -19,6 +19,13 @@ const BrowseScreen = ({ exercises, playlists }: any) => {
         title="Recently Practiced"
         items={playlists}
         onClick={onPlaylistClick}
+        mb={4}
+      />
+      
+      <CoverFlick
+        title="Similar to what you did"
+        items={playlists.reverse()}
+        onClick={onPlaylistClick}
       />
 
     </Container>

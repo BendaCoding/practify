@@ -7,6 +7,6 @@ export const Label = styled.label`
 export const Spinner = styled.div`
   display: inline-block;
   line-height: 0;
-  animation: rotating 2s linear infinite;
+  animation: rotate 2s linear infinite;
   transform-origin: 50%;
 `;

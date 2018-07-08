@@ -1,4 +1,4 @@
-import { collections } from './index';
+import { collections } from 'practify/firebase';
 import { isEmpty } from 'lodash';
 
 export const nicknameIsAvailable = (nickname: string = ''): Promise<boolean> => (
