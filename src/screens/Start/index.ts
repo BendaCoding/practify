@@ -1,1 +1,1 @@
-export { default as StartScreen } from './StartScreen.container';
+export { default as StartScreen } from './StartScreen';

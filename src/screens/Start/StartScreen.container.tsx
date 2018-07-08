@@ -1,16 +1,16 @@
-import { Dispatch, bindActionCreators } from "redux";
-import { compose } from "recompose";
-import { connect } from "react-redux";
-import { StartScreen } from "./StartScreen";
+// import { Dispatch, bindActionCreators } from "redux";
+// import { compose } from "recompose";
+// import { connect } from "react-redux";
+// import { StartScreen } from "./StartScreen";
 
-const mapState = (state: IAppState) => ({
+// const mapState = (state: IAppState) => ({
   
-})
+// })
 
-const mapDispatch = (dispatch: Dispatch) =>
-  bindActionCreators({
+// const mapDispatch = (dispatch: Dispatch) =>
+//   bindActionCreators({
 
-  }, dispatch,
-);
+//   }, dispatch,
+// );
 
-export default compose<any, any>()(StartScreen)
+// export default compose<any, any>()(StartScreen)

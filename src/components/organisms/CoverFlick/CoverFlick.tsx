@@ -71,7 +71,7 @@ export const CoverFlick: SFC<ICoverFlickProps> = ({
   }
 
   return (
-    <div>
+    <Box mb={2}>
 
       <S.Header>
         <H3>{title}</H3>
@@ -105,6 +105,6 @@ export const CoverFlick: SFC<ICoverFlickProps> = ({
         </Slider>
       </Box>
 
-    </div>
+    </Box>
   );
 }

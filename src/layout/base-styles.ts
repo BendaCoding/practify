@@ -9,6 +9,7 @@ export const baseStyles = () => injectGlobal`
     margin: 0;
     padding: 0;
     font-family: 'Roboto', 'Helvetica', sans-serif;
+    font-size:13px;
     background: #F5F8FA;
     height:100vh;
     width:100%;
