@@ -26,6 +26,11 @@ export const googleAuthProvider = new fb.auth.GoogleAuthProvider();
 export const facebookAuthProvider = new fb.auth.FacebookAuthProvider();
 
 export const collections = {
+  categories: firestore.collection('categories'),
+  exercises: firestore.collection('exercises'),
+  genres: firestore.collection('genres'),
+  instruments: firestore.collection('instruments'),
+  playlists: firestore.collection('playlists'),
   users: firestore.collection('users'),
 }
 
