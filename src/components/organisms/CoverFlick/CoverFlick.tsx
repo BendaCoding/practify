@@ -1,11 +1,11 @@
-import React, { SFC } from "react";
-import Slider, { Settings as SliderSettings } from "react-slick";
-import { CoverCard } from "../../atoms/CoverCard";
-import { H4, H3 } from "../../atoms";
-import { Box, CommonProps } from "grid-styled";
+import React, { SFC } from 'react';
+import Slider, { Settings as SliderSettings } from 'react-slick';
+import { CoverCard } from '../../atoms/CoverCard';
+import { H4, H3 } from '../../atoms';
+import { Box, CommonProps } from 'grid-styled';
 import * as S from './styled';
-import { CoverCardWithHoverContent } from "../../molecules";
-import { FaPlay } from "react-icons/lib/fa";
+import { CoverCardWithHoverContent } from '../../molecules';
+import { FaPlay } from 'react-icons/lib/fa';
 
 interface ICoverFlickItem {
   name: string;

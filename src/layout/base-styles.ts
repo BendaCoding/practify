@@ -1,7 +1,7 @@
-import { injectGlobal, css, theme } from "practify/theme";
+import { injectGlobal, css, theme } from 'practify/theme';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const fade = `
   .fade-enter {

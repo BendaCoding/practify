@@ -1,7 +1,7 @@
-import * as React from "react"
+import * as React from 'react'
 import { PractifyLogo } from 'practify/components';
 import * as S from './styled';
-import { Fade } from "../../atoms";
+import { Fade } from '../../atoms';
 
 type FixedSizes = 'sm' | 'md' | 'lg';
 

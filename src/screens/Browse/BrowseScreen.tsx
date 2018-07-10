@@ -8,7 +8,7 @@ import { Container, CoverFlick } from 'practify/components';
 const BrowseScreen = ({ exercises, playlists }: any) => {
 
   const onPlaylistClick = (playlistId: string) => {
-    console.log(playlistId);
+    // TODO: handle action
   }
 
   return (

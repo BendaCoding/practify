@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from 'react'
 import { theme } from 'practify/theme';
 
 export interface IPractifyLogoProps {

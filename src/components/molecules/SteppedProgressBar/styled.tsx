@@ -1,4 +1,4 @@
-import { styled, css } from "practify/theme";
+import { styled, css } from 'practify/theme';
 
 export const Bar = styled.div`
   height: 3px;

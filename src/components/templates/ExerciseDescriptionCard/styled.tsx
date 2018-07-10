@@ -1,4 +1,4 @@
-import { styled } from "practify/theme";
+import { styled } from 'practify/theme';
 
 export const Bpm = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.h4};

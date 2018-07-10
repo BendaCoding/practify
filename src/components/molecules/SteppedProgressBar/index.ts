@@ -1,1 +1,1 @@
-export { SteppedProgressBar } from "./SteppedProgressBar";
+export { SteppedProgressBar } from './SteppedProgressBar';

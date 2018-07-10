@@ -1,11 +1,11 @@
-import React, { SFC } from "react";
-import { Flex } from "grid-styled";
-import { translate, InjectedTranslateProps } from "react-i18next";
-import { IExerciseWithPlaylistData } from "../../../store/practice/types/IExerciseWithPlaylistData";
-import { ExerciseCard } from "../../molecules";
-import { withLoader } from "practify/hocs";
-import { compose } from "recompose";
-import { IWithLoaderProps } from "../../../hocs/withLoader/withLoader";
+import React, { SFC } from 'react';
+import { Flex } from 'grid-styled';
+import { translate, InjectedTranslateProps } from 'react-i18next';
+import { IExerciseWithPlaylistData } from '../../../store/practice/types/IExerciseWithPlaylistData';
+import { ExerciseCard } from '../../molecules';
+import { withLoader } from 'practify/hocs';
+import { compose } from 'recompose';
+import { IWithLoaderProps } from '../../../hocs/withLoader/withLoader';
 
 interface IOuterProps extends IWithLoaderProps {
   exercises: IExerciseWithPlaylistData[];

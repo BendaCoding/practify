@@ -1,4 +1,4 @@
-import { SimpleInterpolation } from "styled-components";
+import { SimpleInterpolation } from 'styled-components';
 import { css } from './styled';
 
 interface IBreakpoints<T = string> {

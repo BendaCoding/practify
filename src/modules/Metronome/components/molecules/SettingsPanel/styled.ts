@@ -1,4 +1,4 @@
-import { styled } from "practify/theme";
+import { styled } from 'practify/theme';
 
 export const Grid = styled.div`
   display: grid;

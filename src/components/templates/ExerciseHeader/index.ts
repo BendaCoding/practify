@@ -1,1 +1,1 @@
-export { ExerciseHeader } from "./ExerciseHeader";
+export { ExerciseHeader } from './ExerciseHeader';

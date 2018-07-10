@@ -1,9 +1,9 @@
-import * as React from "react";
-import { translate, InjectedTranslateProps } from "react-i18next";
+import * as React from 'react';
+import { translate, InjectedTranslateProps } from 'react-i18next';
 import * as S from './styled';
-import { PractifyLogo } from "practify/components";
-import { routes } from "practify/common";
-import { NavLink } from "react-router-dom";
+import { PractifyLogo } from 'practify/components';
+import { routes } from 'practify/common';
+import { NavLink } from 'react-router-dom';
 
 export const NotFoundScreen: React.SFC<InjectedTranslateProps> = ({ t }) => (
   <S.Wrapper>

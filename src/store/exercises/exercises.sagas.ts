@@ -36,7 +36,7 @@ function * logExerciseSaga({ payload: { exerciseId, instrumentId }}: IPayload<IL
       { instrumentId }
     )
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 

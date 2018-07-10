@@ -1,20 +1,20 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import registerServiceWorker from "./registerServiceWorker";
-import App from "./layout/App";
-import "bootstrap/dist/css/bootstrap.css";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import registerServiceWorker from './registerServiceWorker';
+import App from './layout/App';
+import 'bootstrap/dist/css/bootstrap.css';
 
-import { ConnectedRouter } from "connected-react-router";
-import { ThemeProvider } from "styled-components";
-import { theme } from "practify/theme";
+import { ConnectedRouter } from 'connected-react-router';
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'practify/theme';
 
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
 
-import { store, history } from "practify/store";
+import { store, history } from 'practify/store';
 
-import { I18nextProvider } from "react-i18next";
-import { i18instance } from "./translation/i18n";
-import { baseStyles } from "./layout/base-styles";
+import { I18nextProvider } from 'react-i18next';
+import { i18instance } from './translation/i18n';
+import { baseStyles } from './layout/base-styles';
 
 /* inject global styles for body */
 baseStyles();
@@ -29,6 +29,6 @@ ReactDOM.render(
       </ThemeProvider>
     </ConnectedRouter>
   </Provider>,
-  document.getElementById("root") as HTMLElement,
+  document.getElementById('root') as HTMLElement,
 );
 registerServiceWorker();

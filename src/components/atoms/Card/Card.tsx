@@ -1,5 +1,5 @@
-import { styled } from "practify/theme";
-import { Box } from "grid-styled";
+import { styled } from 'practify/theme';
+import { Box } from 'grid-styled';
 
 export const Card = Box.extend`
   width: 100%;

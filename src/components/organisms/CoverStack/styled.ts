@@ -1,4 +1,4 @@
-import { styled } from "practify/theme";
+import { styled } from 'practify/theme';
 
 export const Stack = styled.div`
   position: relative;

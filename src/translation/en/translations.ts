@@ -1,4 +1,4 @@
-import { FaThumbTack } from "react-icons/lib/fa";
+import { FaThumbTack } from 'react-icons/lib/fa';
 
 export const appEN = {
   global: {},

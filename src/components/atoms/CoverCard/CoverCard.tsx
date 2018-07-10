@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from 'practify/theme';
-import { Card } from "../Card";
+import { Card } from '../Card';
 import { BoxProps, CommonProps } from 'grid-styled';
 
 export interface ICoverCardProps extends Partial<CommonProps & BoxProps> {

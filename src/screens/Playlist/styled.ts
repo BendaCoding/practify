@@ -1,4 +1,4 @@
-import { styled } from "practify/theme";
+import { styled } from 'practify/theme';
 
 export const Desc = styled.p`
   @media (min-width: ${({ theme }) => theme.breakpoint.md}) {

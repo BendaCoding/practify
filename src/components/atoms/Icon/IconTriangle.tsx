@@ -1,6 +1,6 @@
-import * as React from "react";
-import { theme } from "practify/theme";
-import { Icon } from ".";
+import * as React from 'react';
+import { theme } from 'practify/theme';
+import { Icon } from '.';
 
 export const IconTriangle: React.SFC<{}> = props => {
   return (

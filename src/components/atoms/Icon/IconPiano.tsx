@@ -1,6 +1,6 @@
-import * as React from "react";
-import { theme } from "practify/theme";
-import { Icon } from ".";
+import * as React from 'react';
+import { theme } from 'practify/theme';
+import { Icon } from '.';
 
 export const IconPiano: React.SFC<{}> = props => {
   return (

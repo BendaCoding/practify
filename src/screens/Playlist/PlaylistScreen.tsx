@@ -1,9 +1,9 @@
-import * as React from "react";
-import * as S from "./styled";
-import { lifecycle, compose } from "recompose";
-import { connect, Dispatch } from "react-redux";
-import { bindActionCreators } from "redux";
-import { Exercises } from "practify/store";
+import * as React from 'react';
+import * as S from './styled';
+import { lifecycle, compose } from 'recompose';
+import { connect, Dispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Exercises } from 'practify/store';
 import {
   Container,
   ExercisesTable,
@@ -12,9 +12,9 @@ import {
   H1,
   H3,
   Button,
-} from "practify/components";
-import { Box } from "grid-styled";
-import { CoverCard } from "../../components/atoms/CoverCard";
+} from 'practify/components';
+import { Box } from 'grid-styled';
+import { CoverCard } from '../../components/atoms/CoverCard';
 
 const PlaylistScreen = ({ exercises }: any) => (
   <Container>

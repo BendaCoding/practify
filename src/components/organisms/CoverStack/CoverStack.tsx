@@ -1,10 +1,10 @@
-import React, { SFC } from "react";
-import { CoverCardWithLabel } from "practify/components";
-import { H3 } from "../../atoms";
-import { Box, Flex } from "grid-styled";
-import * as S from "./styled";
-import { theme } from "practify/theme";
-import * as Icon from "../../atoms/Icon";
+import React, { SFC } from 'react';
+import { CoverCardWithLabel } from 'practify/components';
+import { H3 } from '../../atoms';
+import { Box, Flex } from 'grid-styled';
+import * as S from './styled';
+import { theme } from 'practify/theme';
+import * as Icon from '../../atoms/Icon';
 
 interface ICoverStackItem {
   coverUrl: string;
@@ -21,8 +21,8 @@ interface ICoverStackProps {
 }
 
 export const CoverStack: SFC<ICoverStackProps> = ({
-  title = "",
-  description = "",
+  title = '',
+  description = '',
   coverCount = 3,
   overlap = 10,
   items

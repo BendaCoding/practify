@@ -1,5 +1,5 @@
-import * as React from "react";
-import { theme } from "practify/theme";
+import * as React from 'react';
+import { theme } from 'practify/theme';
 
 export interface IIconProps {
   color?: string;
@@ -11,10 +11,10 @@ export interface IIconProps {
 
 export const Icon: React.SFC<IIconProps> = ({
   color = theme.colors.spinner.dark,
-  size = "48px",
-  transition = "",
-  className = "",
-  d= ""
+  size = '48px',
+  transition = '',
+  className = '',
+  d= ''
 }) => {
   const style = transition ? { style: { transition } } : {};
 

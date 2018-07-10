@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Icon } from ".";
+import * as React from 'react';
+import { Icon } from '.';
 
 export const IconTuba: React.SFC<{}> = props => {
   return (

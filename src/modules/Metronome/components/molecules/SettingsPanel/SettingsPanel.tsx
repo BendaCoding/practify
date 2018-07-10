@@ -1,8 +1,8 @@
-import * as React from "react";
-import * as S from "./styled";
-import { Panel, H1 } from "practify/components";
-import Slider from "rc-slider";
-import "rc-slider/assets/index.css";
+import * as React from 'react';
+import * as S from './styled';
+import { Panel, H1 } from 'practify/components';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 export const SettingsPanel: React.SFC<any> = props => {
   return (

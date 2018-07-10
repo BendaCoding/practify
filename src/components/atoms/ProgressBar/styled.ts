@@ -14,5 +14,5 @@ export const Filled = styled<IFilledProps, any>('div')`
   height: 6px;
   background: ${props => props.theme.colors.primary};
   transition: 1000ms width;
-  ${({ noTransition }) => noTransition && `transition: none;`}
+  ${({ noTransition }) => noTransition && 'transition: none;'}
 `;

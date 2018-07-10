@@ -1,4 +1,4 @@
-import { styled, theme, css } from 'practify/theme';
+import { styled, css } from 'practify/theme';
 
 export const IconWrapper = styled('span')`
   position: relative;
@@ -19,14 +19,23 @@ export const Button = styled<any,any>('button')`
   border: none;
   cursor: pointer
   text-transform: uppercase;
-  ${({inverted}) => inverted && css`background:rgba(0,0,0,0); color:${theme.colors.primary}; font-weight:bold; border: 1px solid ${theme.colors.primary};`}
-  ${({inverted}) => !inverted && css`background:${theme.colors.primary};`}
+  ${({ theme, inverted }) => inverted && css`
+    background: none;
+    color :${theme.colors.primary};
+    font-weight: bold;
+    border: 1px solid ${theme.colors.primary};
+  `}
+  ${({ theme, inverted }) => !inverted && css`
+    background: ${theme.colors.primary};
+  `}
   border-radius: 20px;
   transition: .25s all;
 
   &:hover{
     background: ${({ theme }) => theme.colors.button.hover};
-    ${({inverted}) => inverted && css`color:${theme.colors.typo.contrast};`}
+    ${({ theme, inverted }) => inverted && css`
+      color: ${theme.colors.typo.contrast};
+    `}
   }
 
   &:active {

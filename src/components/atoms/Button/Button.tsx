@@ -1,18 +1,18 @@
-import * as React from "react";
-import Repeatable from "react-repeatable";
-import * as S from "./styled";
+import * as React from 'react';
+import Repeatable from 'react-repeatable';
+import * as S from './styled';
 
 export interface IButtonProps {
   type?:
-    | "primary"
-    | "secondary"
-    | "success"
-    | "danger"
-    | "warning"
-    | "info"
-    | "light"
-    | "dark"
-    | "link";
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'danger'
+    | 'warning'
+    | 'info'
+    | 'light'
+    | 'dark'
+    | 'link';
   label: string;
   inverted?: boolean;
   onClick?: (e?: any) => void;
@@ -25,12 +25,10 @@ export interface IButtonProps {
 }
 
 export const Button: React.SFC<IButtonProps> = ({
-  type = "primary",
+  type = 'primary',
   onClick,
   shouldTriggerOnHold = false,
   label,
-  className,
-  inverted = false,
   disabled,
   preventDefault = false,
   children,
@@ -46,7 +44,7 @@ export const Button: React.SFC<IButtonProps> = ({
       : onClick;
 
   const WrappedButton = (
-    <S.Button disabled={disabled} onClick={handleClick} inverted={inverted}>
+    <S.Button disabled={disabled} onClick={handleClick} type={type}>
       {!iconLeft && label}
 
       {children && <S.IconWrapper>{children}</S.IconWrapper>}
@@ -61,7 +59,7 @@ export const Button: React.SFC<IButtonProps> = ({
 
   return (
     <Repeatable
-      style={{ display: "inline-block" }}
+      style={{ display: 'inline-block' }}
       onHold={handleClick}
       repeatDelay={450}
       repeatInterval={95}

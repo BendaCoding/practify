@@ -42,7 +42,7 @@ type ICardTitleProps = Pick<IOwnProps, 'finished'>
 
 export const CardTitle = styled<ICardTitleProps, any>('h4')`
   font-size: ${props => props.theme.fontSizes.h4};
-  ${({ finished }) => finished && `text-decoration: line-through;`}
+  ${({ finished }) => finished && 'text-decoration: line-through;'}
 `;
 
 export const TimeLeft = styled.span`

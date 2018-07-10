@@ -1,7 +1,7 @@
-import { styled } from "practify/theme";
-import { PractifyLogo } from "practify/components";
-import { FaNewspaperO, FaHome } from "react-icons/lib/fa";
-import { NavLink as Link } from "react-router-dom";
+import { styled } from 'practify/theme';
+import { PractifyLogo } from 'practify/components';
+import { FaNewspaperO, FaHome } from 'react-icons/lib/fa';
+import { NavLink as Link } from 'react-router-dom';
 
 export const Nav = styled.nav`
   width: 100%;

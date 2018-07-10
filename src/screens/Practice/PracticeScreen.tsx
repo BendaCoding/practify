@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Timer,
   SteppedProgressBar,
@@ -9,12 +9,12 @@ import {
   H2,
   PlaylistCards,
   ExerciseHeader,
-} from "practify/components";
-import * as S from "./styled";
-import { Metronome } from "practify/modules";
-import { IPracticeScreenProps } from "./PracticeScreen.container";
-import { CoverCard } from "../../components/atoms/CoverCard";
-import { Flex } from "grid-styled";
+} from 'practify/components';
+import * as S from './styled';
+import { Metronome } from 'practify/modules';
+import { IPracticeScreenProps } from './PracticeScreen.container';
+import { CoverCard } from '../../components/atoms/CoverCard';
+import { Flex } from 'grid-styled';
 
 export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
   t,
@@ -97,7 +97,7 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
 
       <S.ExerciseArea>
         <Card>
-          <img src="/img/sheet.jpg" style={{ width: "100%" }} />
+          <img src="/img/sheet.jpg" style={{ width: '100%' }} />
         </Card>
       </S.ExerciseArea>
 
@@ -140,7 +140,7 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
       
       <S.Aside>
         
-        <H2 mb={2}>{t("practice.aside.title")}</H2>
+        <H2 mb={2}>{t('practice.aside.title')}</H2>
 
         <PlaylistCards
           isLoading={exercises.length === 0}

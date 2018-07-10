@@ -1,11 +1,8 @@
-import * as React from "react";
-import { Table, THead, TBody, Td, ProgressBar } from "practify/components";
-import { withLoader } from "practify/hocs";
+import * as React from 'react';
+import { Table, TBody, Td, ProgressBar } from 'practify/components';
 import {theme} from 'practify/theme';
-import * as S from "./styled";
-import { Card } from "../../molecules/ExerciseCard/styled";
-import { IconBrowse } from "../../../layout/MainNav/styled";
-import { FaEllipsisV }  from "react-icons/lib/fa";
+import * as S from './styled';
+import { FaEllipsisV }  from 'react-icons/lib/fa';
 
 interface IExerciseItem extends IExercise {
   active?: boolean;
@@ -40,7 +37,7 @@ export const ExercisesTable: React.SFC<IExercisesTableProps> = ({
                   
                   
                   <S.Progress><ProgressBar progress={Math.random()*100}/></S.Progress>
-                  <S.Options >  <FaEllipsisV color={theme.colors.secondary}/> </S.Options>
+                  <S.Options><FaEllipsisV color={theme.colors.secondary}/></S.Options>
                   <S.Description><S.Info>0:50min</S.Info><S.Bullet>&bull;</S.Bullet>{exercise.description}</S.Description>
                 </S.Exercise>
               </Td>

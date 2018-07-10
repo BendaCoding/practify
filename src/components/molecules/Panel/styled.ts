@@ -1,4 +1,4 @@
-import { styled, css } from "practify/theme";
+import { styled, css } from 'practify/theme';
 
 export interface IPanel {
   active: boolean;
@@ -7,7 +7,7 @@ export interface IPanel {
 export const Wrapper = styled.div`
 `;
 
-export const Backdrop = styled<IPanel, any>("div")`
+export const Backdrop = styled<IPanel, any>('div')`
   position: fixed;
   top: 0;
   left: 0;
@@ -31,7 +31,7 @@ export const Backdrop = styled<IPanel, any>("div")`
     `};
 `;
 
-export const Panel = styled<IPanel, any>("div")`
+export const Panel = styled<IPanel, any>('div')`
   position: fixed;
   height: 0;
   width: 100%;

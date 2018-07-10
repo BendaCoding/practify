@@ -3,7 +3,7 @@ import { styled, keyframes } from 'practify/theme';
 export const Wrapper = styled.div`
   position: relative;
   display: inline-block;
-  ${props => props.onClick && `cursor: pointer;`}
+  ${props => props.onClick && 'cursor: pointer;'}
 `;
 
 export const Background = styled.circle`

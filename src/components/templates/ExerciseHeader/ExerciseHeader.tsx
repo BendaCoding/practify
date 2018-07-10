@@ -1,6 +1,6 @@
-import * as React from "react";
-import * as S from "./styled";
-import { H1, H2, RatingStars } from "../../atoms";
+import * as React from 'react';
+import * as S from './styled';
+import { H1, H2, RatingStars } from '../../atoms';
 
 export interface IExerciseHeaderProps {
   title: string;

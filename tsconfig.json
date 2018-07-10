@@ -28,7 +28,19 @@
       "practify/common": ["./src/common"],
       "practify/hocs": ["./src/hocs"],
       "practify/modules": ["./src/modules"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "lint": {
+          "emptyRules": "warning",
+          "zeroUnits": "warning",
+          "important": "error",
+          "float": "error",
+          "idSelector": "warning"
+        }
+      }
+    ]
   },
   "exclude": [
     "node_modules",

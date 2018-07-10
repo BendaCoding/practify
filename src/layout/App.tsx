@@ -3,11 +3,11 @@ import { Route, NavLink } from 'react-router-dom';
 import { TransitionSwitch, AuthRoute, LoginRoute, PractifyTypo } from 'practify/components';
 import { LoginScreen, PracticeScreen, BrowseScreen, PlaylistScreen, NotFoundScreen, StartScreen } from 'practify/screens';
 import { MainNav } from './MainNav';
-import { MobileNav } from "./MobileNav";
+import { MobileNav } from './MobileNav';
 import { withRouter, RouteComponentProps } from 'react-router';
 import * as S from './styled';
 import { routes } from 'practify/common';
-import "typeface-roboto";
+import 'typeface-roboto';
 
 export class App extends React.Component<RouteComponentProps<any>> {
   render() {

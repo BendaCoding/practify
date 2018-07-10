@@ -1,4 +1,4 @@
-import { styled, theme } from "practify/theme";
+import { styled } from 'practify/theme';
 
 export const Header = styled.header`
   display: flex;
@@ -54,7 +54,7 @@ export const Footer = styled.footer`
 
 export const Main = styled.main`
   padding-bottom: 50px;
-  @media (min.width: ${({ theme }) => theme.breakpoint.md}) {
-    padding-bottom: 0px;
+  @media (min-width: ${({ theme }) => theme.breakpoint.md}) {
+    padding-bottom: 0;
   }
 `;

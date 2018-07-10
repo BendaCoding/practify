@@ -1,4 +1,4 @@
-import { styled, breakpoint } from "practify/theme";
+import { styled, breakpoint } from 'practify/theme';
 
 export const Screen = styled.div`
   width: 100%;

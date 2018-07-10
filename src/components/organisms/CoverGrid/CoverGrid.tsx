@@ -1,10 +1,10 @@
-import React, { SFC } from "react";
-import { CoverCardWithLabel } from "practify/components";
-import { H4, H3 } from "../../atoms";
-import { Box, Flex } from "grid-styled";
+import React, { SFC } from 'react';
+import { CoverCardWithLabel } from 'practify/components';
+import { H4, H3 } from '../../atoms';
+import { Box, Flex } from 'grid-styled';
 import * as S from './styled';
-import { theme } from "practify/theme";
-import * as Icon from "../../atoms/Icon";
+import { theme } from 'practify/theme';
+import * as Icon from '../../atoms/Icon';
 import { times } from 'lodash';
 
 interface ICoverGridItem {

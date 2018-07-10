@@ -1,5 +1,5 @@
-import * as styledComponents from "styled-components";
-import { space, width, fontSize, color } from "styled-system";
+import * as styledComponents from 'styled-components';
+import { space, width, fontSize, color } from 'styled-system';
 
 const {
   default: styled,

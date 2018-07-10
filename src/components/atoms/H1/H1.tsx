@@ -1,4 +1,4 @@
-import { styled, space } from "practify/theme";
+import { styled, space } from 'practify/theme';
 
 export const H1 = styled.h1`
   font-size: ${({ theme }) => theme.fontSizes.h4};

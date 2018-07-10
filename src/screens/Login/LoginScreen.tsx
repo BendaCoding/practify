@@ -1,7 +1,7 @@
-import * as React from "react";
-import { Container, Fade } from "practify/components";
-import { LoginFormContainer } from "./LoginFormContainer";
-import { RegisterFormContainer } from "./RegisterFormContainer";
+import * as React from 'react';
+import { Container, Fade } from 'practify/components';
+import { LoginFormContainer } from './LoginFormContainer';
+import { RegisterFormContainer } from './RegisterFormContainer';
 import { withState, withHandlers, compose } from 'recompose';
 
 interface IHomeScreenProps {

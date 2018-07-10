@@ -1,6 +1,6 @@
-import * as React from "react";
-import * as S from "./styled";
-import { Card } from "../../atoms/Card";
+import * as React from 'react';
+import * as S from './styled';
+import { Card } from '../../atoms/Card';
 
 export interface IOwnProps {
   bpm?: number;
