@@ -1,4 +1,6 @@
 declare interface ITheme {
+  breakpoints: number[];
+  space: number[];
   palette: {
     curiousBlue: string;
     aeroBlue:string;
@@ -85,13 +87,6 @@ declare interface ITheme {
     easeOutElastic: string;
     gradualEaseInOut: string;
   }
-  breakpoint: {
-    xs: string;
-    sm: string;
-    md: string;
-    lg: string;
-    xl: string;
-  }
   shadows: {
     regular: string;
   }
@@ -99,7 +94,6 @@ declare interface ITheme {
     default: string;
     borderRadius: string;
   }
-  space: number[];
   components: {
     coverCardWithHoverContent: {
       overlayBg: string;

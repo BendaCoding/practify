@@ -1,7 +1,7 @@
 import { connect, Dispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Auth } from 'practify/store';
-import { withFormik } from 'formik';
+import { withFormik, InjectedFormikProps, FormikProps } from 'formik';
 import { compose, withHandlers } from 'recompose';
 import { LoginForm } from './LoginForm';
 import { withLoader } from 'practify/hocs';
@@ -17,6 +17,7 @@ interface IDispatchProps {
 
 interface IOwnProps {
   toggleForm: () => void;
+  handleSubmit: () => void;
   oAuthLogin: (authProvider: string) => any;
 }
 

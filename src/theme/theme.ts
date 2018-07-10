@@ -37,6 +37,8 @@ const infoPalette = {
  * Main Practify theme for drums
  */
 export const theme: ITheme = {
+  breakpoints: [576, 768, 992, 1200],
+  space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   
   palette:              { ...palette },
   infoPalette:          { ...infoPalette },
@@ -101,13 +103,6 @@ export const theme: ITheme = {
     easeOutElastic:    'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
     gradualEaseInOut:  'cubic-bezier(.54,.24,.44,.78)',
   },
-  breakpoint: {
-    xs:                '0px',
-    sm:                '576px',
-    md:                '768px',
-    lg:                '992px',
-    xl:                '1200px',
-  },
   shadows: {
     regular:           `0px 2px 4px ${palette.athensGrey}`,
   },
@@ -115,7 +110,6 @@ export const theme: ITheme = {
     default:           `1px solid ${palette.athensGrey}`,
     borderRadius:      '2px',
   },
-  space: [0, 6, 12, 24, 36, 48, 96, 192, 384],
   components: {
     coverCardWithHoverContent: {
       overlayBg:         `${palette.black}76`,

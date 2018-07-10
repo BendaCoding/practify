@@ -1,4 +1,4 @@
-import { styled } from 'practify/theme';
+import { styled, breakpoint } from 'practify/theme';
 
 export const Header = styled.header`
   display: flex;
@@ -18,7 +18,7 @@ export const NavLarge = styled.div`
   width: 100%;
   display: none;
 
-  @media (min-width: ${({ theme: { breakpoint } }) => breakpoint.md}) {
+  ${breakpoint.md} {
     display: flex;
     width: 100%;
   }
@@ -30,7 +30,7 @@ export const NavMobile = styled.div`
   margin: auto;
   display: relative;
 
-  @media (min-width: ${({ theme: { breakpoint } }) => breakpoint.md}) {
+  ${breakpoint.md} {
     display: none;
   }
 `;
@@ -47,14 +47,14 @@ export const Footer = styled.footer`
   color: ${({ theme }) => theme.palette.white};
   background: ${({ theme }) => theme.palette.curiousBlue};
 
-  @media (min-width: ${({ theme: { breakpoint } }) => breakpoint.md}) {
+  ${breakpoint.md} {
     display: none;
   }
 `;
 
 export const Main = styled.main`
   padding-bottom: 50px;
-  @media (min-width: ${({ theme }) => theme.breakpoint.md}) {
+  ${breakpoint.md} {
     padding-bottom: 0;
   }
 `;

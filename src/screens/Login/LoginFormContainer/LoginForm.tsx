@@ -5,7 +5,7 @@ import { Flex } from 'grid-styled';
 import { ILoginFormProps } from './LoginForm.container';
 import { FaGoogle, FaFacebook } from 'react-icons/lib/fa';
 
-export const LoginForm: React.SFC<ILoginFormProps> = ({ toggleForm, oAuthLogin }: ILoginFormProps) => {
+export const LoginForm: React.SFC<ILoginFormProps> = ({ toggleForm, handleSubmit, oAuthLogin }: ILoginFormProps) => {
 
   return (
     <div>
@@ -29,14 +29,15 @@ export const LoginForm: React.SFC<ILoginFormProps> = ({ toggleForm, oAuthLogin }
 
         <Flex justifyContent="space-between">
           <Button
+            onClick={handleSubmit}
             label="Login"
           />
 
           <Button
             label="Not a Member? Register now."
-            type="link"
+            design="link"
             onClick={toggleForm}
-            preventDefault
+            shouldPreventDefault
           />
 
         </Flex>
@@ -46,9 +47,9 @@ export const LoginForm: React.SFC<ILoginFormProps> = ({ toggleForm, oAuthLogin }
 
       <Button
         label="Sign in with Google"
-        type="dark"
+        design="primary"
         onClick={oAuthLogin('google')}
-        className="mr-2"
+        mr={2}
       >
         <FaGoogle />
       </Button>
@@ -56,7 +57,7 @@ export const LoginForm: React.SFC<ILoginFormProps> = ({ toggleForm, oAuthLogin }
       <Button
         label="Sign in with Facebook"
         onClick={oAuthLogin('facebook')}
-        type="dark"
+        design="primary"
       >
         <FaFacebook />
       </Button>

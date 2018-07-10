@@ -1,8 +1,8 @@
-import * as fb from 'firebase';
-import 'firebase';
+import * as fb from 'firebase/app';
+import 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
-// import 'firebase/storage';
+import 'firebase/storage';
 import ReduxSagaFirebase from 'redux-saga-firebase';
 
 import * as users from './users';

@@ -1,42 +1,34 @@
 import * as React from 'react';
 import Repeatable from 'react-repeatable';
 import * as S from './styled';
+import { SpaceProps } from 'styled-system';
 
-export interface IButtonProps {
-  type?:
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'danger'
-    | 'warning'
-    | 'info'
-    | 'light'
-    | 'dark'
-    | 'link';
+export interface IButtonProps extends S.IButtonProps, SpaceProps {
   label: string;
   inverted?: boolean;
   onClick?: (e?: any) => void;
   shouldTriggerOnHold?: boolean;
   className?: string;
   disabled?: boolean;
-  preventDefault?: boolean;
+  shouldPreventDefault?: boolean;
   icon?: React.Component;
-  iconLeft?: boolean;
+  isIconLeft?: boolean;
 }
 
 export const Button: React.SFC<IButtonProps> = ({
-  type = 'primary',
+  design = 'primary',
   onClick,
   shouldTriggerOnHold = false,
   label,
   disabled,
-  preventDefault = false,
+  shouldPreventDefault = false,
   children,
-  iconLeft = false
+  isIconLeft = false,
+  ...rest
 }) => {
 
   const handleClick =
-    preventDefault && onClick
+    shouldPreventDefault && onClick
       ? (e: any) => {
           e.preventDefault();
           onClick();
@@ -44,12 +36,12 @@ export const Button: React.SFC<IButtonProps> = ({
       : onClick;
 
   const WrappedButton = (
-    <S.Button disabled={disabled} onClick={handleClick} type={type}>
-      {!iconLeft && label}
-
+    <S.Button disabled={disabled} onClick={handleClick} design={design} {...rest}>
+      
+      {!isIconLeft && label}
       {children && <S.IconWrapper>{children}</S.IconWrapper>}
-
-      {iconLeft && label}
+      {isIconLeft && label}
+      
     </S.Button>
   );
 

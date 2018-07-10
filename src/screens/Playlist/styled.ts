@@ -1,8 +1,8 @@
-import { styled } from 'practify/theme';
+import { breakpoint, styled } from 'practify/theme';
 
 export const Desc = styled.p`
-  @media (min-width: ${({ theme }) => theme.breakpoint.md}) {
-    grid-column: 1/ 4;
+  ${breakpoint.md} {
+    grid-column: 1/4;
   }
 `;
 
@@ -14,7 +14,7 @@ export const Hero = styled.div`
   align-items: center;
   justify-items: center;
 
-  @media (min-width: ${({ theme }) => theme.breakpoint.md}) {
+  ${breakpoint.md} {
     grid-template-columns: 200px auto;
     grid-template-rows: 200px auto;
     grid-gap: 1rem;
@@ -25,7 +25,7 @@ export const Hero = styled.div`
 
 export const Tags = styled.div`
   margin-bottom: 0.5rem;
-  @media (min-width: ${({ theme }) => theme.breakpoint.md}) {
+  ${breakpoint.md} {
     grid-column: 2/3;
     grid-row: 1/2;
     margin: 6px;
@@ -37,7 +37,7 @@ export const Infos = styled.div`
   align-items: center;
   justify-items: center;
   grid-template-columns: auto;
-  @media (min-width: ${({ theme }) => theme.breakpoint.md}) {
+  ${breakpoint.md} {
     grid-template-columns: auto auto;
     grid-template-rows: auto auto 40px;
     justify-items: start;
@@ -48,7 +48,7 @@ export const Infos = styled.div`
 export const Cover = styled.div`
   width: 40%;
   max-width: 200px;
-  @media (min-width: ${({ theme }) => theme.breakpoint.md}) {
+  ${breakpoint.md} {
     height: 200px;
     width: 200px;
   }
@@ -56,7 +56,7 @@ export const Cover = styled.div`
 
  export const Buttons = styled.div`
  margin:0 -.5em;
-    @media(min-width:${({ theme }) => theme.breakpoint.md}){
+    ${breakpoint.md} {
       grid-column: 1/3;
     }
  

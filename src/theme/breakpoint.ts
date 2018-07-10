@@ -1,40 +1,10 @@
 import { SimpleInterpolation } from 'styled-components';
 import { css } from './styled';
+import { theme } from './theme';
 
-interface IBreakpoints<T = string> {
-  sm: T;
-  md: T;
-  lg: T;
-  xl: T;
+export const breakpoint: any = {
+  sm: css`@media (min-width: ${theme.breakpoints[0]}px)`,
+  md: css`@media (min-width: ${theme.breakpoints[1]}px)`,
+  lg: css`@media (min-width: ${theme.breakpoints[2]}px)`,
+  xl: css`@media (min-width: ${theme.breakpoints[3]}px)`,
 }
-
-const breakpoints: IBreakpoints = {
-  sm: '567px',
-  md: '768px',
-  lg: '992px',
-  xl: '1200px',
-}
-
-type BreakpointFunction = (
-  strings: TemplateStringsArray,
-  ...interpolations: SimpleInterpolation[]
-) => ReturnType<typeof css> | any;
-
-const wrapStylesInBreakpoint = (value: string): BreakpointFunction => (
-  strings: TemplateStringsArray,
-  ...interpolations: SimpleInterpolation[]
-) => css`
-  @media (min-width: ${value}) {
-    ${css(strings, ...interpolations)};
-  }
-`;
-
-type ScopedBreakpointFunctions = IBreakpoints<BreakpointFunction>;
-
-export const breakpoint: ScopedBreakpointFunctions = Object.keys(breakpoints)
-  .reduce((accumulator, key: string) => {
-    accumulator[key] = wrapStylesInBreakpoint(breakpoints[key]);
-    return accumulator;
-  },
-  {} as any,
-);

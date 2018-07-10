@@ -1,4 +1,4 @@
-import { styled, space } from 'practify/theme';
+import { breakpoint, styled, space } from 'practify/theme';
 
 export const H2 = styled.h2`
   font-size: ${({ theme }) => theme.fontSizes.small};
@@ -6,10 +6,10 @@ export const H2 = styled.h2`
   margin: 0;
   ${space}
 
-  @media (min-width: ${({ theme: { breakpoint } }) => breakpoint.sm}) {
+  ${breakpoint.sm} {
     font-size: ${({ theme }) => theme.fontSizes.h4};
   }
-  @media (min-width: ${({ theme: { breakpoint } }) => breakpoint.md}) {
+  ${breakpoint.md} {
     font-size: ${({ theme }) => theme.fontSizes.h2};
     
   }

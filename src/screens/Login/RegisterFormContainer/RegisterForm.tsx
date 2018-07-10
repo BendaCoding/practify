@@ -10,6 +10,7 @@ export const RegisterForm: React.SFC<IRegisterFormProps> = ({
   errors,
   touched,
   isSubmitting,
+  handleSubmit,
   toggleForm,
 }) => (
   <Form>
@@ -62,13 +63,14 @@ export const RegisterForm: React.SFC<IRegisterFormProps> = ({
       <Button
         disabled={isSubmitting}
         label={t('home.registerForm.register')}
+        onClick={handleSubmit}
       />
 
       <Button
         label={t('home.registerForm.alreadyRegistered')}
-        type="link"
+        design="link"
         onClick={toggleForm}
-        preventDefault
+        shouldPreventDefault
       />
     </Flex>
   </Form>

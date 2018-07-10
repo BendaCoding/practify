@@ -4,6 +4,7 @@ export { CoverCardWithLabel } from './CoverCardWithLabel';
 export { CoverCardWithHoverContent } from './CoverCardWithHoverContent';
 export { ExerciseCard } from './ExerciseCard';
 export { LoginRoute } from './LoginRoute';
+export { RatingStars } from './RatingStars';
 export { Spinner } from './Spinner';
 export { SteppedProgressBar } from './SteppedProgressBar';
 export { TBody } from './TBody';

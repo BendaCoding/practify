@@ -1,4 +1,4 @@
-import { styled, breakpoint } from 'practify/theme';
+import { breakpoint, styled } from 'practify/theme';
 
 export const Screen = styled.div`
   width: 100%;
@@ -16,7 +16,7 @@ export const Screen = styled.div`
     "description"
     "transportArea";
 
-  ${breakpoint.lg`
+  ${breakpoint.lg} {
     align-items: start;
     text-align: left;
     grid-template-columns: 200px 3fr 2fr 300px;
@@ -28,8 +28,9 @@ export const Screen = styled.div`
       ".                    info                 info                 playlist"
       ".                    description          description          playlist"
       "SteppedProgressBar   SteppedProgressBar   SteppedProgressBar   SteppedProgressBar";
-  `}
-  ${breakpoint.xl`
+  }
+
+  ${breakpoint.xl} {
     align-items: start;
     text-align: left;
     grid-template-columns: 200px 3fr 2fr auto 300px;
@@ -41,7 +42,7 @@ export const Screen = styled.div`
       ".                    info                 info                 .                     playlist"
       ".                    description          description          .                     playlist"
       "SteppedProgressBar   SteppedProgressBar   SteppedProgressBar   SteppedProgressBar   SteppedProgressBar";
-  `}
+  }
 `;
 
 export const HeadingArea = styled.div`
@@ -49,27 +50,27 @@ export const HeadingArea = styled.div`
   display: flex;
   flex-direction: column;
 
-  ${breakpoint.md`
+  ${breakpoint.md} {
     align-items: flex-start;
     justify-self: start;
     margin-left: 1rem;
-  `}
+  }
 
-  ${breakpoint.lg`
+  ${breakpoint.lg} {
     align-self: center;
-  `}
+  }
 `;
 
 export const AvatarArea = styled.div`
   display: none;
   
-  ${breakpoint.lg`
+  ${breakpoint.lg} {
     display: block;
     padding: 24px 12px 12px;
     background-size: cover;
     background-position: center;
     grid-area: avatar;
-  `}
+  }
 `;
 
 export const Aside = styled.aside`
@@ -79,21 +80,21 @@ export const Aside = styled.aside`
   align-self: start;
   display: none;
 
-  ${breakpoint.lg`
+  ${breakpoint.lg} {
     display: block;  
-  `}
+  }
 `;
 
 export const Description = styled.div`
   margin: 0px 20px;
   grid-area: description;
-  ${breakpoint.md`
+  ${breakpoint.md} {
     text-align:left;
-  `}
+  }
   
-  ${breakpoint.lg`
+  ${breakpoint.lg} {
     margin: 24px 0 48px;
-  `}
+  }
 `;
 
 export const TransportControls = styled.div`
