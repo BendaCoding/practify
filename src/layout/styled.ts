@@ -1,10 +1,10 @@
-import { styled } from "practify/theme";
+import { styled, theme } from "practify/theme";
 
 export const Header = styled.header`
   display: flex;
   height: 50px;
   padding: 0 24px;
-  width:100%;
+  width: 100%;
   color: ${({ theme }) => theme.palette.white};
   background: ${({ theme }) => theme.palette.curiousBlue};
 
@@ -29,7 +29,7 @@ export const NavMobile = styled.div`
   text-align: center;
   margin: auto;
   display: relative;
-  
+
   @media (min-width: ${({ theme: { breakpoint } }) => breakpoint.md}) {
     display: none;
   }
@@ -49,5 +49,12 @@ export const Footer = styled.footer`
 
   @media (min-width: ${({ theme: { breakpoint } }) => breakpoint.md}) {
     display: none;
+  }
+`;
+
+export const Main = styled.main`
+  padding-bottom: 50px;
+  @media (min.width: ${({ theme }) => theme.breakpoint.md}) {
+    padding-bottom: 0px;
   }
 `;

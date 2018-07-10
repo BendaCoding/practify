@@ -5,16 +5,16 @@ interface IBadgeProps {
 }
 
 export const Badge = styled<IBadgeProps, any>('div')`
-  width: 50px;
-  height: 20px;
-  display: inline-block;
+  width: 45px;
+  height: 17px;
+  display: inline-flex;
   color: ${({ theme }) => theme.palette.white}
   background: ${({ theme, color }) => theme.infoPalette[color]};
-  text-align: center;
+  align-items:center;
+  justify-content:center;
   font-size: ${({ theme }) => theme.fontSizes.small};
-  padding-top: 2px;
-  margin: 5px;
-  border-radius: ${({ theme }) => theme.borders.borderRadius};
+  margin: 2px;
+  border-radius: 1rem;
   cursor: default;
   user-select: none;
 `;

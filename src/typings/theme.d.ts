@@ -1,6 +1,7 @@
 declare interface ITheme {
   palette: {
     curiousBlue: string;
+    aeroBlue:string;
     navyBlue: string;
     limeade: string;
     milanoRed: string;
@@ -54,6 +55,12 @@ declare interface ITheme {
       hoverBackground: string;
     }
 
+    button: {
+      primary:string;
+      active:string;
+      hover:string;
+      disabled:string;
+    }
 
     countIn: {
       overlay: string;

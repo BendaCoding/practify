@@ -25,7 +25,7 @@ export class App extends React.Component<RouteComponentProps<any>> {
         
         </S.Header>
         </S.NavLarge>
-        <main>
+        <S.Main>
           <TransitionSwitch location={location}>
             <LoginRoute exact path={routes.home} component={LoginScreen} />
             <AuthRoute exact path={routes.start} component={StartScreen} />
@@ -34,7 +34,7 @@ export class App extends React.Component<RouteComponentProps<any>> {
             <AuthRoute path={routes.playlist} component={PlaylistScreen} />
             <Route component={NotFoundScreen} />
           </TransitionSwitch>
-        </main>
+        </S.Main>
 
         <S.Footer>
           <MobileNav />

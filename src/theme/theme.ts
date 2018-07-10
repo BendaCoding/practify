@@ -3,6 +3,7 @@
  */
 const palette = {
   curiousBlue:       '#3297CE',
+  aeroBlue:          '#7CB9E8',
   navyBlue:          '#135EDA',
   limeade:           '#63A12C',
   milanoRed:         '#A13530',
@@ -67,6 +68,13 @@ export const theme: ITheme = {
 
     table: {
       hoverBackground: `${palette.lightGrey}22`,
+    },
+
+    button: {
+      primary:          palette.curiousBlue,
+      hover:            palette.aeroBlue,
+      active:           palette.navyBlue,
+      disabled:         palette.slateGrey,
     },
     
     countIn: {
