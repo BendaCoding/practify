@@ -1,19 +1,9 @@
 import { selectedExerciseIndex, exercisesForPlaylist } from './practice.selectors';
-import { finishExercise, selectExercise } from './practice.actions';
+import { finishExercise, selectExercise, finishPlaylist } from './practice.actions';
 import { delay } from 'redux-saga';
 import { call, put, all, select, takeEvery } from 'redux-saga/effects';
 import { getType } from 'typesafe-actions';
 import { findIndex } from 'lodash';
-
-const moveCurrentIndexToTop = (array: any[], currentIndex: number) => {
-  const isLastIndex = currentIndex === array.length - 1;
-  const sorted = isLastIndex
-    ? array
-    : [
-      ...array.slice(currentIndex + 1),
-      ...array.slice(0, currentIndex),
-    ];
-}
 
 const getNextUnfinishedExerciseIndex = (exercises: IExerciseReferenceWithTracking[], currentIndex: number) => {
   const fromCurrentIndex = findIndex(exercises, (ex: IExerciseReferenceWithTracking) => !ex.finished, currentIndex);
@@ -33,7 +23,9 @@ function * selectNextExerciseSaga() {
   
   const indexAfterDelay = yield select(selectedExerciseIndex);
 
-  if (newIndex > -1 && indexAfterDelay === currentIndex) {
+  if (newIndex === -1) {
+    yield put(finishPlaylist());
+  } else if (indexAfterDelay === currentIndex) {
     yield put(selectExercise(newIndex));
   }
 }

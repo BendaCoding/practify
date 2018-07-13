@@ -15,3 +15,5 @@ export const exerciseTick = createStandardAction('practice/EXERCISE_TICK')();
 export const startCountIn = createStandardAction('practice/START_COUNT_IN')();
 
 export const stopCountIn = createStandardAction('practice/STOP_COUNT_IN')();
+
+export const finishPlaylist = createStandardAction('practice/FINISH_PLAYLIST')();

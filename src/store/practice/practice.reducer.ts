@@ -1,7 +1,6 @@
-import { loadPlaylist, selectExercise, startExercise, stopExercise, finishExercise, exerciseTick, startCountIn, stopCountIn } from './practice.actions';
+import { loadPlaylist, selectExercise, startExercise, stopExercise, finishExercise, exerciseTick, startCountIn, stopCountIn, finishPlaylist } from './practice.actions';
 import { Action } from 'redux';
 import { createReducer } from '../create-reducer';
-import { get } from 'lodash';
 
 export const initialState: IPracticeState = {
   selectedExerciseIndex: 0,
@@ -34,12 +33,13 @@ export const practiceReducer: any = createReducer(initialState, {
   exerciseTick,
   stopExercise,
   finishExercise,
+  finishPlaylist,
 })({
   loadPlaylist: (state: IPracticeState, { payload }): IPracticeState => {
     return { ...state, playlist: payload };
   },
 
-  selectExercise: (state: IPracticeState, { payload } ): IPracticeState => {
+  selectExercise: (state: IPracticeState, { payload }): IPracticeState => {
     return {
       ...state,
       isRunning: false,
@@ -73,7 +73,7 @@ export const practiceReducer: any = createReducer(initialState, {
       }
     };
   },
-  
+
   exerciseTick: (state: IPracticeState, action: Action): IPracticeState => {
     const { selectedExerciseIndex, playlist } = state;
     if (!playlist) {
@@ -117,6 +117,15 @@ export const practiceReducer: any = createReducer(initialState, {
           },
           ...playlist.exercises.slice(selectedExerciseIndex + 1),
         ],
+      }
+    };
+  },
+  finishPlaylist: (state: IPracticeState, action: Action): IPracticeState => {
+    return {
+      ...state,
+      playlist: {
+        ...state.playlist!,
+        finished: true,
       }
     };
   },
