@@ -24,7 +24,7 @@ export const Content = styled.div`
   align-items: center;
 
   ${Wrapper}:hover & {
-    text-decoration:underline;
+    text-decoration: underline;
   }
 `;
 

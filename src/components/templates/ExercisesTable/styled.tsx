@@ -18,17 +18,17 @@ export const Name = styled.p`
 `;
 
 export const Info = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.small}
-  font-weight:bold;
-  display:inline;
-  margin:0;
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  font-weight: bold;
+  display: inline;
+  margin: 0;
 `;
 
 export const Description = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.small}
+  font-size: ${({ theme }) => theme.fontSizes.small};
   grid-area: descriptionArea;
   color: ${({ theme }) => theme.colors.typo.secondary};
-  margin:0;
+  margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -37,12 +37,11 @@ export const Description = styled.p`
 
 export const Options = styled.div`
   grid-area: optionsArea;
-  // margin: 0;
   align-items: center;
   align-self: center;
   justify-content: center;
-  padding-left:2px;
-  &:hover{
+  padding-left: 2px;
+  &:hover {
     background: ${({ theme }) => theme.colors.light};
   }
 `;
