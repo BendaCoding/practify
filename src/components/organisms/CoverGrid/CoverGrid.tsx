@@ -3,9 +3,9 @@ import { CoverCardWithLabel } from 'practify/components';
 import { H4, H3 } from '../../atoms';
 import { Box, Flex } from 'grid-styled';
 import * as S from './styled';
-import { theme } from 'practify/theme';
 import * as Icon from '../../atoms/Icon';
 import { times } from 'lodash';
+import { withTheme, ThemeProps } from 'styled-components';
 
 interface ICoverGridItem {
   coverUrl: string;
@@ -13,7 +13,7 @@ interface ICoverGridItem {
   description: string;
 }
 
-interface ICoverGridProps {
+interface ICoverGridProps extends ThemeProps<ITheme> {
   items: ICoverGridItem[];
   title?: string;
 }
@@ -40,6 +40,7 @@ const icons = [
 export const CoverGrid: SFC<ICoverGridProps> = ({
   title = '',
   items,
+  theme,
 }) => (
   <Box mb={2}>
 
@@ -70,3 +71,6 @@ export const CoverGrid: SFC<ICoverGridProps> = ({
 
   </Box>
 );
+
+export default withTheme(CoverGrid);
+

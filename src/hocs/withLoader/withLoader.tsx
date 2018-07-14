@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Fragment, SFC } from 'react';
 import { Spinner, Fade } from 'practify/components';
 import * as S from './styled';
-import { theme } from 'practify/theme';
+import { ThemeProps, withTheme } from 'styled-components';
 
 interface IWithLoaderOptions {
   type: 'light' | 'dark' | 'overlay';
@@ -11,7 +11,7 @@ interface IWithLoaderOptions {
   minHeight: number;
 }
 
-export interface IWithLoaderProps {
+export interface IWithLoaderProps extends ThemeProps<ITheme> {
   isLoading: boolean;
 }
 
@@ -23,7 +23,7 @@ const defaultConfig: IWithLoaderOptions = {
 }
 
 export const withLoader = (userConfig: Partial<IWithLoaderOptions> = defaultConfig) => (WrappedComponent: any) => {
-  const ComponentWithLoader: SFC<IWithLoaderProps> = ({ isLoading, ...rest }) => {
+  const ComponentWithLoader: SFC<IWithLoaderProps> = ({ isLoading, theme, ...rest }) => {
     const { type, size, zIndex, minHeight } = {
       ...defaultConfig,
       ...userConfig,
@@ -50,5 +50,5 @@ export const withLoader = (userConfig: Partial<IWithLoaderOptions> = defaultConf
     )
   }
 
-  return ComponentWithLoader;
+  return withTheme(ComponentWithLoader);
 };

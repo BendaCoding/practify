@@ -3,14 +3,14 @@ import { withHandlers } from 'recompose';
 import * as S from './styled';
 import { PractifyLogo } from 'practify/components';
 import { FaPlus, FaMinus } from 'react-icons/lib/fa';
-import { theme } from 'practify/theme';
+import { withTheme, ThemeProps } from 'styled-components';
 
 interface IOuterProps {
   min?: number;
   max?: number;
 }
 
-interface IProps {
+interface IProps extends ThemeProps<ITheme> {
   volume: number;
   onChange: (volume: number) => (e: React.MouseEvent<SVGElement>) => void;
   min?: number;
@@ -32,6 +32,7 @@ export const SubdivisionIndicator: React.SFC<IProps> = ({
   onChange,
   active = false,
   transitionTimeout,
+  theme,
 }) => (
   <S.Wrapper>
     <S.Scaler size={sizes[volume]}>
@@ -55,4 +56,4 @@ export const SubdivisionIndicator: React.SFC<IProps> = ({
   </S.Wrapper>
 );
 
-export default SubdivisionIndicator;
+export default withTheme(SubdivisionIndicator);

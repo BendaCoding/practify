@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider, theme } from '../theme';
+import { ThemeProvider, drumTheme } from '../theme';
 import { RenderFunction, StoryDecorator } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
 import { StoryTemplate } from './StoryTemplate';
@@ -24,7 +24,7 @@ export const globalDecorator: StoryDecoratorWithoutContext = (
   storyFn,
   context = defaultContext,
 ) => (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={drumTheme}>
     <BrowserRouter>
       <StoryTemplate
         storyFn={storyFn}

@@ -1,21 +1,22 @@
 import * as React from 'react';
 import { Table, TBody, Td, ProgressBar } from 'practify/components';
-import {theme} from 'practify/theme';
 import * as S from './styled';
 import { FaEllipsisV }  from 'react-icons/lib/fa';
+import { withTheme, ThemeProps } from 'styled-components';
 
 interface IExerciseItem extends IExercise {
   active?: boolean;
 }
 
-interface IExercisesTableProps {
+interface IExercisesTableProps extends ThemeProps<ITheme> {
   exercises: IExerciseItem[];
   onExerciseClick?: (index: number) => void;
 }
 
 export const ExercisesTable: React.SFC<IExercisesTableProps> = ({
   exercises,
-  onExerciseClick
+  onExerciseClick,
+  theme,
 }) => {
   const onItemClick = onExerciseClick
     ? (index: number) => () => onExerciseClick(index)
@@ -52,3 +53,6 @@ export const ExercisesTable: React.SFC<IExercisesTableProps> = ({
 ExercisesTable.defaultProps = {
   exercises: []
 };
+
+export default withTheme(ExercisesTable);
+

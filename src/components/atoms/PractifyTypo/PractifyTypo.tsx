@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { theme } from 'practify/theme';
 
 export interface IPractifyLogoProps {
   color?: string;
@@ -8,7 +7,7 @@ export interface IPractifyLogoProps {
 }
 
 export const PractifyTypo: React.SFC<IPractifyLogoProps> = ({
-  color = theme.palette.white,
+  color = '#fff',
   transition = '',
 }) => (
 <svg

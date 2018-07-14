@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as S from './styled';
-import { theme } from 'practify/theme';
 import { FaCheck } from 'react-icons/lib/fa';
 import { Animate } from '../../atoms';
+import { withTheme, ThemeProps } from 'styled-components';
 
-interface ICircularProgressBarProps {
+interface ICircularProgressBarProps extends ThemeProps<ITheme> {
   progress: number;
   text?: string;
   size?: number;
@@ -20,6 +20,7 @@ export const CircularProgressBar: React.SFC<ICircularProgressBarProps> = ({
   progress,
   text,
   isRunning,
+  theme,
   finished = false,
   onClick = () => null,
 }) => {
@@ -75,3 +76,5 @@ export const CircularProgressBar: React.SFC<ICircularProgressBarProps> = ({
     </S.Wrapper>
   );
 };
+
+export default withTheme(CircularProgressBar)

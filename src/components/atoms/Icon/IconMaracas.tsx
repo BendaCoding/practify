@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { theme } from 'practify/theme';
 import { Icon } from '.';
 
 export const IconMaracas:  React.SFC<{}> = props => {

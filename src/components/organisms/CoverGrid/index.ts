@@ -1,1 +1,1 @@
-export { CoverGrid } from './CoverGrid';
+export { default as CoverGrid } from './CoverGrid';

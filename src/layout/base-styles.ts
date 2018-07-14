@@ -1,4 +1,4 @@
-import { injectGlobal, css, theme } from 'practify/theme';
+import { injectGlobal } from 'practify/theme';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
