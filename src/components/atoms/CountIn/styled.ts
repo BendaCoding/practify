@@ -1,13 +1,8 @@
 import { playlists } from '../../../store/playlists/playlists.selectors';
-import { styled, keyframes } from 'practify/theme';
+import { styled, keyframes, mixins } from 'practify/theme';
 
 export const Wrapper = styled.div`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
+  ${mixins.absoluteFill('fixed', 10)}
   background: ${({ theme }) => theme.colors.countIn.overlay};
   transition: 200ms opacity ease-in-out;
   display: flex;

@@ -1,4 +1,4 @@
-import { styled, css } from 'practify/theme';
+import { mixins, styled, css } from 'practify/theme';
 
 export interface IPanel {
   active: boolean;
@@ -8,15 +8,10 @@ export const Wrapper = styled.div`
 `;
 
 export const Backdrop = styled<IPanel, any>('div')`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  ${mixins.absoluteFill('fixed', 49)}
   width: 0;
   height: 0;
   opacity: 0;
-  z-index: 49;
   transition: opacity 0.5s 0.1s, width 10ms 0.5s, height 10ms 0.5s;
   background: ${({ theme }) =>
     theme.components.coverCardWithHoverContent.overlayBg};

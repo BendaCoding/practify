@@ -1,4 +1,4 @@
-import { styled, css } from 'practify/theme';
+import { styled, css, mixins } from 'practify/theme';
 import { IHeroSectionProps } from './HeroSection';
 
 type IWrapperProps =
@@ -18,12 +18,8 @@ const gradientDirectionMap = {
 }
 
 const absolutePosition = `
-  position: absolute;
+  ${mixins.absoluteFill()}
   display: block;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   content: '';
 `;
 

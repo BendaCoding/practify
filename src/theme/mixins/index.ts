@@ -1,3 +1,2 @@
-import * as mixins from './typography'
-
-export { mixins };
+export * from './typography'
+export { absoluteFill } from './absoluteFill';

@@ -1,5 +1,5 @@
 import { CoverCard } from './../../atoms/CoverCard';
-import { styled } from 'practify/theme';
+import { mixins, styled } from 'practify/theme';
 
 export const Wrapper = styled(CoverCard)`
   position: relative;
@@ -7,16 +7,8 @@ export const Wrapper = styled(CoverCard)`
   cursor: pointer;
 `;
 
-const position = `
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-`;
-
 export const Content = styled.div`
-  ${position}
+  ${mixins.absoluteFill()}
   z-index: 2;
   color: ${({ theme}) => theme.colors.typo.primary};
   display: flex;
@@ -29,7 +21,7 @@ export const Content = styled.div`
 `;
 
 export const Backdrop = styled.div`
-  ${position}
+  ${mixins.absoluteFill()}
   background-color: ${({ theme}) => theme.colors.background};
   opacity: .9;
   transition: 120ms opacity ease-in;

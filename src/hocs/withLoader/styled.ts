@@ -1,4 +1,4 @@
-import { styled } from 'practify/theme';
+import { styled, mixins } from 'practify/theme';
 
 // type WrapperProps = Omit<IWithLoaderProps, 'isLoading'>
  interface IWrapperProps {
@@ -16,12 +16,7 @@ export const Wrapper = styled<IWrapperProps, any>('div')`
   ${({ type, theme, zIndex }) =>
     type === 'overlay'
       ? `
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        z-index: ${zIndex};
+        ${mixins.absoluteFill('absolute', zIndex)}
         background: ${theme.colors.overlayBg};
     ` : ''}
 `;
