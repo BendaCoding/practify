@@ -3,6 +3,12 @@ import { ThemeProvider, theme } from '../theme';
 import { RenderFunction, StoryDecorator } from '@storybook/react';
 import { BrowserRouter } from 'react-router-dom';
 import { StoryTemplate } from './StoryTemplate';
+import { baseStyles } from '../layout/base-styles';
+import { getComponentName } from './utils';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'typeface-roboto';
+
+baseStyles();
 
 export type StoryDecoratorWithoutContext = (
   story: RenderFunction,
@@ -22,6 +28,7 @@ export const globalDecorator: StoryDecoratorWithoutContext = (
     <BrowserRouter>
       <StoryTemplate
         storyFn={storyFn}
+        name={getComponentName(context.kind)}
       />
     </BrowserRouter>
   </ThemeProvider>

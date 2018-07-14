@@ -1,18 +1,23 @@
 import { configure, addDecorator } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
+import { setOptions } from '@storybook/addon-options';
 import { globalDecorator } from '../src/storybook/globalDecorator';
 
 addDecorator(globalDecorator)
 addDecorator(withKnobs)
 
-const req = require.context('../src', true, /.story\.tsx?$/);
+function requireAll(requireContext) {
+  return requireContext.keys().map(requireContext);
+}
+
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  requireAll(require.context('../src', true, /.story\.tsx?$/));
 }
 
 configure(loadStories, module);
 
 setOptions({
-  addonPanelInRight: true,
-  name: 'Practify UI Library',
+  // addonPanelInRight: true,
+  name: 'Practify',
+  url: '#',
 })

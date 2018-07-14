@@ -4,7 +4,7 @@ import { Card } from '../Card';
 import { BoxProps, CommonProps } from 'grid-styled';
 
 export interface ICoverCardProps extends Partial<CommonProps & BoxProps> {
-  coverUrl?: string;
+  coverUrl: string;
 }
 
 /**

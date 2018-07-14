@@ -8,15 +8,13 @@ export const IconWrapper = styled('span')`
   margin: 0 4px 0 4px;
 `;
 
-export interface IButtonProps {
-  design?:
-  | 'primary'
+interface IButtonProps {
+  type: 'primary'
   | 'secondary'
   | 'link';
 }
 
-export const Button = styled<any,any>(Box)`
-
+export const Button = styled<IButtonProps, any>(Box)`
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -32,29 +30,49 @@ export const Button = styled<any,any>(Box)`
 
   ${space}
   
+  ${({ theme, type }) => type === 'primary' && css`
+    &:hover {
+      background: ${theme.colors.button.hover};
+    }
+
+    &:active {
+      background: ${theme.colors.button.active};
+    }
+  `}
+
   ${({ theme, type }) => type === 'secondary' && css`
     background: none;
     color: ${theme.colors.primary};
     font-weight: bold;
     border: 1px solid ${theme.colors.primary};
+
+    &:hover {
+      background: ${theme.colors.button.hover};
+    }
+
+    &:active {
+      background: ${theme.colors.button.active};
+    }
   `}
   
   ${({ theme, type }) => type === 'link' && css`
     background: none;
-    color: ${theme.colors.primary};
-    border: none;
+    color: ${theme.colors.button.primary};
+    text-transform: none;
+    position: relative;
+    height: auto;
+    padding: 0;
+    transition: 130ms transform ease-out;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+    
+    &:active {
+      transition: 60ms transform ease-out;
+      transform: scale(1);
+    }
   `}
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.button.hover};
-    ${({ theme, inverted }) => inverted && css`
-      color: ${theme.colors.typo.contrast};
-    `}
-  }
-
-  &:active {
-    background: ${({ theme }) => theme.colors.button.active};
-  }
 
   ${breakpoint.md} {
     padding: .6em 3em;

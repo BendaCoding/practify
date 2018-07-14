@@ -35,9 +35,8 @@ export const LoginForm: React.SFC<ILoginFormProps> = ({ toggleForm, handleSubmit
 
           <Button
             label="Not a Member? Register now."
-            design="link"
+            type="link"
             onClick={toggleForm}
-            shouldPreventDefault
           />
 
         </Flex>
@@ -47,7 +46,6 @@ export const LoginForm: React.SFC<ILoginFormProps> = ({ toggleForm, handleSubmit
 
       <Button
         label="Sign in with Google"
-        design="primary"
         onClick={oAuthLogin('google')}
         mr={2}
       >
@@ -57,7 +55,6 @@ export const LoginForm: React.SFC<ILoginFormProps> = ({ toggleForm, handleSubmit
       <Button
         label="Sign in with Facebook"
         onClick={oAuthLogin('facebook')}
-        design="primary"
       >
         <FaFacebook />
       </Button>

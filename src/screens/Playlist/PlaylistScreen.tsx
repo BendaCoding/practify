@@ -30,7 +30,7 @@ const PlaylistScreen = ({ exercises }: any) => (
           <Tag label="Guitar" color="color1" />
           <Tag label="Keys" color="color2" />
         </S.Tags>
-       <S.Buttons> <Button label="Play"/> <Button label="Save" inverted/> </S.Buttons>
+       <S.Buttons> <Button label="Play"/> <Button label="Save" type="secondary"/> </S.Buttons>
       </S.Infos>
       <S.Desc>Descriptive Text. What is this playlist about?</S.Desc>
     </S.Hero>

@@ -8,5 +8,11 @@ module.exports = (baseConfig, env, config) => {
   });
   config.plugins.push(new TSDocgenPlugin());
   config.resolve.extensions.push(".ts", ".tsx");
+
+  config.resolve.alias = {
+    ...config.resolve.alias,
+    practify: path.resolve(__dirname, '../src/'),
+  };
+
   return config;
 };

@@ -1,54 +1,53 @@
-import * as React from 'react';
+import React from 'react';
 import Repeatable from 'react-repeatable';
 import * as S from './styled';
-import { SpaceProps } from 'styled-system';
+import { BoxProps, CommonProps } from 'grid-styled';
 
-export interface IButtonProps extends S.IButtonProps, SpaceProps {
-  label: string;
-  inverted?: boolean;
+export interface IButtonProps extends Partial<BoxProps & CommonProps>{
+  type?: 'primary'
+  | 'secondary'
+  | 'link';
+  label?: string;
   onClick?: (e?: any) => void;
   shouldTriggerOnHold?: boolean;
   className?: string;
   disabled?: boolean;
-  shouldPreventDefault?: boolean;
+  preventDefault?: boolean;
   icon?: React.Component;
-  isIconLeft?: boolean;
+  iconLeft?: boolean;
 }
 
 export const Button: React.SFC<IButtonProps> = ({
-  design = 'primary',
+  type = 'primary',
   onClick,
   shouldTriggerOnHold = false,
-  label,
-  disabled,
-  shouldPreventDefault = false,
+  label = '',
+  disabled = false,
+  preventDefault = false,
   children,
-  isIconLeft = false,
+  iconLeft = false,
+  ref,
   ...rest
 }) => {
-
   const handleClick =
-    shouldPreventDefault && onClick
+    preventDefault && onClick
       ? (e: any) => {
           e.preventDefault();
           onClick();
         }
       : onClick;
 
-  const WrappedButton = (
-    <S.Button disabled={disabled} onClick={handleClick} design={design} {...rest}>
-      
-      {!isIconLeft && label}
-      {children && <S.IconWrapper>{children}</S.IconWrapper>}
-      {isIconLeft && label}
-      
+  const WrappedButton = () => (
+    <S.Button type={type} onClick={handleClick} disabled={disabled} {...rest}>
+      {!iconLeft && label}
+      {children}
+      {iconLeft && label}
     </S.Button>
   );
 
   if (!shouldTriggerOnHold) {
-    return WrappedButton;
+    return WrappedButton();
   }
-
   return (
     <Repeatable
       style={{ display: 'inline-block' }}

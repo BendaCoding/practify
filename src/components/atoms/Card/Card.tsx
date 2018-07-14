@@ -6,6 +6,9 @@ export const Card = Box.extend`
   box-shadow: ${({ theme }) => theme.shadows.regular};
   background: ${({ theme }) => theme.palette.white};
   overflow-y: auto;
-  padding: 20px;
   max-height: 100%;
 `;
+
+Card.defaultProps = {
+  p: '20px',
+}

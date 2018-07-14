@@ -68,9 +68,8 @@ export const RegisterForm: React.SFC<IRegisterFormProps> = ({
 
       <Button
         label={t('home.registerForm.alreadyRegistered')}
-        design="link"
+        type="link"
         onClick={toggleForm}
-        shouldPreventDefault
       />
     </Flex>
   </Form>

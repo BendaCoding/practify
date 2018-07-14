@@ -17,7 +17,7 @@ export const PractifyTypo: React.SFC<IPractifyLogoProps> = ({
   width="120px"
   height="50px"
   style={{ position: 'relative', top: '2px' }}
-  fill="#fff">
+  fill={color}>
     <defs />
     <g id="Ebene_7" data-name="Ebene 7">
         <path className="cls-1" d="M16.41,131V39.41h48.9c21.42,0,33,14.28,33,31.45s-11.54,31.31-33,31.31H44.16V131ZM70.12,70.86c0-4.94-3.71-7.28-8.38-7.28H44.16V78H61.74C66.41,78,70.12,75.67,70.12,70.86Z"

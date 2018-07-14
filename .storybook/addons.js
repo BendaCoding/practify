@@ -1,3 +1,4 @@
 import '@storybook/addon-knobs/register';
-// import '@storybook/addons-viewport/register';
-// import '@storybook/addons-links/register';
+import '@storybook/addon-options/register';
+import '@storybook/addon-links/register';
+import '@storybook/addon-viewport/register';
