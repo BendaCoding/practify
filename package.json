@@ -146,6 +146,13 @@
     "yup": "^0.25.1"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.8",
+    "@storybook/addon-info": "^3.4.8",
+    "@storybook/addon-knobs": "^3.4.8",
+    "@storybook/addon-links": "^3.4.8",
+    "@storybook/addon-viewport": "^3.4.8",
+    "@storybook/addons": "^3.4.8",
+    "@storybook/react": "^3.4.8",
     "@types/classnames": "^2.2.4",
     "@types/grid-styled": "^4.1.0",
     "@types/howler": "^2.0.5",
@@ -166,20 +173,18 @@
     "@types/react-slick": "^0.23.1",
     "@types/react-transition-group": "^2.0.11",
     "@types/recompose": "^0.26.1",
+    "@types/storybook__react": "^3.0.8",
     "@types/styled-system": "^2.3.2",
     "@types/yup": "^0.24.7",
+    "babel-core": "^6.26.3",
     "babel-jest": "^22.1.0",
+    "babel-runtime": "^6.26.0",
     "husky": "^1.0.0-rc.13",
     "jest": "22.4.2",
+    "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "redux-devtools-extension": "^2.13.2",
     "ts-jest": "22.0.1",
     "typescript": "^2.9.2",
-    "typescript-plugin-styled-components": "^0.0.6",
-    "@storybook/react": "^3.4.8",
-    "@storybook/addon-actions": "^3.4.8",
-    "@storybook/addon-links": "^3.4.8",
-    "@storybook/addons": "^3.4.8",
-    "babel-core": "^6.26.3",
-    "babel-runtime": "^6.26.0"
+    "typescript-plugin-styled-components": "^0.0.6"
   }
 }
