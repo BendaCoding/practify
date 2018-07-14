@@ -1,5 +1,5 @@
 import { styled, mixins } from 'practify/theme';
 
-export const H2 = styled.h2`
-  ${mixins.heading(2)}
+export const H5 = styled.h5`
+  ${mixins.heading(5)}
 `;

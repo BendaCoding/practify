@@ -80,6 +80,7 @@ declare interface ITheme {
     h2: string;
     h3: string;
     h4: string;
+    h5: string;
     body: string;
     small: string;
     tiny: string;
