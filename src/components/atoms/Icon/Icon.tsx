@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { theme } from 'practify/theme';
+import { withTheme, ThemeProps } from 'styled-components';
 
-export interface IIconProps {
+export interface IIconProps extends ThemeProps<ITheme> {
   color?: string;
   size?: string;
   transition?: string;
@@ -10,6 +10,7 @@ export interface IIconProps {
 }
 
 export const Icon: React.SFC<IIconProps> = ({
+  theme,
   color = theme.colors.spinner.dark,
   size = '48px',
   transition = '',
@@ -35,3 +36,6 @@ export const Icon: React.SFC<IIconProps> = ({
     </svg>
   );
 };
+
+export default withTheme(Icon);
+

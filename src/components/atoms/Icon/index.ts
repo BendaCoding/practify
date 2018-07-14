@@ -31,4 +31,4 @@ export { IconSynth } from './IconSynth';
 export { IconSnare } from './IconSnare';
 export { IconSpeaker } from './IconSpeaker';
 export { IconSax } from './IconSax';
-export { Icon } from './Icon';
+export { default as Icon } from './Icon';

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { drumTheme } from 'practify/theme
 import { Icon } from '.';
 
 export const IconNote1: React.SFC<{}> = props => {

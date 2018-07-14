@@ -1,7 +1,7 @@
 import React, { SFC } from 'react';
 import * as S from './styled';
 import { Card, ProgressBar } from '../../atoms';
-import { CommonProps, ResponsiveProp, Flex } from 'grid-styled';
+import { CommonProps, ResponsiveProp, Flex, BoxProps } from 'grid-styled';
 import moment from 'moment';
 
 export interface IOwnProps {
@@ -13,7 +13,7 @@ export interface IOwnProps {
   finished?: boolean;
 }
 
-type IExerciseCardProps = IOwnProps & CommonProps;
+type IExerciseCardProps = IOwnProps & Partial<CommonProps & BoxProps>;
 
 export const ExerciseCard: SFC<IExerciseCardProps> = ({
   name,
@@ -21,7 +21,7 @@ export const ExerciseCard: SFC<IExerciseCardProps> = ({
   progress,
   timeLeft = '',
   finished = false,
-  color,
+  ref,
   active,
   ...rest
 }) => {

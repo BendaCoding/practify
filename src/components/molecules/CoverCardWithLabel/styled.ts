@@ -1,7 +1,7 @@
 import { CoverCard } from './../../atoms/CoverCard';
 import { styled } from 'practify/theme';
 
-export const Wrapper = CoverCard.extend`
+export const Wrapper = styled(CoverCard)`
   position: relative;
   overflow: hidden;
   cursor: pointer;

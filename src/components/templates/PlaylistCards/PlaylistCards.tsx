@@ -13,9 +13,9 @@ interface IOuterProps extends IWithLoaderProps {
   selectedExerciseIndex: number;
 }
 
-type IInnerProps = IOuterProps & InjectedTranslateProps;
+type IInnerProps = IOuterProps;
 
-export const PlaylistCards: SFC<IInnerProps> = ({ t, exercises, selectExercise, selectedExerciseIndex }) => {
+export const PlaylistCards: SFC<IInnerProps> = ({ exercises, selectExercise, selectedExerciseIndex }) => {
   const clickHandler = (index: number) => () => selectExercise(index);
 
   return (

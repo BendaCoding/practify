@@ -45,7 +45,7 @@ export const Options = styled.div`
     background: ${({ theme }) => theme.colors.light};
   }
 `;
-export const Cover = CoverCard.extend`
+export const Cover = styled(CoverCard)`
   grid-area: coverArea;
 `;
 

@@ -1,7 +1,7 @@
 import { CoverCard } from '../../atoms/CoverCard';
 import { styled } from 'practify/theme';
 
-export const Wrapper = CoverCard.extend`
+export const Wrapper = styled(CoverCard)`
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -16,7 +16,6 @@ const position = `
 `;
 
 export const Content = styled.div`
-  ${position}
   z-index: 2;
   color: ${({ theme}) => theme.colors.typo.contrast};
   display: flex;
@@ -26,6 +25,7 @@ export const Content = styled.div`
   transition: ${({ theme }) => `255ms all ${theme.transitions.easeOutElastic}`};
   transform: scale(0.3);
   transform-origin: 50%;
+  ${position}
 
   ${Wrapper}:hover & {
     opacity: 1;

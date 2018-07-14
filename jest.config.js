@@ -2,16 +2,17 @@ module.exports = {
   "collectCoverageFrom": [
     "**/*[^(.d)].{js,jsx,ts,tsx}",
     "!**/node_modules/**",
-    "!**/vendor/**"
+    "!**/vendor/**",
+    "!src/storybook/**",
   ],
-  // "coverageThreshold": {
-  //   "global": {
-  //     "branches": 50,
-  //     "functions": 50,
-  //     "lines": 50,
-  //     "statements": 50
-  //   }
-  // },
+  "coverageThreshold": {
+    "global": {
+      "branches": 1,
+      "functions": 1,
+      "lines": 1,
+      "statements": 1
+    }
+  },
   "coveragePathIgnorePatterns": [
     "<rootDir>/cypress"
   ],

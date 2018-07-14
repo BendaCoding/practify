@@ -8,7 +8,7 @@ export const Badge = styled<IBadgeProps, any>('div')`
   width: 45px;
   height: 17px;
   display: inline-flex;
-  color: ${({ theme }) => theme.palette.white}
+  color: ${({ theme }) => theme.palette.white};
   background: ${({ theme, color }) => theme.infoPalette[color]};
   align-items:center;
   justify-content:center;

@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { theme } from 'practify/theme';
+import { ThemeProps, withTheme } from 'styled-components';
 
-export interface IPractifyLogoProps {
+export interface IPractifyLogoProps extends ThemeProps<ITheme> {
   color?: string;
   size?: number;
   transition?: string;
@@ -9,6 +9,7 @@ export interface IPractifyLogoProps {
 }
 
 export const PractifyLogo: React.SFC<IPractifyLogoProps> = ({
+  theme,
   color = theme.colors.spinner.dark,
   size = 30,
   transition = '',
@@ -61,3 +62,5 @@ export const PractifyLogo: React.SFC<IPractifyLogoProps> = ({
     </svg>
   );
 }
+
+export default withTheme(PractifyLogo);
