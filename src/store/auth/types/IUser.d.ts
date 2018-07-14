@@ -4,6 +4,6 @@ declare interface IUser extends IUserResponse {
   nickname: string;
   settings?: {
     instruments: string[];
-    difficulty: string;
+    difficulty: DifficultyEnum;
   }
 }
