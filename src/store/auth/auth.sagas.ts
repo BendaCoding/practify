@@ -6,6 +6,7 @@ import { push } from 'connected-react-router'
 import { userLoginRequest, userLoginSuccess, userLoginFail, userLoginSync, userLogoutSuccess,
   userLogoutFail, userLogoutRequest, userRegisterSuccess, userRegisterFail, userRegisterRequest, userOAuthRequest } from './auth.actions';
 import { routes } from 'practify/common';
+import { pick } from 'lodash';
 
 function * userLoginSaga({ payload: { email, password }}: IPayload<IAuthLoginRequest>) {
   try {
@@ -41,9 +42,17 @@ function * userSyncSaga() {
   const channel = yield call(rsf.auth.channel);
 
   while(true) {
-    const { error, user } = yield take(channel);
+    const { error, user }: { error: any; user: IUserResponse } = yield take(channel);
     if (user) {
-      yield put(userLoginSync(user));
+
+      const snapshot = yield call(rsf.firestore.getDocument, `users/${user.uid}`);
+      const userDoc = snapshot.data();
+      const userData = {
+        ...pick(user, ['uid', 'displayName', 'photoURL', 'email', 'emailVerified', 'phoneNumber', 'isAnonymous', 'lastLoginAt', 'createdAt']),
+        ...userDoc
+      };
+
+      yield put(userLoginSync(userData));
     } else {
       yield put(userLoginFail(error));
     }

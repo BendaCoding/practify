@@ -14,7 +14,7 @@ IApiErrorResponse
 >();
 
 export const userLoginSync = createStandardAction('auth/USER_LOGIN_SYNC')<
-IUser | null
+IUser
 >();
 
 /**

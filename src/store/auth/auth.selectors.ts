@@ -1,29 +1,30 @@
+import { get } from 'lodash';
 // tslint:disable: no-shadowed-variable
-import { createSelector } from 'reselect';
+import { createSelector, Selector } from 'reselect';
 
-export const getAuthState = (state: IAppState) => state.auth;
+export const getAuthState: Selector<IAppState, IAuthState> = state => state.auth;
 
-export const getLoggedIn = createSelector(
+export const getLoggedIn = createSelector<IAppState, IAuthState, IAuthState['loggedIn']>(
   getAuthState,
-  (authState: IAuthState) => authState.loggedIn,
+  state => state.loggedIn,
 );
 
-export const user = createSelector(
+export const getIsLoading = createSelector<IAppState, IAuthState, IAuthState['isLoading']>(
   getAuthState,
-  (authState: IAuthState) => authState.user,
+  state => state.isLoading,
 );
 
-export const userId = createSelector(
+export const user = createSelector<IAppState, IAuthState, IAuthState['user']>(
+  getAuthState,
+  state => state.user,
+);
+
+export const userId = createSelector<IAppState, IAuthState['user'], string>(
   user,
-  (userState: IUser) => userState.uid,
+  state => get(state, 'uid', ''),
 );
 
-export const getError = createSelector(
+export const getError = createSelector<IAppState, IAuthState, IAuthState['error']>(
   getAuthState,
-  (authState: IAuthState) => authState.error,
-);
-
-export const getIsLoading = createSelector(
-  getAuthState,
-  (authState: IAuthState) => authState.isLoading,
+  state => state.error,
 );

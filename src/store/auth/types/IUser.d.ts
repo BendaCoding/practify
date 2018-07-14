@@ -1,6 +1,9 @@
-declare interface IUser {
-  uid: string;
-  email: string;
-  emailVerified: boolean
-  displayName: string | null;
+declare interface IUser extends IUserResponse {
+  firstname: string;
+  lastname: string;
+  nickname: string;
+  settings?: {
+    instruments: string[];
+    difficulty: string;
+  }
 }
