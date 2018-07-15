@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import { ConnectedRouter } from 'connected-react-router';
 import { ThemeProvider } from 'styled-components';
-import { drumTheme } from 'practify/theme';
+import { baseTheme } from 'practify/theme';
 
 import { Provider } from 'react-redux';
 
@@ -22,7 +22,7 @@ baseStyles();
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <ThemeProvider theme={drumTheme}>
+      <ThemeProvider theme={baseTheme}>
         <I18nextProvider i18n={i18instance}>
           <App />
         </I18nextProvider>

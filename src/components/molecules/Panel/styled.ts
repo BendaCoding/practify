@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Backdrop = styled<IPanel, any>('div')`
-  ${mixins.absoluteFill('fixed', 49)}
+  ${mixins.absoluteFill(49, 'fixed')}
   width: 0;
   height: 0;
   opacity: 0;

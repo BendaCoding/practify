@@ -2,9 +2,8 @@ import { css, space } from '../../styled';
 
 type Heading = 1 | 2 | 3 | 4 | 5
 
-export const heading = (nr: Heading) => css`
-  font-weight: 200;
-  font-size: ${({ theme }) => theme.fontSizes[`h${nr}`]};
+export const heading = css`
+  font-weight: 500;
   margin: 0;
   ${space}
 `;

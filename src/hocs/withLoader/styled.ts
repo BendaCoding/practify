@@ -16,7 +16,7 @@ export const Wrapper = styled<IWrapperProps, any>('div')`
   ${({ type, theme, zIndex }) =>
     type === 'overlay'
       ? `
-        ${mixins.absoluteFill('absolute', zIndex)}
+        ${mixins.absoluteFill(zIndex)}
         background: ${theme.colors.overlayBg};
     ` : ''}
 `;

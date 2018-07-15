@@ -2,7 +2,7 @@ import { playlists } from '../../../store/playlists/playlists.selectors';
 import { styled, keyframes, mixins } from 'practify/theme';
 
 export const Wrapper = styled.div`
-  ${mixins.absoluteFill('fixed', 10)}
+  ${mixins.absoluteFill(10, 'fixed')}
   background: ${({ theme }) => theme.colors.countIn.overlay};
   transition: 200ms opacity ease-in-out;
   display: flex;

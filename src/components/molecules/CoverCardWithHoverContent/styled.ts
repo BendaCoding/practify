@@ -8,7 +8,7 @@ export const Wrapper = styled(CoverCard)`
 `;
 
 export const Content = styled.div`
-  z-index: 2;
+  ${mixins.absoluteFill(2)}
   color: ${({ theme}) => theme.colors.typo.contrast};
   display: flex;
   justify-content: center;
@@ -17,7 +17,6 @@ export const Content = styled.div`
   ${({ theme }) => `transition: 255ms all ${theme.transitions.easeOutElastic}`};
   transform: scale(0.3);
   transform-origin: 50%;
-  ${mixins.absoluteFill}
 
   ${Wrapper}:hover & {
     opacity: 1;
@@ -26,7 +25,7 @@ export const Content = styled.div`
 `;
 
 export const Backdrop = styled.div`
-  ${mixins.absoluteFill}
+  ${mixins.absoluteFill()}
   background: ${({ theme }) => theme.components.coverCardWithHoverContent.overlayBg};
   opacity: 0;
   transition: 120ms opacity ease-in;

@@ -2,7 +2,7 @@ import { css } from '../styled';
 
 type Position = 'absolute' | 'fixed';
 
-export const absoluteFill = (position: Position = 'absolute', zIndex?: number) => css`
+export const absoluteFill = (zIndex?: number, position: Position = 'absolute') => css`
   position: ${position};
   top: 0;
   left: 0;

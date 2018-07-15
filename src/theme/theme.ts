@@ -36,7 +36,7 @@ const infoPalette = {
 /**
  * Main Practify theme for drums
  */
-export const drumTheme: ITheme = {
+export const baseTheme: ITheme = {
   breakpoints: [576, 768, 992, 1200],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   
@@ -91,12 +91,12 @@ export const drumTheme: ITheme = {
     },
   },
   fontSizes: {
-    xxl:               '52px',
-    h1:                '4.2vw',
-    h2:                '3.5vw',
-    h3:                '3vw',
-    h4:                '2.7vw',
-    h5:                '2.2vw',
+    xxl:               '40px',
+    h1:                '36px',
+    h2:                '24px',
+    h3:                '22px',
+    h4:                '18px',
+    h5:                '16px',
     body:              '16px',
     small:             '13px',
     tiny:              '11px',

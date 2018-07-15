@@ -1,7 +1,7 @@
 import * as mixins from './mixins';
+export { mixins }
 
 export * from './styled';
 export * from './theme';
-export { breakpoint } from './breakpoint';
+export * from './breakpoint';
 
-export { mixins }

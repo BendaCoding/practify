@@ -15,6 +15,8 @@ stories.add('default', () => (
     </p>
     <CoverCard
       coverUrl={text('coverUrl', 'https://musicspot.com.au/media/wysiwyg/Drums.jpg')}
+      title={text('title', '')}
+      description={text('description', '')}
     />
   </Box>
 ))

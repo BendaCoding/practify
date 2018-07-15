@@ -2,7 +2,7 @@ import React, { SFC, Fragment } from 'react';
 import { styled } from 'practify/theme';
 import { Card } from '../Card';
 import { BoxProps, CommonProps, Box } from 'grid-styled';
-import { H4 } from '../H4';
+import { H5 } from '../H5';
 
 export interface ICoverCardProps extends Partial<CommonProps & BoxProps> {
   coverUrl: string;
@@ -32,12 +32,12 @@ export const CoverCard: SFC<ICoverCardProps> = ({
   if (title || description) {
     return (
       <Box {...rest}>
-        <Cover coverUrl={coverUrl} />
+        <Cover coverUrl={coverUrl} mb={1} />
         
         <Fragment>
-          <H4>{title}</H4>
+          <H5>{title}</H5>
           <div>{description}</div>
-        </Fragment>}
+        </Fragment>
 
       </Box>
     )
