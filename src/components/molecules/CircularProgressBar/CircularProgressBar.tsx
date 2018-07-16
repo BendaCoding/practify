@@ -68,7 +68,7 @@ export const CircularProgressBar: React.SFC<ICircularProgressBarProps> = ({
             </Animate>
           </S.Finished>
         :
-          <S.Text isRunning={isRunning}>
+          <S.Text isRunning={isRunning} size={size}>
               {text}
           </S.Text>
       }

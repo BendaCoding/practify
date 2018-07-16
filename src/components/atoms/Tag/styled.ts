@@ -5,8 +5,9 @@ interface IBadgeProps {
 }
 
 export const Badge = styled<IBadgeProps, any>('div')`
-  width: 45px;
+  min-width: 45px;
   height: 17px;
+  padding:5px;
   display: inline-flex;
   color: ${({ theme }) => theme.palette.white};
   background: ${({ theme, color }) => theme.infoPalette[color]};

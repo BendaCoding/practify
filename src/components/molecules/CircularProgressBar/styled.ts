@@ -13,6 +13,7 @@ export const Background = styled.circle`
 
 interface ICommonProps {
   isRunning: boolean;
+  size:number;
 }
 
 export const Progress = styled<ICommonProps, any>('circle')`
@@ -27,9 +28,9 @@ export const Progress = styled<ICommonProps, any>('circle')`
 
 
 export const Text = styled<ICommonProps, any>('div')`
-  ${({ isRunning, theme: { palette, fontSizes }}) => `
+  ${({ isRunning, size, theme: { palette, fontSizes }}) => `
     color: ${isRunning ? palette.vulcan : palette.athensGrey};
-    font-size: ${fontSizes.h1};
+    font-size: ${size/4 + 'px'};
   `}
   position: absolute;
   top: 50%;

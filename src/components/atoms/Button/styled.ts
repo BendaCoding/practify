@@ -25,7 +25,7 @@ export const Button = styled<IButtonProps, any>(Box)`
   border: none;
   cursor: pointer;
   background: ${({ theme }) => theme.colors.primary};
-  border-radius: 20px;
+  border-radius: 2em;
   transition: .25s all;
 
   ${space}
@@ -76,6 +76,6 @@ export const Button = styled<IButtonProps, any>(Box)`
 
   ${breakpoint.md} {
     padding: .6em 3em;
-    border-radius: 15px;
+    border-radius: 2em;
   }
 `;

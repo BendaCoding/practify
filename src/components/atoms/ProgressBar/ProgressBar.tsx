@@ -12,6 +12,6 @@ export const ProgressBar: React.SFC<IProgressBarProps> =
   onClick = () => null,
 }) => (
   <S.ProgressBar onClick={onClick}>
-    <S.Filled noTransition={progress === 100 || progress === 0} style={{width: `${progress}%`}} />
+    <S.Filled noTransition={progress === 100 || progress === 0} style={{width: `${Math.min(Math.max(progress,0),100)}%`}} />
   </S.ProgressBar>
 );
