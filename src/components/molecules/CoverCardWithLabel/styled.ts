@@ -1,3 +1,4 @@
+
 import { CoverCard } from './../../atoms/CoverCard';
 import { mixins, styled } from 'practify/theme';
 

@@ -14,7 +14,7 @@ export const incrementSubdivision = createStandardAction('metronome/INCREMENT_SU
 
 export const decrementSubdivision = createStandardAction('metronome/DECREMENT_SUBDIVISION')();
 
-
+export const setSubdivision = createStandardAction('metronome/SET_SUBDIVISION')<number>();
 
 export const tick = createStandardAction('metronome/TICK')();
 

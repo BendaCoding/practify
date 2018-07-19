@@ -34,7 +34,7 @@ export const CoverStack: SFC<ICoverStackProps> = ({
             .map((item: any, i: number) => (
               <Box key={item.name} width={1} mr={i === 0 ? 0 : -overlap}>
                 <Box>
-                  <CoverCardWithLabel coverUrl={item.coverUrl} />
+                  <CoverCardWithLabel backdrop coverUrl={item.coverUrl} />
                 </Box>
               </Box>
             ))}

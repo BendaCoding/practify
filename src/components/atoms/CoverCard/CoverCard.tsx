@@ -18,7 +18,7 @@ const Cover = styled<any, any>(({ coverUrl, ...rest }: any) => <Card {...rest} /
   height: 0;
   padding: 0;
   padding-top: 100%;
-  background-size: cover;
+  background-size:cover;
   ${({ coverUrl }) => `background-image: url(${coverUrl});`}
 `;
 

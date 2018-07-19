@@ -2,11 +2,13 @@ import React, { SFC } from 'react';
 import { ICoverCardProps, CoverCard } from '../../atoms/CoverCard/CoverCard';
 import * as S from './styled';
 
-export const CoverCardWithLabel: SFC<any> = ({ children, ...rest }) => (
+
+
+export const CoverCardWithLabel: SFC<any> = ({ children, backdrop, ...rest }) => (
   <S.Wrapper {...rest}>
     <S.Content>
       {children}
     </S.Content>
-    <S.Backdrop />
+   {backdrop && <S.Backdrop />}
   </S.Wrapper>
 );

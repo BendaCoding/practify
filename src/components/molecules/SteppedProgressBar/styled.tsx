@@ -16,6 +16,7 @@ interface ISplitProps {
 export const Split = styled<ISplitProps, any>('div')`
   margin-right: 5px;
   flex: 1;
+  transition: 1000ms background;
   background: ${({ theme, active }) =>
     active
     ? theme.palette.firebush

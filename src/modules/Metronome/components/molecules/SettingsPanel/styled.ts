@@ -7,7 +7,7 @@ export const Grid = styled.div`
   grid-template-areas:
     "bpmSliderArea bpmSliderArea bpmSliderArea bpmSliderArea"
     ". . . volumeSliderArea "
-    ". . . volumeSliderArea "
+    "SDSA SDSA . volumeSliderArea "
     ". . . volumeSliderArea "
     ". . . volumeSliderArea ";
    padding:1em;
@@ -19,13 +19,14 @@ export const VolumeSlider = styled.div`
   height: 100%;
   display:flex;
   align-items:start;
+  justify-content:end;
 `;
 
 export const VolumeLabel = styled.p`
   text-transform: uppercase;
   transform: rotate(-90deg);
   margin-right:-1.5em;
-  color: ${({theme}) => theme.colors.typo.highlight};
+  color: ${({ theme }) => theme.colors.typo.highlight};
 `;
 
 export const BpmSlider = styled.div`
@@ -33,8 +34,18 @@ export const BpmSlider = styled.div`
 
 `;
 
-export const BpmLabel = styled.div`
+export const Label = styled.div`
     text-align:left;
-    color: ${({theme}) => theme.colors.typo.highlight};
+    color: ${({ theme }) => theme.colors.typo.highlight};
     text-transform: uppercase;
+`;
+
+export const SubdivisionSettings = styled.div`
+    grid-area:SDSA
+    display:flex;
+    flex-direction:column;
+`;
+
+export const Subdivision = styled.div`
+    font-size:2em;
 `;

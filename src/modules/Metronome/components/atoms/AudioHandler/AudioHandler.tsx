@@ -44,7 +44,7 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
 
   setTimer() {
     const { bpm } = this.props;
-    const time = this.calculateInterval( bpm );
+    const time = this.calculateInterval( bpm * this.props.subdivision / 4 );
     this.setState({ time });
 
     this.timerId = setDynterval( () => {
@@ -67,7 +67,7 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
   }
 
   componentWillReceiveProps(nextProps: IAudioHandlerProps) {
-    const { isRunning, currentBeat, bpm } = this.props;
+    const { isRunning, currentBeat, bpm, subdivision } = this.props;
 
     /**
      * Start stop metronome
@@ -85,8 +85,8 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
       }
     }
 
-    if (nextProps.bpm !== bpm) {
-      this.setState({ time: this.calculateInterval(nextProps.bpm) })
+    if (nextProps.bpm !== bpm || nextProps.subdivision !== subdivision) {
+      this.setState({ time: this.calculateInterval(nextProps.bpm * this.props.subdivision / 4) })
     }
   }
 

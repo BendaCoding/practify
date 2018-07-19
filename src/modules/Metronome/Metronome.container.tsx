@@ -25,6 +25,7 @@ const mapDispatch = (dispatch: Dispatch) =>
     removeBeat: actions.removeBeat,
     incrementSubdivision: actions.incrementSubdivision,
     decrementSubdivision: actions.decrementSubdivision,
+    setSubdivision: actions.setSubdivision,
     tick: actions.tick,
     setBpm: actions.setBpm,
   }, dispatch);
@@ -45,6 +46,7 @@ export interface IDispatchProps {
   removeBeat: (index: number) => void;
   incrementSubdivision: () => void;
   decrementSubdivision: () => void;
+  setSubdivision: (subdivision: number) => void;
   tick: () => void;
   setBpm: (bpm: number) => void;
 }

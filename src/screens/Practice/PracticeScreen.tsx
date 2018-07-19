@@ -74,13 +74,13 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
       start();
     }
   };
-  
+
   const exercise = exercises[selectedExerciseIndex] || {};
 
   return (
     <S.Screen>
-  
-      <SteppedProgressBar steps={6} progress={3} />
+
+      <SteppedProgressBar steps={playlist!.exercises.length} progress={selectedExerciseIndex + 1} />
 
       <S.AvatarArea>
         <CoverCard
@@ -94,7 +94,9 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
           playlist={playlist!}
         />
       </S.HeadingArea>
-
+      <S.Settings>
+        <Metronome />
+      </S.Settings>
       <S.ExerciseArea>
         <Card>
           <img src="/img/sheet.jpg" style={{ width: '100%' }} />
@@ -104,11 +106,9 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
       <S.InfoArea>
 
         <Flex justifyContent="space-between">
-          <p>128 bpm</p>
+          <p>{bpm} bpm</p>
           <p>G Dur</p>
         </Flex>
-
-        <Metronome />
 
       </S.InfoArea>
 
@@ -137,10 +137,15 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
           </Fade>
         )}
       </S.TransportControls>
-      
+
       <S.Aside>
+<<<<<<< HEAD
+
+        <H2>{t("practice.aside.title")}</H2>
+=======
         
         <H2 mb={2}>{t('practice.aside.title')}</H2>
+>>>>>>> 9d0494500c77d79de16e9dc432bff3ab8992a14a
 
         <PlaylistCards
           isLoading={exercises.length === 0}

@@ -1,9 +1,9 @@
-import { firestore } from './../../firebase/index';
+import { firestore } from 'practify/firebase';
 import { loadExercisesSuccess, loadExercisesFail, loadExercisesRequest, logExerciseRequest } from './exercises.actions';
 import { call, put, all, takeEvery, select } from 'redux-saga/effects';
 import { rsf } from 'practify/firebase';
 import { getType } from 'typesafe-actions';
-import { userId } from './../auth/auth.selectors';
+import { userId } from '../auth/auth.selectors';
 // import { push } from 'connected-react-router'
 
 function * loadExercisesSaga() {

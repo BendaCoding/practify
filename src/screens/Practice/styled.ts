@@ -11,8 +11,8 @@ export const Screen = styled.div`
   grid-template-areas:
     "SteppedProgressBar"
     "heading"
-    " exercise"
-    "info"
+    "exercise"
+    "info "
     "description"
     "transportArea";
 
@@ -110,8 +110,20 @@ export const ExerciseArea = styled.div`
 
 export const InfoArea = styled.div`
   grid-area: info;
+  margin: .5em 1em;
 `;
 
+export const Settings = styled.div`
+  grid-area: settings;  
+  grid-column:1;
+  grid-row:2;
+  justify-self:end;
+  width:5%;
+  margin:.5em 1em;
+  ${breakpoint.lg`
+    display:none;
+  `}
+`;
 
 
 
