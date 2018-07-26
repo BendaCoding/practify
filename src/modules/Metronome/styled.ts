@@ -1,5 +1,5 @@
-import { styled } from "practify/theme";
-import { FaCog } from "react-icons/lib/fa";
+import { styled } from 'practify/theme';
+import { FaCog } from 'react-icons/lib/fa';
 
 export const TimeSignature = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.xxl};

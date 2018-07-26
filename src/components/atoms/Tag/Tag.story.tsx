@@ -16,7 +16,7 @@ stories.add('default', () => (
     </p>
     <Flex>
       <Box width={1 / 2}>
-        <CodeBlock mb={4}>{` <Tag color='color1' label='TagText' />`}</CodeBlock>
+        <CodeBlock mb={4}>{" <Tag color='color1' label='TagText' />"}</CodeBlock>
       </Box>
       <Box width={1 / 2} ml={10}>
         <Tag color={select('Color', baseTheme.infoPalette , 'color1')} label={text('Label','TagText')} />

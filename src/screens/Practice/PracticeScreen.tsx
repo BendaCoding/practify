@@ -139,13 +139,8 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
       </S.TransportControls>
 
       <S.Aside>
-<<<<<<< HEAD
-
-        <H2>{t("practice.aside.title")}</H2>
-=======
         
         <H2 mb={2}>{t('practice.aside.title')}</H2>
->>>>>>> 9d0494500c77d79de16e9dc432bff3ab8992a14a
 
         <PlaylistCards
           isLoading={exercises.length === 0}

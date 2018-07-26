@@ -13,7 +13,7 @@ stories.add('default', () => (
     <p>Simple Card to group related content.</p>
     <Flex>
       <Box width={1 / 2}>
-        <CodeBlock mb={4}>{`<Card>Card Content</Card>`}</CodeBlock>
+        <CodeBlock mb={4}>{'<Card>Card Content</Card>'}</CodeBlock>
       </Box>
       <Box width={1 / 2} ml={10}>
         <Card>{text('children', 'Card Content')}</Card>

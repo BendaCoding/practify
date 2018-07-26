@@ -120,9 +120,9 @@ export const Settings = styled.div`
   justify-self:end;
   width:5%;
   margin:.5em 1em;
-  ${breakpoint.lg`
+  ${breakpoint.lg} {
     display:none;
-  `}
+  }
 `;
 
 

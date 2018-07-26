@@ -7,7 +7,7 @@ import * as S from './styled';
 import { IMetronomeProps } from './Metronome.container';
 import { SettingsPanel } from './components/molecules/SettingsPanel';
 import { decrementSubdivision } from './store/metronome.actions';
-import { FaCog } from "react-icons/lib/fa";
+import { FaCog } from 'react-icons/lib/fa';
 
 export class Metronome extends React.PureComponent<IMetronomeProps> {
 

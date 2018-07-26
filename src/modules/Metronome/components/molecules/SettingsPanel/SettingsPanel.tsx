@@ -1,19 +1,11 @@
-<<<<<<< HEAD
-import * as React from "react";
-import * as S from "./styled";
-import { Panel, H1, Button } from "practify/components";
-import Slider, { createSliderWithTooltip } from "rc-slider";
-import "rc-slider/assets/index.css";
-import { Flex } from "grid-styled";
-import { ISettingsPanelProps } from "./SettingsPanel.container";
-=======
 import * as React from 'react';
 import * as S from './styled';
-import { Panel, H1 } from 'practify/components';
-import Slider from 'rc-slider';
+import { Panel, H1, Button } from 'practify/components';
+import Slider, { createSliderWithTooltip } from 'rc-slider';
 import 'rc-slider/assets/index.css';
->>>>>>> 9d0494500c77d79de16e9dc432bff3ab8992a14a
-
+import { Flex } from 'grid-styled';
+import { ISettingsPanelProps } from './SettingsPanel.container';
+// import 'rc-slider/assets/index.css';
 // Not working .. why?
 const SliderWithTooltip = createSliderWithTooltip(Slider);
 

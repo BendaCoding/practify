@@ -12,6 +12,8 @@ const stories = storiesOf(
   module
 );
 
+const noop = () => null;
+
 stories.add('CircularProgressBar', () => (
   <Fragment>
     <p>
@@ -37,7 +39,7 @@ stories.add('CircularProgressBar', () => (
           strokeWidth={number('strokeWidth', 2)}
           isRunning={boolean('isRunning', true)}
           finished={boolean('finished', false)}
-          onClick={() => null}
+          onClick={noop}
         />
       </Box>
     </Flex>
