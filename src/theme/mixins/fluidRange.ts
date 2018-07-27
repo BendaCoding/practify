@@ -13,7 +13,6 @@ export const fluidRange = (
 ) => {
   if (breakpointNames.indexOf(minWidth) !== -1) {
     minWidth = getBreakpointByName(minWidth) as string;
-    console.log(minWidth);
   }
   if (breakpointNames.indexOf(maxWidth) !== -1) {
     maxWidth = getBreakpointByName(maxWidth) as string;

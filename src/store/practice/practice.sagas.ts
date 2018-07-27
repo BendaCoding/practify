@@ -1,9 +1,11 @@
-import { selectedExerciseIndex, exercisesForPlaylist } from './practice.selectors';
+import { selectedExerciseIndex, exercisesForPlaylist, selectedExerciseId, selectedPlaylistId } from './practice.selectors';
 import { finishExercise, selectExercise, finishPlaylist } from './practice.actions';
 import { delay } from 'redux-saga';
 import { call, put, all, select, takeEvery } from 'redux-saga/effects';
 import { getType } from 'typesafe-actions';
 import { findIndex } from 'lodash';
+import { userId } from '../auth/auth.selectors';
+import { rsf } from 'practify/firebase';
 
 const getNextUnfinishedExerciseIndex = (exercises: IExerciseReferenceWithTracking[], currentIndex: number) => {
   const fromCurrentIndex = findIndex(exercises, (ex: IExerciseReferenceWithTracking) => !ex.finished, currentIndex);
@@ -30,8 +32,37 @@ function * selectNextExerciseSaga() {
   }
 }
 
+function * logExerciseSaga() {
+  const exerciseId = yield select(selectedExerciseId);
+  const instrumentId = 'drums'; // TODO: implement instrument selection
+
+  try {
+    const uid = yield select(userId);
+    yield call(rsf.firestore.addDocument, `users/${uid}/exercises/${exerciseId}/logs`,
+      { instrumentId }
+    )
+  } catch (error) {
+    // console.log(error);
+  }
+}
+
+function * logPlaylistSaga() {
+  const playlistId = yield select(selectedPlaylistId);
+  const instrumentId = 'drums'; // TODO: implement instrument selection
+  try {
+    const uid = yield select(userId);
+    yield call(rsf.firestore.addDocument, `users/${uid}/playlists/${playlistId}/logs`,
+      { instrumentId }
+    )
+  } catch (error) {
+    // console.log(error);
+  }
+}
+
 export function * practiceSaga () {
   yield all([
     takeEvery((getType(finishExercise) as any), selectNextExerciseSaga as any),
+    takeEvery((getType(finishExercise) as any), logExerciseSaga as any),
+    takeEvery((getType(finishPlaylist) as any), logPlaylistSaga as any),
   ]);
 }

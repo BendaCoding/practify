@@ -19,7 +19,7 @@ const mapState = (state: IAppState) => ({
   bpm: MetronomeStore.selectors.getBpm(state),
   beatCount: MetronomeStore.selectors.getBeatCount(state),
   exercises: Practice.selectors.exercisesForPlaylist(state),
-  playlist: Practice.selectors.playlist(state),
+  playlist: Practice.selectors.selectedPlaylist(state),
 });
 
 const mapDispatch = (dispatch: Dispatch) =>
@@ -32,7 +32,6 @@ const mapDispatch = (dispatch: Dispatch) =>
     startMetronome: MetronomeStore.actions.startMetronome,
     stopMetronome: MetronomeStore.actions.stopMetronome,
     finishExercise: Practice.actions.finishExercise,
-    logExercise: Exercises.actions.logExerciseRequest,
     selectExercise: Practice.actions.selectExercise,
     loadExercises: Exercises.actions.loadExercisesRequest,
     loadPlaylist: Practice.actions.loadPlaylist,
@@ -63,7 +62,6 @@ interface IDispatchProps {
   stopExercise: typeof Practice.actions.stopExercise;
   exerciseTick: typeof Practice.actions.exerciseTick;
   finishExercise: typeof Practice.actions.finishExercise;
-  logExercise: typeof Exercises.actions.logExerciseRequest;
   startMetronome: typeof MetronomeStore.actions.startMetronome;
   stopMetronome: typeof MetronomeStore.actions.stopMetronome;
   loadExercises: typeof Exercises.actions.loadExercisesRequest;

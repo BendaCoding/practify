@@ -7,5 +7,3 @@ export const loadExercisesSuccess = createStandardAction('exercises/LOAD_EXERCIS
 export const loadExercisesFail = createStandardAction('exercises/LOAD_EXERCISES_FAIL')<
   IApiErrorResponse
 >();
-
-export const logExerciseRequest = createStandardAction('SAGA_EVENT - exercises/LOG_EXERCISE')<ILogExerciseRequest>();

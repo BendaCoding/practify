@@ -31,7 +31,6 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
   startMetronome,
   stopMetronome,
   finishExercise,
-  logExercise,
   selectExercise,
   exercises,
   playlist,
@@ -53,7 +52,6 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
   const finish = () => {
     stopMetronome();
     finishExercise();
-    logExercise({ exerciseId: selectedExerciseId, instrumentId: 'drums' });
   };
 
   const stopCountInAndMetronome = () => {
@@ -152,7 +150,5 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
       </S.Aside>
 
     </S.Screen>
-
-
   );
 };

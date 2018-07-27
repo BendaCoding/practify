@@ -22,13 +22,18 @@ export const isCountInRunning = createSelector(
   ({ isCountInRunning }): boolean => isCountInRunning,
 );
 
-export const playlist = createSelector(
+export const selectedPlaylist = createSelector(
   [ practiceState ],
   ({ playlist }): IPracticeState['playlist'] => playlist,
 );
 
+export const selectedPlaylistId = createSelector(
+  [ selectedPlaylist ],
+  (playlist): string => playlist!.id || '',
+);
+
 export const selectedExerciseId = createSelector(
-  [ playlist, selectedExerciseIndex ],
+  [ selectedPlaylist, selectedExerciseIndex ],
   (playlist, selectedExerciseIndex) => get(playlist, `exercises[${selectedExerciseIndex}].exerciseId`)
 );
 
@@ -38,12 +43,12 @@ export const selectedExercise = createSelector(
 );
 
 export const selectedExerciseElapsed = createSelector(
-  [ playlist, selectedExerciseIndex ],
+  [ selectedPlaylist, selectedExerciseIndex ],
   (playlist, index) => playlist ? playlist.exercises[index].elapsed : 0,
 );
 
 export const selectedExercisePeriod = createSelector(
-  [ playlist, selectedExerciseIndex ],
+  [ selectedPlaylist, selectedExerciseIndex ],
   (playlist, index) => playlist ? playlist.exercises[index].period : 0,
 );
 
@@ -53,7 +58,7 @@ export const shouldTriggerCountIn = createSelector(
 );
 
 export const exercisesForPlaylist = createSelector(
-  [ playlist, Exercises.selectors.exerciseEntities, selectedExerciseIndex ],
+  [ selectedPlaylist, Exercises.selectors.exerciseEntities, selectedExerciseIndex ],
   (playlist, allExercises, selectedExerciseIndex) => playlist && !isEmpty(playlist) && !isEmpty(allExercises)
     ? playlist.exercises.map((exerciseReference, index) => {
         const exercise = allExercises[exerciseReference.exerciseId];
