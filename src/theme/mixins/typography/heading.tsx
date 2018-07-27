@@ -1,9 +1,8 @@
 import { css, space } from '../../styled';
 
-type Heading = 1 | 2 | 3 | 4 | 5
-
 export const heading = css`
   font-weight: 500;
+  font-family: 'YT Sans', 'Roboto', 'Helvetica', sans-serif;
   margin: 0;
   ${space}
 `;

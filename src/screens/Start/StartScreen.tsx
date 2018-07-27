@@ -3,14 +3,19 @@ import { lifecycle, compose } from 'recompose';
 import { connect, Dispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Exercises, Playlists } from 'practify/store';
-import { Container, CoverFlick, CoverGrid, CoverStack } from 'practify/components';
+import { Container, CoverFlick, CoverGrid, CoverStack, H1 } from 'practify/components';
 import { Flex } from 'grid-styled';
 
 const StartScreen = ({ exercises, playlists }: any) => {
 
   return (
     <Container>
-      <h1>How 'bout a little jam?</h1>
+      
+      <H1>Your current playlists</H1>
+
+    
+
+      <H1>How 'bout a little jam?</H1>
 
       <CoverFlick
         title="Recently Practiced"

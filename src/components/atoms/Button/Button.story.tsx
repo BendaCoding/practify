@@ -25,6 +25,7 @@ stories.add('default', () => (
         <CodeBlock mb={4}>
           {`<Button
   label='Click Me'
+  type="primary"
   onClick={() => console.log('hey')}
 />`}
         </CodeBlock>
