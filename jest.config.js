@@ -1,4 +1,5 @@
 module.exports = {
+  "testURL": "http://localhost/",
   "collectCoverageFrom": [
     "**/*[^(.d)].{js,jsx,ts,tsx}",
     "!**/node_modules/**",

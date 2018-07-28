@@ -1,5 +1,5 @@
-import { connect, Dispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { Auth } from 'practify/store';
 import { compose } from 'recompose';
 import { withFormik, InjectedFormikProps } from 'formik';

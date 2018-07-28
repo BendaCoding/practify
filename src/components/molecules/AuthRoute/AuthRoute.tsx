@@ -1,8 +1,7 @@
-import * as classnames from 'classnames';
 import * as React from 'react';
-import { Route, Redirect, RouteComponentProps, RouteProps } from 'react-router';
+import { Route, Redirect, RouteProps } from 'react-router';
 import { routes } from 'practify/common';
-import { connect, ComponentClass } from 'react-redux';
+import { connect } from 'react-redux';
 import { Auth } from 'practify/store';
 
 export interface IStateProps {

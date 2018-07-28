@@ -24,6 +24,16 @@ export const userId = createSelector<IAppState, IAuthState['user'], string>(
   state => get(state, 'uid', ''),
 );
 
+export const settings = createSelector<IAppState, IAuthState['user'], IUser['settings']>(
+  user,
+  state => get(state, 'settings', undefined)
+);
+
+export const activeInstrument = createSelector<IAppState, IUser['settings'], string | null>(
+  settings,
+  state => get(state, 'activeInstrument', null)
+);
+
 export const getError = createSelector<IAppState, IAuthState, IAuthState['error']>(
   getAuthState,
   state => state.error,

@@ -4,8 +4,8 @@ import { translate, InjectedTranslateProps } from 'react-i18next';
 import * as S from './styled';
 import { compose } from 'recompose';
 import { Auth } from 'practify/store';
-import { connect, Dispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { routes } from 'practify/common';
 
 interface IStateProps {

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as S from './styled';
 import { lifecycle, compose } from 'recompose';
-import { connect, Dispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { Exercises } from 'practify/store';
 import {
   Container,
