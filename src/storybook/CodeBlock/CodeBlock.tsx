@@ -5,12 +5,12 @@ import { Card } from '../../components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { styled } from '../../theme/index';
 
-interface ICodeBlockProps extends Partial<BoxProps & CommonProps> {
+interface CodeBlockProps extends Partial<BoxProps & CommonProps> {
   language?: string;
   display?: 'block' | 'inline-block';
 }
 
-export const CodeBlock: SFC<ICodeBlockProps> = ({
+export const CodeBlock: SFC<CodeBlockProps> = ({
   children,
   display = 'block',
   ref,

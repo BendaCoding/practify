@@ -4,21 +4,21 @@ import { H3 } from '../../atoms';
 import { Box, Flex } from 'grid-styled';
 import * as S from './styled';
 
-interface ICoverStackItem {
+interface CoverStackItem {
   coverUrl: string;
   name: string;
   description: string;
 }
 
-interface ICoverStackProps {
-  items: ICoverStackItem[];
+interface CoverStackProps {
+  items: CoverStackItem[];
   title?: string;
   description?: string;
   coverCount?: number;
   overlap?: number;
 }
 
-export const CoverStack: SFC<ICoverStackProps> = ({
+export const CoverStack: SFC<CoverStackProps> = ({
   title = '',
   description = '',
   coverCount = 3,

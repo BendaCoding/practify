@@ -4,7 +4,7 @@ import * as Animations from 'react-animations';
 
 type IAnimations = 'bounceIn' | 'fadeIn';
 
-interface IAnimateProps {
+interface AnimateProps {
   /**
    * Animation name as string
    */
@@ -15,7 +15,7 @@ interface IAnimateProps {
   duration: number;
 }
 
-export const Animate = styled<IAnimateProps, any>('div')`
-  ${({ duration, animation }) => `animation: ${duration}ms ${keyframes`${Animations[animation]}`};`}
+export const Animate = styled<AnimateProps, any>('div')`
+  ${({ duration, animation }) => `animation: ${duration}ms ${keyframes`${Animations[animation]}`};`};
 `;
 

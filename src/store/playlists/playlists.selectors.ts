@@ -1,7 +1,7 @@
 // tslint:disable: no-shadowed-variable
 import { createSelector } from 'reselect';
 
-export const getPlaylistsState = (state: IAppState): IPlaylistsState => state.playlists;
+export const getPlaylistsState = (state: AppState): IPlaylistsState => state.playlists;
 
 export const isLoading = createSelector(
   [ getPlaylistsState ],

@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-export const getMetronomeState = (state: IAppState): IMetronomeState => state.metronome;
+export const getMetronomeState = (state: AppState): IMetronomeState => state.metronome;
 
 export const getBpm = createSelector(
   getMetronomeState,

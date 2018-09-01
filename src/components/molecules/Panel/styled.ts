@@ -1,13 +1,13 @@
 import { mixins, styled, css } from 'practify/theme';
 
-export interface IPanel {
+export interface Panel {
   active: boolean;
 }
 
 export const Wrapper = styled.div`
 `;
 
-export const Backdrop = styled<IPanel, any>('div')`
+export const Backdrop = styled<Panel, any>('div')`
   ${mixins.absoluteFill(49, 'fixed')}
   width: 0;
   height: 0;
@@ -26,11 +26,11 @@ export const Backdrop = styled<IPanel, any>('div')`
     `};
 `;
 
-export const Panel = styled<IPanel, any>('div')`
+export const Panel = styled<Panel, any>('div')`
   position: fixed;
   height: 0;
   width: 100%;
-  transition: height 0.35s ${({ theme }) => theme.transitions.easeOutElastic};
+  transition: height 0.45s ${({ theme }) => theme.transitions.easeOutElastic};
   background: #fff;
   bottom: 0;
   left: 0;

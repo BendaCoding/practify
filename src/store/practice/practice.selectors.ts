@@ -5,7 +5,7 @@ import { createSelector } from 'reselect';
 import { Exercises } from '../exercises';
 import { set, get, isEmpty } from 'lodash';
 
-export const practiceState = (state: IAppState): IPracticeState => state.practice;
+export const practiceState = (state: AppState): IPracticeState => state.practice;
 
 export const selectedExerciseIndex = createSelector(
   [ practiceState ],

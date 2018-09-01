@@ -7,7 +7,7 @@ import { compose, lifecycle } from 'recompose';
 import { IExerciseWithPlaylistData } from '../../store/practice/types/IExerciseWithPlaylistData';
 import { translate, InjectedTranslateProps } from 'react-i18next';
 
-const mapState = (state: IAppState) => ({
+const mapState = (state: AppState) => ({
   isRunning: Practice.selectors.isRunning(state),
   isCountInRunning: Practice.selectors.isCountInRunning(state),
   
@@ -39,7 +39,7 @@ const mapDispatch = (dispatch: Dispatch) =>
   dispatch,
 );
 
-interface IStateProps {
+interface StateProps {
   isRunning: boolean;
   isCountInRunning: boolean;
   shouldTriggerCountIn: boolean;
@@ -55,7 +55,7 @@ interface IStateProps {
   playlist: IActivePlaylist | null;
 }
 
-interface IDispatchProps {
+interface DispatchProps {
   startCountIn: typeof Practice.actions.startCountIn;
   stopCountIn: typeof Practice.actions.stopCountIn;
   startExercise: typeof Practice.actions.startExercise;
@@ -68,11 +68,11 @@ interface IDispatchProps {
   selectExercise: typeof Practice.actions.selectExercise;
 }
 
-export type IPracticeScreenProps = IStateProps & IDispatchProps & InjectedTranslateProps;
+export type IPracticeScreenProps = StateProps & DispatchProps & InjectedTranslateProps;
 
 export default compose(
   translate(),
-  connect<IStateProps, IDispatchProps>(
+  connect<StateProps, DispatchProps>(
     mapState,
     mapDispatch,
   ),

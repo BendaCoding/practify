@@ -38,7 +38,7 @@ export const IconPractice = styled(PractifyLogo)`
   position: relative;
   transition: fill .2s ease-in;
   fill: ${({ theme }) => theme.colors.mainNav.link};
-  top: 1.5px;
+  top: -1px;
   
   ${NavLink}:hover &,
   ${NavLink}.active & {

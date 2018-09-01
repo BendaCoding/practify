@@ -1,12 +1,12 @@
 import * as React from 'react';
 import * as S from './styled';
 
-export interface IPanelProps {
+export interface PanelProps {
   active: boolean;
   onClick: () => void;
 }
 
-export const Panel: React.SFC<IPanelProps> = ({
+export const Panel: React.SFC<PanelProps> = ({
   active = false,
   onClick,
   children

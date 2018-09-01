@@ -1,4 +1,4 @@
-export interface ISettingsPanelProps {
+export interface SettingsPanelProps {
     bpm: number;
     active:boolean;
     subdivision: number;

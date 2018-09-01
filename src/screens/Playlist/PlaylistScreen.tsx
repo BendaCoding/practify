@@ -41,7 +41,7 @@ const PlaylistScreen = ({ exercises }: any) => (
   </Container>
 );
 
-const mapState = (state: IAppState) => ({
+const mapState = (state: AppState) => ({
   exercises: Exercises.selectors.exercises(state),
 });
 

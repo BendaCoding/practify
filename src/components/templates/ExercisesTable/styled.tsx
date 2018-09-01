@@ -2,11 +2,11 @@ import { styled } from 'practify/theme';
 import { Tr as BaseTr } from 'practify/components';
 import { CoverCard } from '../../atoms/CoverCard';
 import { ProgressBar } from 'practify/components';
-interface ITrProps {
+interface TrProps {
   active: boolean;
 }
 
-export const Tr = styled<ITrProps, any>(BaseTr)`
+export const Tr = styled<TrProps, any>(BaseTr)`
   ${({ theme, active }) => active && `color: ${theme.colors.typo.highlight};`};
 `;
 

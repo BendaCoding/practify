@@ -4,12 +4,12 @@ import { Panel, H1, Button } from 'practify/components';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { Flex } from 'grid-styled';
-import { ISettingsPanelProps } from './SettingsPanel.container';
+import { SettingsPanelProps } from './SettingsPanel.container';
 // import 'rc-slider/assets/index.css';
 // Not working .. why?
 const SliderWithTooltip = createSliderWithTooltip(Slider);
 
-export class SettingsPanel extends React.PureComponent<ISettingsPanelProps> {
+export class SettingsPanel extends React.PureComponent<SettingsPanelProps> {
 
   state = { bpm: this.props.bpm };
 

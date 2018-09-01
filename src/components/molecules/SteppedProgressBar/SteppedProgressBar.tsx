@@ -2,13 +2,13 @@ import * as React from 'react';
 import * as S from './styled';
 import { range } from 'lodash';
 
-export interface ISteppedProgressBarProps {
+export interface SteppedProgressBarProps {
   steps: number;
   progress: number;
   onClick?: (step: number) => void;
 }
 
-export const SteppedProgressBar: React.SFC<ISteppedProgressBarProps> = ({
+export const SteppedProgressBar: React.SFC<SteppedProgressBarProps> = ({
   steps,
   progress,
   onClick,

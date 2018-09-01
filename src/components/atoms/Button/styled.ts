@@ -13,11 +13,11 @@ export type ButtonType = 'primary'
 | 'tertiary'
 | 'link'
 
-interface IButtonProps {
+interface ButtonProps {
   type: ButtonType
 }
 
-export const Button = styled<IButtonProps, any>(Box)`
+export const Button = styled<ButtonProps, any>(Box)`
   display: inline-flex;
   justify-content: center;
   align-items: center;

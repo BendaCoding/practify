@@ -1,8 +1,8 @@
 import { styled, css, mixins } from 'practify/theme';
-import { IHeroSectionProps } from './HeroSection';
+import { HeroSectionProps } from './HeroSection';
 
-type IWrapperProps =
-  Pick<IHeroSectionProps,
+type WrapperProps =
+  Pick<HeroSectionProps,
   'gradient'
   | 'gradientColor'
   | 'ratio'
@@ -23,7 +23,7 @@ const absolutePosition = `
   content: '';
 `;
 
-export const Wrapper = styled<IWrapperProps, any>('div')`
+export const Wrapper = styled<WrapperProps, any>('div')`
   width: 100%;
   height: 0;
   position: relative;

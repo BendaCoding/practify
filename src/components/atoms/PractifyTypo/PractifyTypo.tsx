@@ -1,12 +1,12 @@
 import * as React from 'react'
 
-export interface IPractifyLogoProps {
+export interface PractifyLogoProps {
   color?: string;
   size?: number;
   transition?: string;
 }
 
-export const PractifyTypo: React.SFC<IPractifyLogoProps> = ({
+export const PractifyTypo: React.SFC<PractifyLogoProps> = ({
   color = '#fff',
   transition = '',
 }) => (

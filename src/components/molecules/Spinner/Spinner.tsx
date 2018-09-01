@@ -7,7 +7,7 @@ type FixedSizes = 'sm' | 'md' | 'lg';
 
 type Size = FixedSizes | number;
 
-interface ISpinnerProps {
+interface SpinnerProps {
   size: Size;
   color?: string;
 }
@@ -22,7 +22,7 @@ const getSizePixelValue = (size: Size) => typeof size === 'string'
   ? spinnerSizes[size]
   : size;
 
-export const Spinner: React.SFC<ISpinnerProps> = ({ size = 'md', color }) => (
+export const Spinner: React.SFC<SpinnerProps> = ({ size = 'md', color }) => (
   <S.Wrapper>
     <Fade>
       <PractifyLogo

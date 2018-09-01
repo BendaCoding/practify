@@ -7,7 +7,7 @@ import { Metronome } from './Metronome';
 
 const { actions, selectors } = MetronomeStore;
 
-const mapState = (state: IAppState) => ({
+const mapState = (state: AppState) => ({
   isRunning: Practice.selectors.isRunning(state) || Practice.selectors.isCountInRunning(state),
   beatsWithVolume: selectors.getBeatsWithVolume(state),
   beatCount: selectors.getBeatCount(state),
@@ -30,7 +30,7 @@ const mapDispatch = (dispatch: Dispatch) =>
     setBpm: actions.setBpm,
   }, dispatch);
   
-export interface IStateProps {
+export interface StateProps {
   bpm: number;
   isRunning: boolean;
   beatsWithVolume: number[];
@@ -39,7 +39,7 @@ export interface IStateProps {
   currentBeat: number;
 }
 
-export interface IDispatchProps {
+export interface DispatchProps {
   startMetronome: () => void;
   stopMetronome: () => void;
   addBeat: () => void;
@@ -51,14 +51,14 @@ export interface IDispatchProps {
   setBpm: (bpm: number) => void;
 }
 
-export interface IOwnProps {
+export interface OwnProps {
   changeHandler: (index: number) => (volume: number) => any;
 }
 
-export type IMetronomeProps = IStateProps & IDispatchProps & IOwnProps;
+export type MetronomeProps = StateProps & DispatchProps & OwnProps;
 
 export default compose(
-  connect<IStateProps, IDispatchProps, IOwnProps>(mapState, mapDispatch),
+  connect<StateProps, DispatchProps, OwnProps>(mapState, mapDispatch),
   withHandlers({
     changeHandler: ({ changeBeatVolumeAtIndex }) => (index: number) =>
       (volume: number) => () => {
@@ -67,7 +67,7 @@ export default compose(
         }
       },
   }),
-  lifecycle<IMetronomeProps, any>({
+  lifecycle<MetronomeProps, any>({
     componentWillUnmount() {
       this.props.stopMetronome();
     },

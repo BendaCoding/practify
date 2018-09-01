@@ -1,12 +1,12 @@
 import * as React from 'react';
 import * as S from './styled';
 
-interface ITagProps {
-  color?: keyof ITheme['infoPalette'];
+interface TagProps {
+  color?: keyof Theme['infoPalette'];
   label: string;
 }
 
-export const Tag: React.SFC<ITagProps> = ({
+export const Tag: React.SFC<TagProps> = ({
   label,
   color = 'color1',
   children,

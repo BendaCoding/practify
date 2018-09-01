@@ -4,7 +4,7 @@ import { Card } from '../Card';
 import { BoxProps, CommonProps, Box } from 'grid-styled';
 import { H5 } from '../H5';
 
-export interface ICoverCardProps extends Partial<CommonProps & BoxProps> {
+export interface CoverCardProps extends Partial<CommonProps & BoxProps> {
   coverUrl: string;
   title?: string;
   description?: string;
@@ -22,7 +22,7 @@ const Cover = styled<any, any>(({ coverUrl, ...rest }: any) => <Card {...rest} /
   ${({ coverUrl }) => `background-image: url(${coverUrl});`}
 `;
 
-export const CoverCard: SFC<ICoverCardProps> = ({
+export const CoverCard: SFC<CoverCardProps> = ({
   title,
   description,
   coverUrl,

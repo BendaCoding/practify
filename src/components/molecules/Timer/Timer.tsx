@@ -2,7 +2,7 @@ import * as moment from 'moment';
 import * as React from 'react';
 import { CircularProgressBar } from '../CircularProgressBar';
 
-export interface ITimerProps {
+export interface TimerProps {
   time: number;
   elapsed: number;
   timerId: number;
@@ -16,21 +16,21 @@ export interface ITimerProps {
   strokeWidth?: number;
 }
 
-interface ITimerState {
+interface TimerState {
   elapsed: number;
   interval: any;
   isRunning: boolean;
 }
 
-export class Timer extends React.Component<ITimerProps, ITimerState> {
+export class Timer extends React.Component<TimerProps, TimerState> {
 
-  public static defaultProps: Partial<ITimerProps> = {
+  public static defaultProps: Partial<TimerProps> = {
     tickInterval: 0.01,
     strokeWidth: 14,
     size: 250,
   };
 
-  constructor(props: ITimerProps) {
+  constructor(props: TimerProps) {
     super(props);
     this.state = {
       elapsed: props.elapsed,
@@ -93,7 +93,7 @@ export class Timer extends React.Component<ITimerProps, ITimerState> {
     this.setState({ elapsed: newElapsed });
   }
 
-  componentWillReceiveProps(nextProps: ITimerProps) {
+  componentWillReceiveProps(nextProps: TimerProps) {
     const { isRunning, interval, elapsed } = this.state;
     const { time, timerId } = this.props;
     const nextIsRunning = nextProps.isRunning;

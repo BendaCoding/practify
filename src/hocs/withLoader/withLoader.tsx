@@ -4,26 +4,26 @@ import { Spinner } from 'practify/components';
 import * as S from './styled';
 import { ThemeProps, withTheme } from 'styled-components';
 
-interface IWithLoaderOptions {
+interface WithLoaderOptions {
   type: 'light' | 'dark' | 'overlay';
   size: 'sm' | 'md' | 'lg';
   zIndex: number;
   minHeight: number;
 }
 
-export interface IWithLoaderProps {
+export interface WithLoaderProps {
   isLoading: boolean;
 }
 
-const defaultConfig: IWithLoaderOptions = {
+const defaultConfig: WithLoaderOptions = {
   type: 'dark',
   size: 'md',
   zIndex: 1,
   minHeight: 120,
 }
 
-export const withLoader = (userConfig: Partial<IWithLoaderOptions> = defaultConfig) => (WrappedComponent: any) => {
-  const ComponentWithLoader: SFC<IWithLoaderProps & ThemeProps<ITheme>> = ({ isLoading, theme, ...rest }) => {
+export const withLoader = (userConfig: Partial<WithLoaderOptions> = defaultConfig) => (WrappedComponent: any) => {
+  const ComponentWithLoader: SFC<WithLoaderProps & ThemeProps<Theme>> = ({ isLoading, theme, ...rest }) => {
     const { type, size, zIndex, minHeight } = {
       ...defaultConfig,
       ...userConfig,

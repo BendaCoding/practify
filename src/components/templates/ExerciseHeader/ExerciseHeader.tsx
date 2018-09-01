@@ -3,12 +3,12 @@ import * as S from './styled';
 import { H1, H2 } from '../../atoms';
 import { RatingStars } from '../../molecules';
 
-export interface IExerciseHeaderProps {
+export interface ExerciseHeaderProps {
   title: string;
   playlist: IPlaylist | IActivePlaylist;
 }
 
-export const ExerciseHeader: React.SFC<IExerciseHeaderProps> = ({
+export const ExerciseHeader: React.SFC<ExerciseHeaderProps> = ({
   title,
   playlist,
 }) => {

@@ -5,12 +5,12 @@ import * as S from './styled';
 import { H1 } from '../../components';
 import { CodeBlock } from '../CodeBlock';
 
-export interface IStoryTemplateProps {
+export interface StoryTemplateProps {
   storyFn: RenderFunction;
   name: string;
 }
  
-export const StoryTemplate: SFC<IStoryTemplateProps> = ({ name, storyFn }) => (
+export const StoryTemplate: SFC<StoryTemplateProps> = ({ name, storyFn }) => (
   <S.Wrapper>
     <StorybookHeader />
     <H1 mb={3}>{name}</H1>

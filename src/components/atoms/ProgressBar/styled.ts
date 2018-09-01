@@ -6,11 +6,11 @@ export const ProgressBar = styled.div`
   background: ${({ theme }) => theme.colors.light};
 `;
 
-interface IFilledProps {
+interface FilledProps {
   noTransition?: boolean;
 }
 
-export const Filled = styled<IFilledProps, any>('div')`
+export const Filled = styled<FilledProps, any>('div')`
   height: 6px;
   background: ${props => props.theme.colors.primary};
   transition: 1000ms width;

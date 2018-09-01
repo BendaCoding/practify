@@ -7,7 +7,7 @@ import * as S from './styled';
 import { CoverCardWithHoverContent } from '../../molecules';
 import { FaPlay } from 'react-icons/lib/fa';
 
-interface ICoverFlickItem {
+interface CoverFlickItem {
   name: string;
   description: string;
   id: string;
@@ -15,8 +15,8 @@ interface ICoverFlickItem {
   onClick?: (id: string) => void;
 }
 
-interface ICoverFlickProps extends CommonProps {
-  items: ICoverFlickItem[];
+interface CoverFlickProps extends CommonProps {
+  items: CoverFlickItem[];
   title?: string;
   options?: SliderSettings,
   onClick?: (id: string) => void;
@@ -58,7 +58,7 @@ const defaultOptions = {
   ],
 }
 
-export const CoverFlick: SFC<ICoverFlickProps> = ({
+export const CoverFlick: SFC<CoverFlickProps> = ({
   title = '',
   items,
   options,

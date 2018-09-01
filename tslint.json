@@ -8,7 +8,8 @@
     "ordered-imports": false,
     "jsx-boolean-value": false,
     "quotemark": [true, "single", "avoid-escape", "avoid-template", "jsx-double"],
-    "eofline": true
+    "eofline": true,
+    "interface-name": [true, "never-prefix"]
   },
   "linterOptions": {
     "exclude": ["config/**/*.js", "node_modules/**/*.ts"]

@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import { ICoverCardProps, CoverCard } from '../../atoms/CoverCard/CoverCard';
+import { CoverCardProps, CoverCard } from '../../atoms/CoverCard/CoverCard';
 import * as S from './styled';
 
 

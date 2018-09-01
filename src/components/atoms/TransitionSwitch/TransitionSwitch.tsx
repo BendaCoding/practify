@@ -2,11 +2,11 @@ import * as React from 'react';
 import { RouteComponentProps, Switch } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-interface ITransitionSwitchProps extends Pick<RouteComponentProps<{}>, 'location'> {
+interface TransitionSwitchProps extends Pick<RouteComponentProps<{}>, 'location'> {
   animation?: string;
 }
 
-export const TransitionSwitch: React.SFC<ITransitionSwitchProps> = ({
+export const TransitionSwitch: React.SFC<TransitionSwitchProps> = ({
   children,
   location,
   animation = 'fade',

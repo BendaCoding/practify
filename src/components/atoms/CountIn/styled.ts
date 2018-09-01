@@ -26,12 +26,12 @@ const countInAnim = keyframes`
   }
 `;
 
-interface ICountNumberProps {
+interface CountNumberProps {
   period: number;
   delay: number;
 }
 
-export const CountNumber = styled<ICountNumberProps, any>('label')`
+export const CountNumber = styled<CountNumberProps, any>('label')`
   position: absolute;
   font-size: 100vw;
   color: ${({ theme }) => theme.colors.typo.inverted};

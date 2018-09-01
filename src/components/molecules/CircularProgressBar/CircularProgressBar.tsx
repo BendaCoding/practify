@@ -4,7 +4,7 @@ import { FaCheck } from 'react-icons/lib/fa';
 import { Animate } from '../../atoms';
 import { withTheme, ThemeProps } from 'styled-components';
 
-interface ICircularProgressBarProps extends ThemeProps<ITheme> {
+interface CircularProgressBarProps extends ThemeProps<Theme> {
   progress: number;
   text?: string;
   size?: number;
@@ -14,7 +14,7 @@ interface ICircularProgressBarProps extends ThemeProps<ITheme> {
   onClick?: () => void;
 }
 
-export const CircularProgressBar: React.SFC<ICircularProgressBarProps> = ({
+export const CircularProgressBar: React.SFC<CircularProgressBarProps> = ({
   size = 250,
   strokeWidth = 14,
   progress,

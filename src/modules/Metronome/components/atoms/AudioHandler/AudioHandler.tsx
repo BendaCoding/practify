@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Howl } from 'howler';
 import setDynterval from 'dynamic-interval';
 
-interface IAudioHandlerProps {
+interface AudioHandlerProps {
   isRunning: boolean;
   bpm: number;
   subdivision: number;
@@ -11,7 +11,7 @@ interface IAudioHandlerProps {
   tick: () => void;
 }
 
-export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
+export class AudioHandler extends React.PureComponent<AudioHandlerProps> {
 
   state = {
     time: 0,
@@ -66,7 +66,7 @@ export class AudioHandler extends React.PureComponent<IAudioHandlerProps> {
     }
   }
 
-  componentWillReceiveProps(nextProps: IAudioHandlerProps) {
+  componentWillReceiveProps(nextProps: AudioHandlerProps) {
     const { isRunning, currentBeat, bpm, subdivision } = this.props;
 
     /**

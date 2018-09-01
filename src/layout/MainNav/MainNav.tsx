@@ -8,17 +8,17 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { routes } from 'practify/common';
 
-interface IStateProps {
+interface StateProps {
   loggedIn: boolean;
 }
 
-interface IDispatchProps {
+interface DispatchProps {
   userLogoutRequest: () => void;
 }
 
-type IProps = IStateProps & IDispatchProps & InjectedTranslateProps & RouteComponentProps<any>;
+type IProps = StateProps & DispatchProps & InjectedTranslateProps & RouteComponentProps<any>;
 
-const mapState = (state: IAppState) => ({
+const mapState = (state: AppState) => ({
   loggedIn: Auth.selectors.getLoggedIn(state),
 });
 
@@ -63,6 +63,6 @@ export const MainNav: React.SFC<IProps> = ({ t, loggedIn, userLogoutRequest }) =
 export default withRouter<any>(
   compose(
     translate(),
-    connect<IStateProps, IDispatchProps>(mapState, mapDispatch),
+    connect<StateProps, DispatchProps>(mapState, mapDispatch),
   )(MainNav),
 );

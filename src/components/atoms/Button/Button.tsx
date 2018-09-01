@@ -3,7 +3,7 @@ import Repeatable from 'react-repeatable';
 import * as S from './styled';
 import { BoxProps, CommonProps } from 'grid-styled';
 
-export interface IButtonProps extends Partial<BoxProps & CommonProps> {
+export interface ButtonProps extends Partial<BoxProps & CommonProps> {
   type?: S.ButtonType;
   label?: string;
   onClick?: (e?: any) => void;
@@ -15,7 +15,7 @@ export interface IButtonProps extends Partial<BoxProps & CommonProps> {
   iconLeft?: boolean;
 }
 
-export const Button: React.SFC<IButtonProps> = ({
+export const Button: React.SFC<ButtonProps> = ({
   type = 'primary',
   onClick,
   shouldTriggerOnHold = false,

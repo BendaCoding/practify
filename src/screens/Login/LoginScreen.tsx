@@ -4,12 +4,12 @@ import { LoginFormContainer } from './LoginFormContainer';
 import { RegisterFormContainer } from './RegisterFormContainer';
 import { withState, withHandlers, compose } from 'recompose';
 
-interface IHomeScreenProps {
+interface HomeScreenProps {
   showLoginForm: boolean;
   toggleForm: () => boolean;
 }
 
-export const HomeScreen: React.SFC<IHomeScreenProps> = ({ showLoginForm, toggleForm }) => (
+export const HomeScreen: React.SFC<HomeScreenProps> = ({ showLoginForm, toggleForm }) => (
   <Container>
     <Fade trigger={showLoginForm}>
       {showLoginForm ? (

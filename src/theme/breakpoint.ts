@@ -3,14 +3,14 @@ import { baseTheme } from './theme';
 import { InterpolationValue } from 'styled-components';
 
 export const breakpointNames: string[] = ['sm', 'md', 'lg', 'xl'];
-interface IBreakpoints {
+interface Breakpoints {
   sm: InterpolationValue[];
   md: InterpolationValue[];
   lg: InterpolationValue[];
   xl: InterpolationValue[];
 }
 
-export const breakpoint: IBreakpoints = {
+export const breakpoint: Breakpoints = {
   sm: css`@media (min-width: ${baseTheme.breakpoints[0]}px)`,
   md: css`@media (min-width: ${baseTheme.breakpoints[1]}px)`,
   lg: css`@media (min-width: ${baseTheme.breakpoints[2]}px)`,

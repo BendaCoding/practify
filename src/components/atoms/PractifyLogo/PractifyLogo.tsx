@@ -1,14 +1,14 @@
 import * as React from 'react'
 import { ThemeProps, withTheme } from 'styled-components';
 
-export interface IPractifyLogoProps extends ThemeProps<ITheme> {
+export interface PractifyLogoProps extends ThemeProps<Theme> {
   color?: string;
   size?: number;
   transition?: string;
   className?: string;
 }
 
-export const PractifyLogo: React.SFC<IPractifyLogoProps> = ({
+export const PractifyLogo: React.SFC<PractifyLogoProps> = ({
   theme,
   color = theme.colors.spinner.dark,
   size = 30,

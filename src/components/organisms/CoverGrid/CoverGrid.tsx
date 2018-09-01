@@ -7,14 +7,14 @@ import * as Icon from '../../atoms/Icon';
 import { times } from 'lodash';
 import { withTheme, ThemeProps } from 'styled-components';
 
-interface ICoverGridItem {
+interface CoverGridItem {
   coverUrl: string;
   name: string;
   description: string;
 }
 
-interface ICoverGridProps extends ThemeProps<ITheme> {
-  items: ICoverGridItem[];
+interface CoverGridProps extends ThemeProps<Theme> {
+  items: CoverGridItem[];
   title?: string;
 }
 
@@ -37,7 +37,7 @@ const icons = [
 ];
 
 
-export const CoverGrid: SFC<ICoverGridProps> = ({
+export const CoverGrid: SFC<CoverGridProps> = ({
   title = '',
   items,
   theme,

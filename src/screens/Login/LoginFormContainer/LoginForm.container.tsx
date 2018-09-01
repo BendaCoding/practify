@@ -6,28 +6,28 @@ import { compose, withHandlers } from 'recompose';
 import { LoginForm } from './LoginForm';
 import { withLoader } from 'practify/hocs';
 
-interface IStateProps {
+interface StateProps {
   isLoading: boolean;
 }
 
-interface IDispatchProps {
+interface DispatchProps {
   userLoginRequest: (credentials: IAuthLoginRequest) => void;
   userOAuthRequest: (provider: 'facebook' | 'google') => any;
 }
 
-interface IOwnProps {
+interface OwnProps {
   toggleForm: () => void;
   handleSubmit: () => void;
   oAuthLogin: (authProvider: string) => any;
 }
 
-interface IValues {
+interface Values {
   email: string;
   password: string;
 }
 
 
-const mapState = (state: IAppState) => ({
+const mapState = (state: AppState) => ({
   isLoading: Auth.selectors.getIsLoading(state),
 });
 
@@ -38,12 +38,12 @@ const mapDispatch = (dispatch: Dispatch) => (
   }, dispatch)
 );
 
-export type ILoginFormProps = IStateProps & IDispatchProps & IValues & IOwnProps;
+export type ILoginFormProps = StateProps & DispatchProps & Values & OwnProps;
 
 export const LoginFormContainer = compose<any, any>(
-  connect<IStateProps, IDispatchProps, IOwnProps>(mapState, mapDispatch),
+  connect<StateProps, DispatchProps, OwnProps>(mapState, mapDispatch),
   withLoader({ minHeight: 340 }),
-  withFormik<IOwnProps & IDispatchProps, IValues, any>({
+  withFormik<OwnProps & DispatchProps, Values, any>({
     mapPropsToValues: () => ({
       email: '',
       password: '',

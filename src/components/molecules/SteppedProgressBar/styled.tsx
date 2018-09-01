@@ -1,4 +1,4 @@
-import { styled, css } from 'practify/theme';
+import { styled } from 'practify/theme';
 
 export const Bar = styled.div`
   height: 3px;
@@ -9,11 +9,11 @@ export const Bar = styled.div`
   background: ${({ theme }) => theme.palette.gallery};
 `;
 
-interface ISplitProps {
+interface SplitProps {
   active?: boolean;
 }
 
-export const Split = styled<ISplitProps, any>('div')`
+export const Split = styled<SplitProps, any>('div')`
   margin-right: 5px;
   flex: 1;
   transition: 1000ms background;

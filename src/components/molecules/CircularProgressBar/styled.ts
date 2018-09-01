@@ -11,12 +11,12 @@ export const Background = styled.circle`
   stroke: ${props => props.theme.palette.athensGrey};
 `;
 
-interface ICommonProps {
+interface CommonProps {
   isRunning: boolean;
   size:number;
 }
 
-export const Progress = styled<ICommonProps, any>('circle')`
+export const Progress = styled<CommonProps, any>('circle')`
   fill: none;
   stroke: ${({ isRunning, theme: { palette }}) =>
     isRunning ? palette.curiousBlue : palette.lightGrey};
@@ -27,7 +27,7 @@ export const Progress = styled<ICommonProps, any>('circle')`
 
 
 
-export const Text = styled<ICommonProps, any>('div')`
+export const Text = styled<CommonProps, any>('div')`
   ${({ isRunning, size, theme: { palette, fontSizes }}) => `
     color: ${isRunning ? palette.vulcan : palette.athensGrey};
     font-size: ${size/4 + 'px'};
@@ -36,7 +36,7 @@ export const Text = styled<ICommonProps, any>('div')`
   top: 50%;
   left: 50%;
   text-align: center;
-  transform: translate(-50%, -60%);
+  transform: translate(-50%, -50%);
   transition: color 200ms ease-out;
 `;
 

@@ -4,7 +4,7 @@ import { Card, ProgressBar } from '../../atoms';
 import { CommonProps, ResponsiveProp, Flex, BoxProps } from 'grid-styled';
 import moment from 'moment';
 
-export interface IOwnProps {
+export interface OwnProps {
   name: string;
   onClick?: () => any;
   active?: boolean;
@@ -13,9 +13,9 @@ export interface IOwnProps {
   finished?: boolean;
 }
 
-type IExerciseCardProps = IOwnProps & Partial<CommonProps & BoxProps>;
+type ExerciseCardProps = OwnProps & Partial<CommonProps & BoxProps>;
 
-export const ExerciseCard: SFC<IExerciseCardProps> = ({
+export const ExerciseCard: SFC<ExerciseCardProps> = ({
   name,
   onClick,
   progress,

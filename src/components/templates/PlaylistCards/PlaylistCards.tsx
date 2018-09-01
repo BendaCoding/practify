@@ -5,17 +5,17 @@ import { IExerciseWithPlaylistData } from '../../../store/practice/types/IExerci
 import { ExerciseCard } from '../../molecules';
 import { withLoader } from 'practify/hocs';
 import { compose } from 'recompose';
-import { IWithLoaderProps } from '../../../hocs/withLoader/withLoader';
+import { WithLoaderProps } from '../../../hocs/withLoader/withLoader';
 
-interface IOuterProps extends IWithLoaderProps {
+interface OuterProps extends WithLoaderProps {
   exercises: IExerciseWithPlaylistData[];
   selectExercise: any;
   selectedExerciseIndex: number;
 }
 
-type IInnerProps = IOuterProps;
+type InnerProps = OuterProps;
 
-export const PlaylistCards: SFC<IInnerProps> = ({ exercises, selectExercise, selectedExerciseIndex }) => {
+export const PlaylistCards: SFC<InnerProps> = ({ exercises, selectExercise, selectedExerciseIndex }) => {
   const clickHandler = (index: number) => () => selectExercise(index);
 
   return (
@@ -36,7 +36,7 @@ export const PlaylistCards: SFC<IInnerProps> = ({ exercises, selectExercise, sel
   );
 };
 
-export default compose<IInnerProps, IOuterProps>(
+export default compose<InnerProps, OuterProps>(
   translate(),
   withLoader(),
 )(PlaylistCards);

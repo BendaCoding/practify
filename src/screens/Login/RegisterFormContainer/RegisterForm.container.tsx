@@ -8,12 +8,12 @@ import { RegisterForm } from './RegisterForm';
 import * as Yup from 'yup';
 import { users } from 'practify/firebase';
 
-interface IOwnProps extends InjectedTranslateProps {
+interface OwnProps extends InjectedTranslateProps {
   toggleForm: () => void;
   userRegisterRequest: (credentials: IAuthRegisterRequest) => void;
 }
 
-interface IValues {
+interface Values {
   email: string;
   password: string;
   passwordRepeat: string;
@@ -22,7 +22,7 @@ interface IValues {
   lastname: string;
 }
 
-interface IDispatchProps {
+interface DispatchProps {
   userRegisterRequest: (credentials: IAuthRegisterRequest) => void;
 }
 
@@ -34,12 +34,12 @@ const mapDispatch = (dispatch: Dispatch) =>
   }, dispatch,
 );
 
-export type IRegisterFormProps = InjectedFormikProps<IOwnProps, IValues>
+export type IRegisterFormProps = InjectedFormikProps<OwnProps, Values>
 
 export const RegisterFormContainer = compose<any, any>(
   translate(),
-  connect<{}, IDispatchProps, IOwnProps>(undefined, mapDispatch),
-  withFormik<IOwnProps, IValues, any>({
+  connect<{}, DispatchProps, OwnProps>(undefined, mapDispatch),
+  withFormik<OwnProps, Values, any>({
     mapPropsToValues: ({ t }) => ({
       email: '',
       password: '',

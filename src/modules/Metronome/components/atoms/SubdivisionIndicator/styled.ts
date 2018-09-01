@@ -8,11 +8,11 @@ export const Wrapper = styled.div`
   padding: 40px 0;
   flex: 1 1 0;
 `;
-interface IScalerProps {
+interface ScalerProps {
   size: number;
 }
 
-export const Scaler = styled<IScalerProps, any>('div')`
+export const Scaler = styled<ScalerProps, any>('div')`
   transform: scale(${({ size }) => size});
   transition: 235ms transform ${({ theme }) => theme.transitions.easeOutElastic};
 `;
@@ -23,7 +23,7 @@ export const Controls = styled.div`
   flex-direction: column;
 `;
 
-interface IIconProps {
+interface IconProps {
   disabled: boolean;
 }
 
@@ -44,8 +44,8 @@ const iconStyles = css`
   }
 `;
 
-export const Plus = styled<IIconProps, any>('div')`
-  ${iconStyles}
+export const Plus = styled<IconProps, any>('div')`
+  ${iconStyles};
 
   ${({ disabled, theme }) => disabled && `
     color: ${theme.colors.disabled}
@@ -53,7 +53,7 @@ export const Plus = styled<IIconProps, any>('div')`
   `}
   `;
   
-  export const Minus = styled<IIconProps, any>('div')`
+  export const Minus = styled<IconProps, any>('div')`
   ${iconStyles}
   align-items: flex-end;
 

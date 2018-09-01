@@ -4,16 +4,18 @@ import { FaStar, FaStarHalf, FaStarO, FaStarHalfEmpty } from 'react-icons/lib/fa
 import { times } from 'lodash';
 import { withTheme, ThemeProps } from 'styled-components';
 
-interface IOuterProps {
+interface OuterProps {
   rating: number;
   maximum?: number;
   size?: string;
 }
 
-type RatingStarsProps = IOuterProps & ThemeProps<ITheme>
+type RatingStarsProps = OuterProps & ThemeProps<Theme>
 
+/**
+ * Show a Rating with filled and hollow stars
+ */
 export const RatingStars: React.SFC<RatingStarsProps> = ({
-  children,
   rating = 0,
   maximum = 5,
   size = '17px',

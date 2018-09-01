@@ -2,27 +2,27 @@ import React, { Component, Fragment } from 'react';
 import * as S from './styled';
 import { range } from 'lodash';
 
-interface ICountInProps {
+interface CountInProps {
   onFinish: () => void;
   beatCount?: number;
   interval?: number;
 }
 
-interface IStateProps {
+interface StateProps {
   slowCountIn: boolean;
   finishTimerId: any;
 }
 
 const MINIMUM_TIMEOUT = 4000;
 
-export class CountIn extends Component<ICountInProps, any> {
+export class CountIn extends Component<CountInProps, any> {
  
-  public static defaultProps: Partial<ICountInProps> = {
+  public static defaultProps: Partial<CountInProps> = {
     beatCount: 4,
     interval: 800,
   };
 
-  constructor(props: ICountInProps) {
+  constructor(props: CountInProps) {
     super(props);
     this.state = {
       slowCountIn: false,

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './styled';
 
-interface IAnimateProps {
+interface AnimateProps {
   /**
    * Animation name as string
    */
@@ -12,7 +12,7 @@ interface IAnimateProps {
   duration?: number;
 }
 
-export const Animate: React.SFC<IAnimateProps> = ({
+export const Animate: React.SFC<AnimateProps> = ({
   children,
   ...rest
 }) => (

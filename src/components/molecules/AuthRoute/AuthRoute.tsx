@@ -4,15 +4,15 @@ import { routes } from 'practify/common';
 import { connect } from 'react-redux';
 import { Auth } from 'practify/store';
 
-export interface IStateProps {
+interface StateProps {
   loggedIn: boolean;
 }
 
-interface IRouteProps extends RouteProps {
+interface AuthRouteProps extends RouteProps {
  component: any;
 }
 
-type IProps = IStateProps & IRouteProps;
+type IProps = StateProps & AuthRouteProps;
 
 export const AuthRoute: React.SFC<IProps> = ({ component: Component, loggedIn, ...rest }) => {
   const renderedComponent = (props: any) => (
@@ -27,7 +27,7 @@ export const AuthRoute: React.SFC<IProps> = ({ component: Component, loggedIn, .
   return <Route {...rest} render={renderedComponent} />
 }
 
-const mapState = (state: IAppState) => ({
+const mapState = (state: AppState) => ({
   loggedIn: Auth.selectors.getLoggedIn(state),
 })
 

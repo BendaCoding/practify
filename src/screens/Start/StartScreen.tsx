@@ -51,7 +51,7 @@ const StartScreen = ({ exercises, playlists }: any) => {
   );
 }
 
-const mapState = (state: IAppState) => ({
+const mapState = (state: AppState) => ({
   exercises: Exercises.selectors.exercises(state),
   playlists: Playlists.selectors.playlists(state),
 })

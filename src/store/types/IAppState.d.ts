@@ -1,4 +1,4 @@
-declare interface IAppState {
+declare interface AppState {
   auth: IAuthState;
   practice: IPracticeState;
   exercises: IExercisesState;

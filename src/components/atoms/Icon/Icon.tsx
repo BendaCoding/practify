@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withTheme, ThemeProps } from 'styled-components';
 
-export interface IIconProps extends ThemeProps<ITheme> {
+export interface IconProps extends ThemeProps<Theme> {
   color?: string;
   size?: string;
   transition?: string;
@@ -9,7 +9,7 @@ export interface IIconProps extends ThemeProps<ITheme> {
   d:string;
 }
 
-export const Icon: React.SFC<IIconProps> = ({
+export const Icon: React.SFC<IconProps> = ({
   theme,
   color = theme.colors.spinner.dark,
   size = '48px',

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as S from './styled';
 import { withTheme, ThemeProps } from 'styled-components';
 
-export interface IHeroSectionProps {
+export interface HeroSectionProps {
   ratio: number;
   gradient: 'left' | 'right' | 'top' | 'bottom' | false;
   gradientColor: string;
@@ -11,7 +11,7 @@ export interface IHeroSectionProps {
   backgroundFilter: string | false;
 }
 
-type OwnProps = Partial<IHeroSectionProps> & ThemeProps<ITheme>
+type OwnProps = Partial<HeroSectionProps> & ThemeProps<Theme>
 
 export const SplashSection: React.SFC<OwnProps> = ({
   theme,

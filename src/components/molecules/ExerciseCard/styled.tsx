@@ -1,13 +1,13 @@
 import { styled, css } from 'practify/theme';
 import { Card as BaseCard } from '../../atoms/Card';
-import { IOwnProps } from './ExerciseCard';
+import { OwnProps } from './ExerciseCard';
 import { ProgressBar as BaseProgressBar } from '../../atoms/ProgressBar/styled';
 
-interface IWrapperProps {
+interface WrapperProps {
   active?: boolean;
 }
 
-export const Wrapper = styled<IWrapperProps, any>(BaseCard)`
+export const Wrapper = styled<WrapperProps, any>(BaseCard)`
   cursor: pointer;
   position: relative;
   transition: 95ms color ease-in;
@@ -38,9 +38,9 @@ export const Wrapper = styled<IWrapperProps, any>(BaseCard)`
   }
 `;
 
-type ICardTitleProps = Pick<IOwnProps, 'finished'>
+type CardTitleProps = Pick<OwnProps, 'finished'>
 
-export const CardTitle = styled<ICardTitleProps, any>('h4')`
+export const CardTitle = styled<CardTitleProps, any>('h4')`
   font-size: ${props => props.theme.fontSizes.h4};
   ${({ finished }) => finished && 'text-decoration: line-through;'}
 `;

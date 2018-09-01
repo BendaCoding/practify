@@ -4,12 +4,12 @@ import { PractifyLogo } from 'practify/components';
 import { FaPlus, FaMinus } from 'react-icons/lib/fa';
 import { withTheme, ThemeProps } from 'styled-components';
 
-interface IOuterProps {
+interface OuterProps {
   min?: number;
   max?: number;
 }
 
-interface IProps extends ThemeProps<ITheme> {
+interface Props extends ThemeProps<Theme> {
   volume: number;
   onChange: (volume: number) => (e: React.MouseEvent<SVGElement>) => void;
   min?: number;
@@ -26,7 +26,7 @@ const sizes = {
   4: 3.66,
 }
 
-export const SubdivisionIndicator: React.SFC<IProps> = ({
+export const SubdivisionIndicator: React.SFC<Props> = ({
   volume,
   onChange,
   active = false,

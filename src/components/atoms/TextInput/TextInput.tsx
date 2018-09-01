@@ -4,7 +4,7 @@ import * as React from 'react';
 import * as S from './styles';
 import { FieldProps } from 'formik';
 
-interface ITextInputBaseProps extends FieldProps {
+interface TextInputBaseProps extends FieldProps {
   name: string;
   type?: 'text' | 'email' | 'password';
   label?: string;
@@ -15,18 +15,18 @@ interface ITextInputBaseProps extends FieldProps {
   isLoading?: boolean;
 }
 
-interface ITextInputControlledProps extends ITextInputBaseProps {
+interface TextInputControlledProps extends TextInputBaseProps {
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-interface ITextInputUncontrolledProps extends ITextInputBaseProps {
+interface TextInputUncontrolledProps extends TextInputBaseProps {
   ref: string;
   defaultValue?: string;
 }
 
 
-type TextInputProps = ITextInputControlledProps | ITextInputUncontrolledProps;
+type TextInputProps = TextInputControlledProps | TextInputUncontrolledProps;
 
 export const TextInput: React.SFC<TextInputProps> = ({ label, hint, error, field, form, ...rest }) => {
 

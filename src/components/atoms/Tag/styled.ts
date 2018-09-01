@@ -1,10 +1,10 @@
 import { styled } from 'practify/theme';
 
-interface IBadgeProps {
-  color: keyof ITheme['infoPalette'];
+interface BadgeProps {
+  color: keyof Theme['infoPalette'];
 }
 
-export const Badge = styled<IBadgeProps, any>('div')`
+export const Badge = styled<BadgeProps, any>('div')`
   min-width: 45px;
   height: 17px;
   padding:5px;

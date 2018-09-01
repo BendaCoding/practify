@@ -17,6 +17,7 @@ export const Content = styled.div`
   ${({ theme }) => `transition: 255ms all ${theme.transitions.easeOutElastic}`};
   transform: scale(0.3);
   transform-origin: 50%;
+  user-select: none;
 
   ${Wrapper}:hover & {
     opacity: 1;

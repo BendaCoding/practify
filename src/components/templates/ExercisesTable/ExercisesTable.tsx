@@ -4,16 +4,16 @@ import * as S from './styled';
 import { FaEllipsisV }  from 'react-icons/lib/fa';
 import { withTheme, ThemeProps } from 'styled-components';
 
-interface IExerciseItem extends IExercise {
+interface ExerciseItem extends IExercise {
   active?: boolean;
 }
 
-interface IExercisesTableProps extends ThemeProps<ITheme> {
-  exercises: IExerciseItem[];
+interface ExercisesTableProps extends ThemeProps<Theme> {
+  exercises: ExerciseItem[];
   onExerciseClick?: (index: number) => void;
 }
 
-export const ExercisesTable: React.SFC<IExercisesTableProps> = ({
+export const ExercisesTable: React.SFC<ExercisesTableProps> = ({
   exercises,
   onExerciseClick,
   theme,

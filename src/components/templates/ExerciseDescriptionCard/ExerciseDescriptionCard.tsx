@@ -2,12 +2,12 @@ import * as React from 'react';
 import * as S from './styled';
 import { Card } from '../../atoms/Card';
 
-export interface IOwnProps {
+export interface OwnProps {
   bpm?: number;
   mKey?: string;
 }
 
-export const ExerciseDescriptionCard: React.SFC<IOwnProps> = props => {
+export const ExerciseDescriptionCard: React.SFC<OwnProps> = props => {
   return (
     <S.Wrapper>
       <Card>{props.children}</Card>

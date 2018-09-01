@@ -1,13 +1,13 @@
 import { styled, mixins } from 'practify/theme';
 
 // type WrapperProps = Omit<IWithLoaderProps, 'isLoading'>
- interface IWrapperProps {
+ interface WrapperProps {
   type: 'light' | 'dark' | 'overlay';
   zIndex: number;
   minHeight: number;
 }
 
-export const Wrapper = styled<IWrapperProps, any>('div')`
+export const Wrapper = styled<WrapperProps, any>('div')`
   flex: 1;
   display: flex;
   align-items: center;
