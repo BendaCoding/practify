@@ -8,10 +8,13 @@ export const IconWrapper = styled('span')`
   margin: 0 4px 0 4px;
 `;
 
+export type ButtonType = 'primary'
+| 'secondary'
+| 'tertiary'
+| 'link'
+
 interface IButtonProps {
-  type: 'primary'
-  | 'secondary'
-  | 'link';
+  type: ButtonType
 }
 
 export const Button = styled<IButtonProps, any>(Box)`
@@ -27,51 +30,101 @@ export const Button = styled<IButtonProps, any>(Box)`
   background: ${({ theme }) => theme.colors.primary};
   border-radius: 2em;
   transition: .25s all;
-
+  user-select: none;
   ${space}
-  
-  ${({ theme, type }) => type === 'primary' && css`
-    &:hover {
-      background: ${theme.colors.button.hover};
-    }
 
-    &:active {
-      background: ${theme.colors.button.active};
-    }
+  ${({ theme, disabled }) => disabled && css`
+    background: ${theme.colors.button.disabled};
+    cursor: default;
+  `};
+  
+  /**
+   * Primary
+   */
+  ${({ theme, type, disabled }) => type === 'primary' && css`
+
+    ${!disabled && css`
+      &:hover {
+        background: ${theme.colors.button.hover};
+      }
+
+      &:active {
+        background: ${theme.colors.button.active};
+      }
+    `};
   `}
 
-  ${({ theme, type }) => type === 'secondary' && css`
+  /**
+   * Secondary
+   */
+  ${({ theme, type, disabled }) => type === 'secondary' && css`
     background: none;
     color: ${theme.colors.primary};
     font-weight: bold;
     border: 1px solid ${theme.colors.primary};
 
-    &:hover {
-      background: ${theme.colors.button.hover};
-    }
+    ${!disabled ? css`
+      &:hover {
+        background: ${theme.colors.button.hover};
+      }
 
-    &:active {
-      background: ${theme.colors.button.active};
-    }
+      &:active {
+        background: ${theme.colors.button.active};
+      }
+    `
+    : css`
+      color: ${theme.colors.button.disabled};
+      border-color: ${theme.colors.button.disabled};
+    `};
+  `}
+
+  /**
+   * Tertiary
+   */
+  ${({ theme, type, disabled }) => type === 'tertiary' && css`
+    background: none;
+    color: ${theme.colors.primary};
+    font-weight: bold;
+    border: 1px dashed ${theme.colors.primary};
+
+    ${!disabled ? css`
+      &:hover {
+        color: ${theme.colors.button.hover};
+        border-color: ${theme.colors.button.hover};
+      }
+
+      &:active {
+        color: ${theme.colors.button.active};
+        border-color: ${theme.colors.button.active};
+      }
+    `
+    : css`
+      color: ${theme.colors.button.disabled};
+      border-color: ${theme.colors.button.disabled};
+    `};
   `}
   
-  ${({ theme, type }) => type === 'link' && css`
+  /**
+   * Link
+   */
+  ${({ theme, type, disabled }) => type === 'link' && css`
     background: none;
     color: ${theme.colors.button.primary};
     text-transform: none;
     position: relative;
     height: auto;
     padding: 0;
-    transition: 130ms transform ease-out;
-
-    &:hover {
-      transform: scale(1.08);
-    }
-    
-    &:active {
-      transition: 60ms transform ease-out;
-      transform: scale(1);
-    }
+    transition: 130ms transform ease-out, 130ms color ease-out;
+      
+    ${!disabled && css`
+      &:hover {
+        transform: scale(1.08);
+      }
+      
+      &:active {
+        color: ${theme.colors.button.hover};
+      }
+    `};
   `}
 
   ${breakpoint.md} {
