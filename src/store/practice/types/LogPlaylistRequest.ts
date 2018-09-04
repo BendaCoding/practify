@@ -1,4 +1,4 @@
 export interface LogPlaylistRequest {
   playlistId: string;
-  instrumentId: string;
+  instrument: string;
 }

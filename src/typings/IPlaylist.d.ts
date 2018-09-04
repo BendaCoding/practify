@@ -1,4 +1,4 @@
-declare interface IPlaylist {
+declare interface Playlist {
   id: string;
   name: string;
   description: string;
@@ -7,10 +7,10 @@ declare interface IPlaylist {
     average: number;
     count: number;
   }
-  exercises: IExerciseReference[];
+  exercises: ExerciseReference[];
 }
 
-declare interface IExerciseReference {
+declare interface ExerciseReference {
   exerciseId: string;
   period: number; // length in seconds of how long to exercice
 }

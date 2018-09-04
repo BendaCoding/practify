@@ -27,6 +27,7 @@ export const PlaylistCards: SFC<InnerProps> = ({ exercises, selectExercise, sele
             progress={ex.progress}
             timeLeft={ex.timeLeft}
             finished={ex.finished}
+            rank={ex.playCount}
             onClick={clickHandler(index)}
             active={index === selectedExerciseIndex}
             key={ex.name}

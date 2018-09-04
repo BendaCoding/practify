@@ -24,7 +24,7 @@ export const Info = styled.p`
   margin: 0;
 `;
 
-export const Description = styled.p`
+export const Description = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.small};
   grid-area: descriptionArea;
   color: ${({ theme }) => theme.colors.typo.secondary};

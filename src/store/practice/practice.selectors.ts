@@ -5,11 +5,11 @@ import { createSelector } from 'reselect';
 import { Exercises } from '../exercises';
 import { set, get, isEmpty } from 'lodash';
 
-export const practiceState = (state: AppState): IPracticeState => state.practice;
+export const practiceState = (state: AppState): PracticeState => state.practice;
 
 export const selectedExerciseIndex = createSelector(
   [ practiceState ],
-  ({ selectedExerciseIndex }): IPracticeState['selectedExerciseIndex'] => selectedExerciseIndex,
+  ({ selectedExerciseIndex }): PracticeState['selectedExerciseIndex'] => selectedExerciseIndex,
 );
 
 export const isRunning = createSelector(
@@ -24,7 +24,7 @@ export const isCountInRunning = createSelector(
 
 export const selectedPlaylist = createSelector(
   [ practiceState ],
-  ({ playlist }): IPracticeState['playlist'] => playlist,
+  ({ playlist }): PracticeState['playlist'] => playlist,
 );
 
 export const selectedPlaylistId = createSelector(

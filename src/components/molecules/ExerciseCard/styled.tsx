@@ -2,6 +2,7 @@ import { styled, css } from 'practify/theme';
 import { Card as BaseCard } from '../../atoms/Card';
 import { OwnProps } from './ExerciseCard';
 import { ProgressBar as BaseProgressBar } from '../../atoms/ProgressBar/styled';
+import { Rank as BaseRank } from '../../atoms';
 
 interface WrapperProps {
   active?: boolean;
@@ -43,6 +44,12 @@ type CardTitleProps = Pick<OwnProps, 'finished'>
 export const CardTitle = styled<CardTitleProps, any>('h4')`
   font-size: ${props => props.theme.fontSizes.h4};
   ${({ finished }) => finished && 'text-decoration: line-through;'}
+`;
+
+export const Rank = BaseRank.extend`
+  position: relative;
+  top: -1px;
+  margin-right: 5px;
 `;
 
 export const TimeLeft = styled.span`

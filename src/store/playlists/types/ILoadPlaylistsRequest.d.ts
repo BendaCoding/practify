@@ -1,1 +1,1 @@
-declare type ILoadPlaylistsRequest = IPlaylist[];
+declare type ILoadPlaylistsRequest = Playlist[];

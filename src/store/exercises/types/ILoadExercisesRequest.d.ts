@@ -1,3 +1,3 @@
 declare interface ILoadExercisesResponse {
-  [id: string]: IExercise;
+  [id: string]: Exercise;
 }

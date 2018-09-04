@@ -47,6 +47,7 @@ export const LoginForm: React.SFC<ILoginFormProps> = ({ toggleForm, handleSubmit
       <Button
         label="Sign in with Google"
         onClick={oAuthLogin('google')}
+        type="secondary"
         mr={2}
       >
         <FaGoogle />
@@ -55,6 +56,7 @@ export const LoginForm: React.SFC<ILoginFormProps> = ({ toggleForm, handleSubmit
       <Button
         label="Sign in with Facebook"
         onClick={oAuthLogin('facebook')}
+        type="secondary"
       >
         <FaFacebook />
       </Button>

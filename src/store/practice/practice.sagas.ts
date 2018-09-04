@@ -7,12 +7,12 @@ import { findIndex } from 'lodash';
 import { userId } from '../auth/auth.selectors';
 import { rsf } from 'practify/firebase';
 
-const getNextUnfinishedExerciseIndex = (exercises: IExerciseReferenceWithTracking[], currentIndex: number) => {
-  const fromCurrentIndex = findIndex(exercises, (ex: IExerciseReferenceWithTracking) => !ex.finished, currentIndex);
+const getNextUnfinishedExerciseIndex = (exercises: ExerciseReferenceWithTracking[], currentIndex: number) => {
+  const fromCurrentIndex = findIndex(exercises, (ex: ExerciseReferenceWithTracking) => !ex.finished, currentIndex);
   if (fromCurrentIndex > -1) {
     return fromCurrentIndex;
   } else {
-    return findIndex(exercises, (ex: IExerciseReferenceWithTracking) => !ex.finished);
+    return findIndex(exercises, (ex: ExerciseReferenceWithTracking) => !ex.finished);
   }
 }
 
@@ -34,12 +34,12 @@ function * selectNextExerciseSaga() {
 
 function * logExerciseSaga() {
   const exerciseId = yield select(selectedExerciseId);
-  const instrumentId = 'drums'; // TODO: implement instrument selection
+  const instrument = 'drums'; // TODO: implement instrument selection
 
   try {
     const uid = yield select(userId);
     yield call(rsf.firestore.addDocument, `users/${uid}/exercises/${exerciseId}/logs`,
-      { instrumentId }
+      { instrument }
     )
   } catch (error) {
     // console.log(error);
@@ -48,11 +48,11 @@ function * logExerciseSaga() {
 
 function * logPlaylistSaga() {
   const playlistId = yield select(selectedPlaylistId);
-  const instrumentId = 'drums'; // TODO: implement instrument selection
+  const instrument = 'drums'; // TODO: implement instrument selection
   try {
     const uid = yield select(userId);
     yield call(rsf.firestore.addDocument, `users/${uid}/playlists/${playlistId}/logs`,
-      { instrumentId }
+      { instrument }
     )
   } catch (error) {
     // console.log(error);

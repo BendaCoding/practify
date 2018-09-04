@@ -52,7 +52,7 @@ interface StateProps {
   bpm: number;
   beatCount: number;
   exercises: IExerciseWithPlaylistData[];
-  playlist: IActivePlaylist | null;
+  playlist: ActivePlaylist | null;
 }
 
 interface DispatchProps {

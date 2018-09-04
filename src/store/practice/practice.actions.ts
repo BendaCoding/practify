@@ -1,6 +1,6 @@
 import { createStandardAction } from 'typesafe-actions';
 
-export const loadPlaylist = createStandardAction('practice/LOAD_PLAYLIST')<IActivePlaylist>();
+export const loadPlaylist = createStandardAction('practice/LOAD_PLAYLIST')<ActivePlaylist>();
 
 export const selectExercise = createStandardAction('practice/SELECT_EXERCISE')<number>();
 

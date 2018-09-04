@@ -12,6 +12,7 @@ export { Hidden } from './Hidden';
 export { PractifyLogo } from './PractifyLogo';
 export { PractifyTypo } from './PractifyTypo';
 export { ProgressBar } from './ProgressBar';
+export { Rank } from './Rank';
 export { Tag } from './Tag';
 export { Td } from './Td';
 export { TextInput } from './TextInput';

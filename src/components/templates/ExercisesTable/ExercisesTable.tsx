@@ -4,7 +4,7 @@ import * as S from './styled';
 import { FaEllipsisV }  from 'react-icons/lib/fa';
 import { withTheme, ThemeProps } from 'styled-components';
 
-interface ExerciseItem extends IExercise {
+interface ExerciseItem extends Exercise {
   active?: boolean;
 }
 

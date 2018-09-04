@@ -1,7 +1,7 @@
 import { loadPlaylist, selectExercise, startExercise, stopExercise, finishExercise } from '../practice.actions';
 import { practiceReducer, initialState } from '../practice.reducer';
 
-export const mockState: IPracticeState = {
+export const mockState: PracticeState = {
   selectedExerciseIndex: 0,
   isRunning: false,
   isCountInRunning: false,
@@ -32,7 +32,7 @@ describe('practiceReducer', () => {
   });
 
   it('should handle LOAD_PLAYLIST', () => {
-    const reducer = practiceReducer({}, loadPlaylist(mockState.playlist as IActivePlaylist));
+    const reducer = practiceReducer({}, loadPlaylist(mockState.playlist as ActivePlaylist));
     expect(reducer).toEqual({ playlist: mockState.playlist });
   });
 

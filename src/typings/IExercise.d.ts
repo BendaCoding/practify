@@ -1,4 +1,4 @@
-declare interface IExercise {
+declare interface Exercise {
   name: string;
   description: string;
 }

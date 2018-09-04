@@ -5,7 +5,7 @@ import { RatingStars } from '../../molecules';
 
 export interface ExerciseHeaderProps {
   title: string;
-  playlist: IPlaylist | IActivePlaylist;
+  playlist: Playlist | ActivePlaylist;
 }
 
 export const ExerciseHeader: React.SFC<ExerciseHeaderProps> = ({

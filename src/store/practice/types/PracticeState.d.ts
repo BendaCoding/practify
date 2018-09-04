@@ -1,6 +1,6 @@
-declare interface IPracticeState {
+declare interface PracticeState {
   isRunning: boolean;
   isCountInRunning: boolean;
   selectedExerciseIndex: number;
-  playlist: IActivePlaylist | null;
+  playlist: ActivePlaylist | null;
 }
