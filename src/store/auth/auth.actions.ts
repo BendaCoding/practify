@@ -2,6 +2,7 @@ import { AuthRegisterRequest } from './types/AuthRegisterRequest';
 import { AuthLoginRequest } from './types/AuthLoginRequest';
 import { createStandardAction } from 'typesafe-actions';
 import { User } from './types/User';
+import { ApiErrorResponse } from '../../typings/index';
 
 /**
  * Login Actions

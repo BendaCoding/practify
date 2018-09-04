@@ -158,7 +158,6 @@
     "@types/i18next": "^8.4.3",
     "@types/jest": "^23.0.0",
     "@types/lodash": "^4.14.109",
-    "@types/moment": "^2.13.0",
     "@types/node": "^10.3.2",
     "@types/prop-types": "^15.5.3",
     "@types/react": "^16.3.17",
@@ -181,13 +180,13 @@
     "babel-core": "^6.26.3",
     "babel-jest": "^22.1.0",
     "babel-runtime": "^6.26.0",
-    "husky": "^1.0.0-rc.13",
+    "husky": "^0.14.3",
     "jest": "22.4.2",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
     "react-syntax-highlighter": "^8.0.1",
     "redux-devtools-extension": "^2.13.2",
     "ts-jest": "22.0.1",
-    "typescript": "^3.0.0",
+    "typescript": "^2.9.2",
     "typescript-plugin-styled-components": "^0.0.6"
   }
 }

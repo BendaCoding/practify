@@ -1,4 +1,4 @@
-import { DifficultyEnum } from "./DifficultyEnum";
+import { DifficultyEnum } from './DifficultyEnum';
 
 export interface UserSettings {
   activeInstrument: string;

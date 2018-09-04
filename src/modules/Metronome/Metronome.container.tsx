@@ -2,7 +2,7 @@ import { compose, withHandlers, lifecycle } from 'recompose';
 import { connect } from 'react-redux';
 import { Metronome as MetronomeStore } from './store';
 import { Dispatch, bindActionCreators } from 'redux';
-import { Practice } from 'practify/store';
+import { Practice, AppState } from 'practify/store';
 import { Metronome } from './Metronome';
 
 const { actions, selectors } = MetronomeStore;

@@ -3,7 +3,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { translate, InjectedTranslateProps } from 'react-i18next';
 import * as S from './styled';
 import { compose } from 'recompose';
-import { Auth } from 'practify/store';
+import { Auth, AppState } from 'practify/store';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { routes } from 'practify/common';

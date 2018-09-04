@@ -1,5 +1,6 @@
 import { createStandardAction } from 'typesafe-actions';
 import { LoadExercisesResponse } from './types';
+import { ApiErrorResponse } from '../../typings/index';
 
 export const loadExercisesRequest = createStandardAction('SAGA_EVENT - exercises/LOAD_EXERCISES')();
 

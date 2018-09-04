@@ -2,7 +2,7 @@ import React from 'react';
 import { lifecycle, compose } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { Exercises, Playlists } from 'practify/store';
+import { Exercises, Playlists, AppState } from 'practify/store';
 import { Container, CoverFlick } from 'practify/components';
 
 const BrowseScreen = ({ exercises, playlists }: any) => {

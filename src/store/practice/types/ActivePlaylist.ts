@@ -1,7 +1,7 @@
 import { ExerciseReferenceWithTracking } from './ExerciseReferenceWithTracking';
 import { Playlist } from './../../../typings';
 
-export interface ActivePlaylist extends Omit<Playlist, 'exercises'> {
+export interface ActivePlaylist extends Playlist {
   exercises: ExerciseReferenceWithTracking[];
   finished: boolean;
-}
+};

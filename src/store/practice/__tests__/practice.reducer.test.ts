@@ -1,5 +1,6 @@
 import { loadPlaylist, selectExercise, startExercise, stopExercise, finishExercise } from '../practice.actions';
 import { practiceReducer, initialState } from '../practice.reducer';
+import { PracticeState, ActivePlaylist } from '../types';
 
 export const mockState: PracticeState = {
   selectedExerciseIndex: 0,

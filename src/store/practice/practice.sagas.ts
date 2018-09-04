@@ -6,6 +6,7 @@ import { getType } from 'typesafe-actions';
 import { findIndex } from 'lodash';
 import { userId } from '../auth/auth.selectors';
 import { rsf } from 'practify/firebase';
+import { ExerciseReferenceWithTracking } from './types';
 
 const getNextUnfinishedExerciseIndex = (exercises: ExerciseReferenceWithTracking[], currentIndex: number) => {
   const fromCurrentIndex = findIndex(exercises, (ex: ExerciseReferenceWithTracking) => !ex.finished, currentIndex);

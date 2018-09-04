@@ -1,6 +1,7 @@
 import { loadPlaylist, selectExercise, startExercise, stopExercise, finishExercise, exerciseTick, startCountIn, stopCountIn, finishPlaylist } from './practice.actions';
 import { Action } from 'redux';
 import { createReducer } from '../create-reducer';
+import { PracticeState } from './types';
 
 export const initialState: PracticeState = {
   selectedExerciseIndex: 0,

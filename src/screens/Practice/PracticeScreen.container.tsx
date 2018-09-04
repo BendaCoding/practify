@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { Practice, Exercises } from 'practify/store';
+import { Practice, Exercises, AppState, ActivePlaylist } from 'practify/store';
 import { Metronome as MetronomeStore } from '../../modules/Metronome/store'
 import { PracticeScreen } from './PracticeScreen';
 import { compose, lifecycle } from 'recompose';

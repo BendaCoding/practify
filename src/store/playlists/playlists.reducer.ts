@@ -1,5 +1,6 @@
 import { loadPlaylistsRequest, loadPlaylistsSuccess, loadPlaylistsFail } from './playlists.actions';
 import { createReducer } from '../create-reducer';
+import { PlaylistsState } from './types';
 
 export const initialState: PlaylistsState = {
   isLoading: false,

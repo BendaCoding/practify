@@ -1,4 +1,5 @@
 import { createStandardAction } from 'typesafe-actions';
+import { ActivePlaylist } from './types/index';
 
 export const loadPlaylist = createStandardAction('practice/LOAD_PLAYLIST')<ActivePlaylist>();
 
