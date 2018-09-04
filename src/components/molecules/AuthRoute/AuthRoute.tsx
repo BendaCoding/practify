@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Redirect, RouteProps } from 'react-router';
 import { routes } from 'practify/common';
 import { connect } from 'react-redux';
-import { Auth } from 'practify/store';
+import { Auth, AppState } from 'practify/store';
 
 interface StateProps {
   loggedIn: boolean;

@@ -1,7 +1,8 @@
 import { loadExercisesRequest, loadExercisesSuccess } from './exercises.actions';
 import { createReducer } from '../create-reducer';
+import { ExercisesState } from './types';
 
-export const initialState: IExercisesState = {
+export const initialState: ExercisesState = {
   isLoading: false,
   exercises: {},
 };

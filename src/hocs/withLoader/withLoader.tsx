@@ -23,7 +23,7 @@ const defaultConfig: WithLoaderOptions = {
 }
 
 export const withLoader = (userConfig: Partial<WithLoaderOptions> = defaultConfig) => (WrappedComponent: any) => {
-  const ComponentWithLoader: SFC<WithLoaderProps & ThemeProps<Theme>> = ({ isLoading, theme, ...rest }) => {
+  const ComponentWithLoader: SFC<WithLoaderProps & ThemeProps<ThemeInterface>> = ({ isLoading, theme, ...rest }) => {
     const { type, size, zIndex, minHeight } = {
       ...defaultConfig,
       ...userConfig,

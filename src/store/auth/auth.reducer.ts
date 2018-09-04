@@ -1,7 +1,8 @@
+import { AuthState } from './types/AuthState';
 import { createReducer } from '../create-reducer';
 import { userLoginSuccess, userLoginRequest, userLoginFail, userLoginSync, userLogoutRequest, userLogoutSuccess, userLogoutFail, userOAuthRequest, userOAuthSuccess } from './auth.actions';
 
-export const initialState: IAuthState = {
+export const initialState: AuthState = {
   loggedIn: false,
   isLoading: false,
   user: null,

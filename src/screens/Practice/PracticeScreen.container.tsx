@@ -4,7 +4,7 @@ import { Practice, Exercises } from 'practify/store';
 import { Metronome as MetronomeStore } from '../../modules/Metronome/store'
 import { PracticeScreen } from './PracticeScreen';
 import { compose, lifecycle } from 'recompose';
-import { IExerciseWithPlaylistData } from '../../store/practice/types/IExerciseWithPlaylistData';
+import { ExerciseWithPlaylistData } from '../../store/practice/types/ExerciseWithPlaylistData';
 import { translate, InjectedTranslateProps } from 'react-i18next';
 
 const mapState = (state: AppState) => ({
@@ -51,7 +51,7 @@ interface StateProps {
   
   bpm: number;
   beatCount: number;
-  exercises: IExerciseWithPlaylistData[];
+  exercises: ExerciseWithPlaylistData[];
   playlist: ActivePlaylist | null;
 }
 
@@ -68,7 +68,7 @@ interface DispatchProps {
   selectExercise: typeof Practice.actions.selectExercise;
 }
 
-export type IPracticeScreenProps = StateProps & DispatchProps & InjectedTranslateProps;
+export type PracticeScreenProps = StateProps & DispatchProps & InjectedTranslateProps;
 
 export default compose(
   translate(),
@@ -76,7 +76,7 @@ export default compose(
     mapState,
     mapDispatch,
   ),
-  lifecycle<IPracticeScreenProps, any>({
+  lifecycle<PracticeScreenProps, any>({
     componentWillUnmount() {
       this.props.stopExercise();
     },

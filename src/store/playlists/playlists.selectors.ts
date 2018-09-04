@@ -1,7 +1,9 @@
-// tslint:disable: no-shadowed-variable
+import { PlaylistsState } from './types/PlaylistsState';
+import { AppState } from './../types/AppState';
 import { createSelector } from 'reselect';
 
-export const getPlaylistsState = (state: AppState): IPlaylistsState => state.playlists;
+// tslint:disable: no-shadowed-variable
+export const getPlaylistsState = (state: AppState): PlaylistsState => state.playlists;
 
 export const isLoading = createSelector(
   [ getPlaylistsState ],

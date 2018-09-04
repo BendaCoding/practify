@@ -1,3 +1,6 @@
+import { AuthLoginRequest } from './types/AuthLoginRequest';
+import { AuthRegisterRequest } from './types/AuthRegisterRequest';
+import { UserResponse } from './types/UserResponse';
 import { facebookAuthProvider, googleAuthProvider } from 'practify/firebase';
 import { call, all, put, fork, take, takeEvery } from 'redux-saga/effects';
 import { rsf } from 'practify/firebase';
@@ -7,8 +10,9 @@ import { userLoginRequest, userLoginSuccess, userLoginFail, userLoginSync, userL
   userLogoutFail, userLogoutRequest, userRegisterSuccess, userRegisterFail, userRegisterRequest, userOAuthRequest } from './auth.actions';
 import { routes } from 'practify/common';
 import { pick } from 'lodash';
+import { AuthLinkRequest } from './types/index';
 
-function * userLoginSaga({ payload: { email, password }}: IPayload<IAuthLoginRequest>) {
+function * userLoginSaga({ payload: { email, password }}: IPayload<AuthLoginRequest>) {
   try {
     yield call(rsf.auth.signInWithEmailAndPassword, email, password);
     yield all([
@@ -42,7 +46,7 @@ function * userSyncSaga() {
   const channel = yield call(rsf.auth.channel);
 
   while(true) {
-    const { error, user }: { error: any; user: IUserResponse } = yield take(channel);
+    const { error, user }: { error: any; user: UserResponse } = yield take(channel);
     if (user) {
 
       const snapshot = yield call(rsf.firestore.getDocument, `users/${user.uid}`);
@@ -61,7 +65,7 @@ function * userSyncSaga() {
 
 
 
-function * userRegisterSaga({ payload: { email, password, ...rest }}: IPayload<IAuthRegisterRequest>) {
+function * userRegisterSaga({ payload: { email, password, ...rest }}: IPayload<AuthRegisterRequest>) {
   try {
     const data = yield call(rsf.auth.createUserWithEmailAndPassword, email, password);
 
@@ -83,7 +87,7 @@ function * userRegisterSaga({ payload: { email, password, ...rest }}: IPayload<I
   }
 }
 
-function* userOAuthSaga({ payload }: IPayload<IAuthLinkRequest>) {
+function* userOAuthSaga({ payload }: IPayload<AuthLinkRequest>) {
   try {
     const authProvider = payload === 'facebook' ? facebookAuthProvider : googleAuthProvider;
     const data = yield call(rsf.auth.signInWithPopup, authProvider);

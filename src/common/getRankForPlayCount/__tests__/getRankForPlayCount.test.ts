@@ -8,6 +8,11 @@ describe('getRankForPlayCount', () => {
     expect(getRankForPlayCount(9)).toBe(1);
   });
   
+  it('should return 1 for undefined and null', () => {
+    expect(getRankForPlayCount(null as any)).toBe(1);
+    expect(getRankForPlayCount(undefined as any)).toBe(1);
+  });
+  
   it('should return 2 for values above and equal 10', () => {
     expect(getRankForPlayCount(10)).toBe(2);
     expect(getRankForPlayCount(11)).toBe(2);

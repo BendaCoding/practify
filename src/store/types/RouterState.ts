@@ -1,4 +1,4 @@
-declare interface IRouterState {
+export interface RouterState {
   location: {
     pathname: string;
     search: string;

@@ -1,4 +1,4 @@
-declare interface Theme {
+declare interface ThemeInterface {
   breakpoints: number[];
   space: number[];
   palette: {

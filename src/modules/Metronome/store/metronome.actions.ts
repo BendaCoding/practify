@@ -1,4 +1,5 @@
 import { createStandardAction } from 'typesafe-actions';
+import { MetronomeChangeBeatVolumeAtIndexPayload } from './types/index';
 
 export const addBeat = createStandardAction('metronome/ADD_BEAT')();
 
@@ -7,7 +8,7 @@ export const removeBeat = createStandardAction('metronome/REMOVE_BEAT')<
 >();
 
 export const changeBeatVolumeAtIndex = createStandardAction('metronome/CHANGE_BEAT_VOLUME_AT_INDEX')<
-  IMetronomeChangeBeatVolumeAtIndexPayload
+  MetronomeChangeBeatVolumeAtIndexPayload
 >();
 
 export const incrementSubdivision = createStandardAction('metronome/INCREMENT_SUBDIVISION')();

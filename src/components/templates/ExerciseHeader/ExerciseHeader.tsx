@@ -2,6 +2,8 @@ import React from 'react';
 import * as S from './styled';
 import { H1, H2 } from '../../atoms';
 import { RatingStars } from '../../molecules';
+import { ActivePlaylist } from 'practify/store';
+import { Playlist } from '../../../typings';
 
 export interface ExerciseHeaderProps {
   title: string;

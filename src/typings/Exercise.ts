@@ -1,4 +1,4 @@
-declare interface Exercise {
+export interface Exercise {
   name: string;
   description: string;
 }

@@ -6,6 +6,8 @@ export default reducer;
 
 export * from './auth.sagas';
 
+export * from './types';
+
 export const Auth = {
   actions,
   reducer,

@@ -1,7 +1,8 @@
 // tslint:disable: no-shadowed-variable
 import { createSelector } from 'reselect';
+import { ExercisesState } from './types/ExercisesState';
 
-export const getExercisesState = (state: AppState): IExercisesState => state.exercises;
+export const getExercisesState = (state: AppState): ExercisesState => state.exercises;
 
 export const isLoading = createSelector(
   [ getExercisesState ],

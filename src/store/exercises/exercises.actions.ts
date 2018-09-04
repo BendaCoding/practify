@@ -1,9 +1,10 @@
 import { createStandardAction } from 'typesafe-actions';
+import { LoadExercisesResponse } from './types';
 
 export const loadExercisesRequest = createStandardAction('SAGA_EVENT - exercises/LOAD_EXERCISES')();
 
-export const loadExercisesSuccess = createStandardAction('exercises/LOAD_EXERCISES_SUCCESS')<ILoadExercisesResponse>();
+export const loadExercisesSuccess = createStandardAction('exercises/LOAD_EXERCISES_SUCCESS')<LoadExercisesResponse>();
 
 export const loadExercisesFail = createStandardAction('exercises/LOAD_EXERCISES_FAIL')<
-  IApiErrorResponse
+  ApiErrorResponse
 >();

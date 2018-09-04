@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { ThemeProps, withTheme } from 'styled-components';
 
-export interface PractifyLogoProps extends ThemeProps<Theme> {
+export interface PractifyLogoProps extends ThemeProps<ThemeInterface> {
   color?: string;
   size?: number;
   transition?: string;

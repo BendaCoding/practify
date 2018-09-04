@@ -15,13 +15,16 @@ stories.add('default', () => (
     </p>
     <Flex>
       <Box width={1 / 2}>
-        <CodeBlock mb={4}>{`<Panel active={isActive} onClick={deactivatePanel()}>
-        Panel Content
-</Panel>`}</CodeBlock>
+        <CodeBlock mb={4}>
+{`
+<Panel active={isActive} onClick={deactivatePanel()}>
+  Panel Content
+</Panel>
+`}</CodeBlock>
       </Box>
       <Box width={1 / 2} ml={10}>
       Activate the Panel in Knobs 
-        <Panel active={boolean('active',false, 'active')} onClick={() => boolean('active', false, 'active')}>
+        <Panel active={boolean('active', false, 'active')} onClick={() => boolean('active', false, 'active')}>
         Panel Content</Panel>
       </Box>
     </Flex>

@@ -36,7 +36,7 @@ const infoPalette = {
 /**
  * Main Practify theme for drums
  */
-export const baseTheme: Theme = {
+export const baseTheme: ThemeInterface = {
   breakpoints: [576, 768, 992, 1200],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   

@@ -1,4 +1,4 @@
-declare interface IMetronomeState {
+export interface MetronomeState {
   bpm: number;
   isRunning: boolean;
   beatsWithVolume: number[];

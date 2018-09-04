@@ -1,12 +1,17 @@
+import React from 'react';
 import { styled, css } from 'practify/theme';
-import { Card as BaseCard } from '../../atoms/Card';
+import { Card } from '../../atoms/Card';
 import { OwnProps } from './ExerciseCard';
 import { ProgressBar as BaseProgressBar } from '../../atoms/ProgressBar/styled';
 import { Rank as BaseRank } from '../../atoms';
+import { BoxProps, CommonProps } from 'grid-styled';
+import { SFC } from 'react';
 
 interface WrapperProps {
   active?: boolean;
 }
+
+const BaseCard: SFC<WrapperProps> = ({ active, ...rest }) => <Card {...rest} />
 
 export const Wrapper = styled<WrapperProps, any>(BaseCard)`
   cursor: pointer;

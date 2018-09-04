@@ -1,4 +1,4 @@
-declare enum DifficultyEnum {
+export enum DifficultyEnum {
   CASUAL = 'Casual',
   ENTHUSIAST = 'Enthusiast',
   AMBITIOUS = 'Ambitious',

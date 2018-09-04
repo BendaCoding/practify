@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { Auth } from 'practify/store';
+import { Auth, AuthRegisterRequest } from 'practify/store';
 import { compose } from 'recompose';
 import { withFormik, InjectedFormikProps } from 'formik';
 import { translate, InjectedTranslateProps } from 'react-i18next';
@@ -10,7 +10,7 @@ import { users } from 'practify/firebase';
 
 interface OwnProps extends InjectedTranslateProps {
   toggleForm: () => void;
-  userRegisterRequest: (credentials: IAuthRegisterRequest) => void;
+  userRegisterRequest: (credentials: AuthRegisterRequest) => void;
 }
 
 interface Values {
@@ -23,7 +23,7 @@ interface Values {
 }
 
 interface DispatchProps {
-  userRegisterRequest: (credentials: IAuthRegisterRequest) => void;
+  userRegisterRequest: (credentials: AuthRegisterRequest) => void;
 }
 
 // type IProps = IDispatchProps & IOwnProps & any;

@@ -1,4 +1,6 @@
-declare interface Playlist {
+import { ExerciseReference } from './ExerciseReference';
+
+export interface Playlist {
   id: string;
   name: string;
   description: string;
@@ -8,9 +10,4 @@ declare interface Playlist {
     count: number;
   }
   exercises: ExerciseReference[];
-}
-
-declare interface ExerciseReference {
-  exerciseId: string;
-  period: number; // length in seconds of how long to exercice
 }

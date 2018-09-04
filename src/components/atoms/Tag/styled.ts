@@ -1,7 +1,7 @@
 import { styled } from 'practify/theme';
 
 interface BadgeProps {
-  color: keyof Theme['infoPalette'];
+  color: keyof ThemeInterface['infoPalette'];
 }
 
 export const Badge = styled<BadgeProps, any>('div')`

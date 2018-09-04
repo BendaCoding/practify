@@ -9,7 +9,7 @@ interface OuterProps {
   max?: number;
 }
 
-interface Props extends ThemeProps<Theme> {
+interface Props extends ThemeProps<ThemeInterface> {
   volume: number;
   onChange: (volume: number) => (e: React.MouseEvent<SVGElement>) => void;
   min?: number;

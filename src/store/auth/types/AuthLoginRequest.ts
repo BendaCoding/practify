@@ -1,4 +1,4 @@
-declare interface IAuthLoginRequest {
+export interface AuthLoginRequest {
   email: string;
   password: string;
 }

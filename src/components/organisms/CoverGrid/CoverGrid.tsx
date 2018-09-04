@@ -13,7 +13,7 @@ interface CoverGridItem {
   description: string;
 }
 
-interface CoverGridProps extends ThemeProps<Theme> {
+interface CoverGridProps extends ThemeProps<ThemeInterface> {
   items: CoverGridItem[];
   title?: string;
 }

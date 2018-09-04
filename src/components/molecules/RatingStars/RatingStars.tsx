@@ -10,7 +10,7 @@ interface OuterProps {
   size?: string;
 }
 
-type RatingStarsProps = OuterProps & ThemeProps<Theme>
+type RatingStarsProps = OuterProps & ThemeProps<ThemeInterface>
 
 /**
  * Show a Rating with filled and hollow stars

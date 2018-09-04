@@ -4,6 +4,8 @@ import * as selectors from './practice.selectors';
 
 export * from './practice.sagas';
 
+export * from './types';
+
 export default reducer;
 
 export const Practice = {

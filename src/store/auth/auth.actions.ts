@@ -1,20 +1,23 @@
+import { AuthRegisterRequest } from './types/AuthRegisterRequest';
+import { AuthLoginRequest } from './types/AuthLoginRequest';
 import { createStandardAction } from 'typesafe-actions';
+import { User } from './types/User';
 
 /**
  * Login Actions
  */
 export const userLoginRequest = createStandardAction('SAGA_EVENT - auth/USER_LOGIN_REQUEST')<
-  IAuthLoginRequest
+  AuthLoginRequest
 >();
 
 export const userLoginSuccess = createStandardAction('auth/USER_LOGIN_SUCCESS')();
 
 export const userLoginFail = createStandardAction('auth/USER_LOGIN_FAIL')<
-IApiErrorResponse
+ApiErrorResponse
 >();
 
 export const userLoginSync = createStandardAction('auth/USER_LOGIN_SYNC')<
-IUser
+User
 >();
 
 /**
@@ -25,20 +28,20 @@ export const userLogoutRequest = createStandardAction('auth/USER_LOGOUT_REQUEST'
 export const userLogoutSuccess = createStandardAction('auth/USER_LOGOUT_SUCCESS')();
 
 export const userLogoutFail = createStandardAction('auth/USER_LOGOUT_FAIL')<
-  IApiErrorResponse
+  ApiErrorResponse
 >();
 
 /**
  * Register Actions
  */
 export const userRegisterRequest = createStandardAction('SAGA_EVENT - auth/USER_REGISTER_REQUEST')<
-  IAuthRegisterRequest
+  AuthRegisterRequest
 >();
 
 export const userRegisterSuccess = createStandardAction('auth/USER_REGISTER_SUCCESS')();
 
 export const userRegisterFail = createStandardAction('auth/USER_REGISTER_FAIL')<
-  IApiErrorResponse
+  ApiErrorResponse
 >();
 
 export const userOAuthRequest = createStandardAction('auth/USER_O_AUTH_REQUEST')<string>();

@@ -1,4 +1,7 @@
-export const userResponseMock: IUserResponse = {
+import { UserResponse } from './../types/UserResponse';
+import { User } from '../types/User';
+
+export const userResponseMock: UserResponse = {
   uid: 'a1WxXtgeg323',
   email: 'achim.waldache@web.de',
   emailVerified: true,
@@ -10,7 +13,7 @@ export const userResponseMock: IUserResponse = {
   createdAt: '1',
 };
 
-export const userMock: IUser = {
+export const userMock: User = {
   ...userResponseMock,
   firstname: 'Achim',
   lastname: 'Waldachee',

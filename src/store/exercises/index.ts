@@ -6,6 +6,8 @@ export default reducer;
 
 export * from './exercises.sagas';
 
+export * from './types';
+
 export const Exercises = {
   actions,
   reducer,

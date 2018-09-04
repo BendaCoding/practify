@@ -1,4 +1,4 @@
-declare interface IPlaylistsState {
+export interface PlaylistsState {
   isLoading: boolean;
   playlists: any[];
 }

@@ -1,9 +1,10 @@
+import { MetronomeState } from './types/MetronomeState';
 import { startMetronome, stopMetronome, addBeat, removeBeat,
   changeBeatVolumeAtIndex, tick, setBpm,
   incrementSubdivision, decrementSubdivision, setSubdivision } from './metronome.actions';
 import { createReducer } from '../../../store/create-reducer';
 
-export const initialState: IMetronomeState = {
+export const initialState: MetronomeState = {
   bpm: 86,
   isRunning: false,
   beatsWithVolume: [4, 1, 3, 1],

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { Auth } from 'practify/store';
+import { Auth, AppState, AuthLoginRequest } from 'practify/store';
 import { withFormik } from 'formik';
 import { compose, withHandlers } from 'recompose';
 import { LoginForm } from './LoginForm';
@@ -11,7 +11,7 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  userLoginRequest: (credentials: IAuthLoginRequest) => void;
+  userLoginRequest: (credentials: AuthLoginRequest) => void;
   userOAuthRequest: (provider: 'facebook' | 'google') => any;
 }
 

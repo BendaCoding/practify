@@ -9,14 +9,15 @@ import {
   H2,
   PlaylistCards,
   ExerciseHeader,
+  SheetAndVideo
 } from 'practify/components';
 import * as S from './styled';
 import { Metronome } from 'practify/modules';
-import { IPracticeScreenProps } from './PracticeScreen.container';
+import { PracticeScreenProps } from './PracticeScreen.container';
 import { CoverCard } from '../../components/atoms/CoverCard';
 import { Flex } from 'grid-styled';
 
-export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
+export const PracticeScreen: React.SFC<PracticeScreenProps> = ({
   t,
   isRunning,
   isCountInRunning,
@@ -37,7 +38,7 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
   selectedExerciseIndex,
   selectedExerciseId,
   selectedExerciseElapsed,
-  selectedExercisePeriod,
+  selectedExercisePeriod
 }) => {
   const start = () => {
     startExercise();
@@ -77,37 +78,32 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
 
   return (
     <S.Screen>
-
-      <SteppedProgressBar steps={playlist!.exercises.length} progress={selectedExerciseIndex + 1} />
+      <SteppedProgressBar
+        steps={playlist!.exercises.length}
+        progress={selectedExerciseIndex + 1}
+      />
 
       <S.AvatarArea>
-        <CoverCard
-          coverUrl={playlist!.coverUrl}
-        />
+        <CoverCard coverUrl={playlist!.coverUrl} />
       </S.AvatarArea>
 
       <S.HeadingArea>
-        <ExerciseHeader
-          title={exercise.name}
-          playlist={playlist!}
-        />
+        <ExerciseHeader title={exercise.name} playlist={playlist!} />
       </S.HeadingArea>
+
       <S.Settings>
         <Metronome />
       </S.Settings>
+
       <S.ExerciseArea>
-        <Card>
-          <img src="/img/sheet.jpg" style={{ width: '100%' }} />
-        </Card>
+        <SheetAndVideo exercise={exercise} />
       </S.ExerciseArea>
 
       <S.InfoArea>
-
         <Flex justifyContent="space-between">
           <p>{bpm} bpm</p>
           <p>G Dur</p>
         </Flex>
-
       </S.InfoArea>
 
       <S.Description>{exercise.description}</S.Description>
@@ -137,7 +133,6 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
       </S.TransportControls>
 
       <S.Aside>
-        
         <H2 mb={2}>{t('practice.aside.title')}</H2>
 
         <PlaylistCards
@@ -146,9 +141,7 @@ export const PracticeScreen: React.SFC<IPracticeScreenProps> = ({
           selectExercise={selectExercise}
           selectedExerciseIndex={selectedExerciseIndex}
         />
-
       </S.Aside>
-
     </S.Screen>
   );
 };

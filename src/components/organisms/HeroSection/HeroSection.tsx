@@ -11,7 +11,7 @@ export interface HeroSectionProps {
   backgroundFilter: string | false;
 }
 
-type OwnProps = Partial<HeroSectionProps> & ThemeProps<Theme>
+type OwnProps = Partial<HeroSectionProps> & ThemeProps<ThemeInterface>
 
 export const SplashSection: React.SFC<OwnProps> = ({
   theme,

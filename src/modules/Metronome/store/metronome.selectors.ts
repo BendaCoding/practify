@@ -1,6 +1,8 @@
+import { MetronomeState } from './types/MetronomeState';
+import { AppState } from './../../../store/types/AppState';
 import { createSelector } from 'reselect';
 
-export const getMetronomeState = (state: AppState): IMetronomeState => state.metronome;
+export const getMetronomeState = (state: AppState): MetronomeState => state.metronome;
 
 export const getBpm = createSelector(
   getMetronomeState,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { withTheme, ThemeProps } from 'styled-components';
 
-export interface IconProps extends ThemeProps<Theme> {
+export interface IconProps extends ThemeProps<ThemeInterface> {
   color?: string;
   size?: string;
   transition?: string;

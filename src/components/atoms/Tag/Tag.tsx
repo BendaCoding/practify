@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './styled';
 
 interface TagProps {
-  color?: keyof Theme['infoPalette'];
+  color?: keyof ThemeInterface['infoPalette'];
   label: string;
 }
 

@@ -3,12 +3,13 @@ import { Table, TBody, Td, ProgressBar } from 'practify/components';
 import * as S from './styled';
 import { FaEllipsisV }  from 'react-icons/lib/fa';
 import { withTheme, ThemeProps } from 'styled-components';
+import { Exercise } from 'practify/store';
 
 interface ExerciseItem extends Exercise {
   active?: boolean;
 }
 
-interface ExercisesTableProps extends ThemeProps<Theme> {
+interface ExercisesTableProps extends ThemeProps<ThemeInterface> {
   exercises: ExerciseItem[];
   onExerciseClick?: (index: number) => void;
 }

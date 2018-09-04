@@ -4,7 +4,7 @@ import { Box, Flex } from 'grid-styled';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { Button } from './Button';
 import { CodeBlock } from '../../../storybook/CodeBlock';
-import { H2 } from '../H2/H2';
+import { H2 } from '../H2';
 
 const stories = storiesOf('Forms/Button', module);
 
