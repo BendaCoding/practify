@@ -7,8 +7,8 @@ export interface Exercise {
   categoryId: string;
   instruments: string[];
   media?: {
-    youtubeUrl?: string;
-    youtubeStartAt?: string;
+    youtubeId?: string;
+    youtubeStartAt?: number;
     sheetUrl?: string;
   }
 }
