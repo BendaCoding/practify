@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { withTheme, ThemeProps } from 'styled-components';
 
 export interface IconProps extends ThemeProps<Theme> {

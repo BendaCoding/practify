@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import * as S from './styled';
 import { PractifyLogo } from 'practify/components';
 import { FaPlus, FaMinus } from 'react-icons/lib/fa';

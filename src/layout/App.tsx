@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import { TransitionSwitch, AuthRoute, LoginRoute, PractifyTypo } from 'practify/components';
 import { LoginScreen, PracticeScreen, BrowseScreen, PlaylistScreen, NotFoundScreen, StartScreen } from 'practify/screens';

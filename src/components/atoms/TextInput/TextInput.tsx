@@ -1,6 +1,6 @@
 import * as classnames from 'classnames';
 import { isEmpty } from 'lodash';
-import * as React from 'react';
+import React from 'react';
 import * as S from './styles';
 import { FieldProps } from 'formik';
 

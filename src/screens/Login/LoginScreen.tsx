@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Container, Fade } from 'practify/components';
 import { LoginFormContainer } from './LoginFormContainer';
 import { RegisterFormContainer } from './RegisterFormContainer';

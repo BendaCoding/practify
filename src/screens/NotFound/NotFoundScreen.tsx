@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { translate, InjectedTranslateProps } from 'react-i18next';
 import * as S from './styled';
 import { PractifyLogo } from 'practify/components';

@@ -1,5 +1,5 @@
 import * as moment from 'moment';
-import * as React from 'react';
+import React from 'react';
 import { CircularProgressBar } from '../CircularProgressBar';
 
 export interface TimerProps {

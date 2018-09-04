@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import * as S from './styled';
 import { Panel, H1, Button } from 'practify/components';
 import Slider, { createSliderWithTooltip } from 'rc-slider';

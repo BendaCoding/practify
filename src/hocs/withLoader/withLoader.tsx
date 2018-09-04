@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Fragment, SFC } from 'react';
 import { Spinner } from 'practify/components';
 import * as S from './styled';

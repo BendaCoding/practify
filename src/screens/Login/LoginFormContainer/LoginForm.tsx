@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { TextInput, Button } from 'practify/components';
 import { Form, Field } from 'formik';
 import { Flex } from 'grid-styled';

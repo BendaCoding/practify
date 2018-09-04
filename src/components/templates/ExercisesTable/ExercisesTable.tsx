@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Table, TBody, Td, ProgressBar } from 'practify/components';
 import * as S from './styled';
 import { FaEllipsisV }  from 'react-icons/lib/fa';

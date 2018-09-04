@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Route, Redirect, RouteProps } from 'react-router';
 import { routes } from 'practify/common';
 import { connect } from 'react-redux';

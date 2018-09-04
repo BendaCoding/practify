@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import * as S from './styled';
 import { FaCheck } from 'react-icons/lib/fa';
 import { Animate } from '../../atoms';

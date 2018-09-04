@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import * as S from './styled';
 import { lifecycle, compose } from 'recompose';
 import { connect } from 'react-redux';

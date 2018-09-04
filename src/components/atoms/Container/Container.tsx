@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Box } from 'grid-styled';
 
 export const Container: React.SFC<{}> = ({ children }) => (

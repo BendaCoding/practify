@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { lifecycle, compose } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';

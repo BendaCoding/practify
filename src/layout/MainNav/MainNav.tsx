@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { translate, InjectedTranslateProps } from 'react-i18next';
 import * as S from './styled';

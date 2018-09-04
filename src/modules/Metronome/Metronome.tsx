@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Beat, SubdivisionIndicator } from './components';
 import { AudioHandler } from './components/atoms/AudioHandler';
 import { Button } from 'practify/components';

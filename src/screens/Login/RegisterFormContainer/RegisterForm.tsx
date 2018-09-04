@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Form, Field } from 'formik';
 import { TextInput, Button } from 'practify/components';
 import { IRegisterFormProps } from './RegisterForm.container';
